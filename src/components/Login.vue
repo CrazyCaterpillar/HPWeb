@@ -29,7 +29,7 @@ export default {
       userPwd: null,
       form: {
         login_user: 'hpxx300',
-        login_password: 'zysoft@2018'
+        login_password: 'zysoft@20181'
       }
     }
   },
