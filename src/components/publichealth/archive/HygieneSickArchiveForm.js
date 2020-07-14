@@ -494,7 +494,7 @@ export default {
         disabled_children_other: true,
         disabled_children_other_content: true,
         disabled_genetic_diseasename: true,
-        disabled_disability_without: true,
+        //disabled_disability_without: true,
         disabled_disability_eyes: true,
         disabled_disability_ear: true,
         disabled_disability_speech: true,
@@ -504,6 +504,7 @@ export default {
         disabled_disability_no: true,
         disabled_disability_other: true,
         disabled_disability_other_con: true,
+        disabled_archive_operator_name: false
       },
       readonlyFlag: {
         readonly_archive_code: true,
@@ -591,7 +592,7 @@ export default {
       me.form.archive_operator_name = userInfo.staffName
       me.form.nation = 1
       me.form.residence = 1
-      me.disabledFlag.disabled_archive_Operator_Name = false
+      me.disabledFlag.disabled_archive_operator_name = false
     },
     recordAdd (parm) {
       var me = this
@@ -611,6 +612,7 @@ export default {
           var rpFormData = JSON.parse(rpdata)
           me.form = rpFormData[0]
           me.fromDataLoading = false
+          me.disabledFlag.disabled_archive_operator_name = true
         }
         if (response.data.statusCode === 8501) {
           me.$message({
@@ -784,23 +786,23 @@ export default {
         me.form.past_schizophrenia_date = ''
         me.form.past_malignant = 0
         me.form.past_malignant_date = ''
+        me.form.past_malignant_con = ''
         me.form.past_apoplexy = 0
         me.form.past_apoplexy_date = ''
         me.form.past_copd = 0
         me.form.past_copd_date = ''
         me.form.past_tb = 0
-        me.form.past_tbdate = ''
+        me.form.past_tb_date = ''
         me.form.past_hepatitis = 0
         me.form.past_hepatitis_date = ''
         me.form.past_oficiala = 0
         me.form.past_oficiala_date = ''
+        me.form.past_oficiala_con = ''
         me.form.occupational_disease = 0
         me.form.occupational_disease_date = ''
         me.form.past_other = 0
-        me.form.past_othercontent = ''
-        me.form.past_othercontent_date = ''
-        me.form.past_malignantcon = ''
-        me.form.past_oficialacon = ''
+        me.form.past_other_content = ''
+        me.form.past_other_content_date = ''
         me.disabledFlag.disabled_past_hypertension = true
         me.disabledFlag.disabled_past_hypertension_date = true
         me.disabledFlag.disabled_past_diabetes = true
@@ -850,150 +852,407 @@ export default {
     },
     changePastCoronary () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.past_coronary === 0) {
+        me.form.past_coronary_date = ''
+        me.disabledFlag.disabled_past_coronary_date = true
+      } else if (me.form.past_coronary === 1) {
+        me.disabledFlag.disabled_past_coronary_date = false
+      }
     },
     changePastSchizophrenia () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.past_schizophrenia === 0) {
+        me.form.past_schizophrenia_date = ''
+        me.disabledFlag.disabled_past_schizophrenia_date = true
+      } else if (me.form.past_schizophrenia === 1) {
+        me.disabledFlag.disabled_past_schizophrenia_date = false
+      }
     },
     changePastMalignant () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.past_malignant === 0) {
+        me.form.past_malignant_date = ''
+        me.form.past_malignant_con = ''
+        me.disabledFlag.disabled_past_malignant_date = true
+        me.disabledFlag.disabled_past_malignant_con = true
+      } else if (me.form.past_malignant === 1) {
+        me.disabledFlag.disabled_past_malignant_date = false
+        me.disabledFlag.disabled_past_malignant_con = false
+      }
     },
     changePastApoplexy () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.past_apoplexy === 0) {
+        me.form.past_apoplexy_date = ''
+        me.disabledFlag.disabled_past_apoplexy_date = true
+      } else if (me.form.past_apoplexy === 1) {
+        me.disabledFlag.disabled_past_apoplexy_date = false
+      }
     },
     changePastCopd () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.past_copd === 0) {
+        me.form.past_copd_date = ''
+        me.disabledFlag.disabled_past_copd_date = true
+      } else if (me.form.past_copd === 1) {
+        me.disabledFlag.disabled_past_copd_date = false
+      }
     },
     changePastTb () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.past_tb === 0) {
+        me.form.past_tb_date = ''
+        me.disabledFlag.disabled_past_tb_date = true
+      } else if (me.form.past_tb === 1) {
+        me.disabledFlag.disabled_past_tb_date = false
+      }
     },
     changePastHepatitis () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.past_hepatitis === 0) {
+        me.form.past_hepatitis_date = ''
+        me.disabledFlag.disabled_past_hepatitis_date = true
+      } else if (me.form.past_hepatitis === 1) {
+        me.disabledFlag.disabled_past_hepatitis_date = false
+      }
     },
     changePastOficiala () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.past_oficiala === 0) {
+        me.form.past_oficiala_date = ''
+        me.form.past_oficiala_con = ''
+        me.disabledFlag.disabled_past_oficiala_date = true
+        me.disabledFlag.disabled_past_oficiala_con = true
+      } else if (me.form.past_oficiala === 1) {
+        me.disabledFlag.disabled_past_oficiala_date = false
+        me.disabledFlag.disabled_past_oficiala_con = false
+      }
     },
     changeOccupationalDisease () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.occupational_disease === 0) {
+        me.form.occupational_disease_date = ''
+        me.disabledFlag.disabled_occupational_disease_date = true
+      } else if (me.form.occupational_disease === 1) {
+        me.disabledFlag.disabled_occupational_disease_date = false
+      }
     },
     changePastOther () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.past_other === 0) {
+        me.form.past_other_date = ''
+        me.form.past_other_content = ''
+        me.disabledFlag.disabled_past_other_content = true
+        me.disabledFlag.disabled_past_other_content_date = true
+      } else if (me.form.past_other === 1) {
+        me.disabledFlag.disabled_past_other_content = false
+        me.disabledFlag.disabled_past_other_content_date = false
+      }
     },
     changeSurgery () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.surgery === 0) {
+        me.form.surgery_name1 = ''
+        me.form.surgery_name1_date = ''
+        me.form.surgery_name2 = ''
+        me.form.surgery_name2_date = ''
+        me.disabledFlag.disabled_surgery_name1 = true
+        me.disabledFlag.disabled_surgery_name1_date = true
+        me.disabledFlag.disabled_surgery_name2 = true
+        me.disabledFlag.disabled_surgery_name2_date = true
+      } else if (me.form.surgery === 1) {
+        me.disabledFlag.disabled_surgery_name1 = false
+        me.disabledFlag.disabled_surgery_name1_date = false
+        me.disabledFlag.disabled_surgery_name2 = false
+        me.disabledFlag.disabled_surgery_name2_date = false
+      }
     },
     changeTrauma () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.trauma === 0) {
+        me.form.trauma_name1 = ''
+        me.form.trauma_name1_date = ''
+        me.form.trauma_name2 = ''
+        me.form.trauma_name2_date = ''
+        me.disabledFlag.disabled_trauma_name1 = true
+        me.disabledFlag.disabled_trauma_name1_date = true
+        me.disabledFlag.disabled_trauma_name2 = true
+        me.disabledFlag.disabled_trauma_name2_date = true
+      } else if (me.form.trauma === 1) {
+        me.disabledFlag.disabled_trauma_name1 = false
+        me.disabledFlag.disabled_trauma_name1_date = false
+        me.disabledFlag.disabled_trauma_name2 = false
+        me.disabledFlag.disabled_trauma_name2_date = false
+      }
     },
     changeTransfusion () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.transfusion === 0) {
+        me.form.transfusion_name1 = ''
+        me.form.transfusion_name1_date = ''
+        me.form.transfusion_name2 = ''
+        me.form.transfusion_name2_date = ''
+        me.disabledFlag.disabled_transfusion_name1 = true
+        me.disabledFlag.disabled_transfusion_name1_date = true
+        me.disabledFlag.disabled_transfusion_name2 = true
+        me.disabledFlag.disabled_transfusion_name2_date = true
+      } else if (me.form.transfusion === 1) {
+        me.disabledFlag.disabled_transfusion_name1 = false
+        me.disabledFlag.disabled_transfusion_name1_date = false
+        me.disabledFlag.disabled_transfusion_name2 = false
+        me.disabledFlag.disabled_transfusion_name2_date = false
+      }
     },
     changeFatherNone () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.father_none === 0) {
+        me.disabledFlag.disabled_father_hypertension = false
+        me.disabledFlag.disabled_father_diabetes = false
+        me.disabledFlag.disabled_father_coronary = false
+        me.disabledFlag.disabled_father_allergy = false
+        me.disabledFlag.disabled_father_malignant = false
+        me.disabledFlag.disabled_father_schizophrenia = false
+        me.disabledFlag.disabled_father_stroke = false
+        me.disabledFlag.disabled_father_tb = false
+        me.disabledFlag.disabled_father_hepatitis = false
+        me.disabledFlag.disabled_father_congenital = false
+        me.disabledFlag.disabled_father_other = false
+      } else if (me.form.father_none === 1) {
+        me.form.father_hypertension = 0
+        me.form.father_diabetes = 0
+        me.form.father_coronary = 0
+        me.form.father_allergy = 0
+        me.form.father_malignant = 0
+        me.form.father_schizophrenia = 0
+        me.form.father_stroke = 0
+        me.form.father_tb = 0
+        me.form.father_hepatitis = 0
+        me.form.father_congenital = 0
+        me.form.father_other = 0
+        me.form.father_other_content = ''
+        me.disabledFlag.disabled_father_hypertension = true
+        me.disabledFlag.disabled_father_diabetes = true
+        me.disabledFlag.disabled_father_coronary = true
+        me.disabledFlag.disabled_father_allergy = true
+        me.disabledFlag.disabled_father_malignant = true
+        me.disabledFlag.disabled_father_schizophrenia = true
+        me.disabledFlag.disabled_father_stroke = true
+        me.disabledFlag.disabled_father_tb = true
+        me.disabledFlag.disabled_father_hepatitis = true
+        me.disabledFlag.disabled_father_congenital = true
+        me.disabledFlag.disabled_father_other = true
+      }
     },
     changeFatherOther () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.father_other === 0) {
+        me.form.father_other_content = ''
+        me.disabledFlag.disabled_father_other_content = true
+      } else if (me.form.father_other === 1) {
+        me.disabledFlag.disabled_father_other_content = false
+      }
     },
     changeMotherNone () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.mother_none === 0) {
+        me.disabledFlag.disabled_mother_hypertension = false
+        me.disabledFlag.disabled_mother_diabetes = false
+        me.disabledFlag.disabled_mother_coronary = false
+        me.disabledFlag.disabled_mother_allergy = false
+        me.disabledFlag.disabled_mother_malignant = false
+        me.disabledFlag.disabled_mother_schizophrenia = false
+        me.disabledFlag.disabled_mother_stroke = false
+        me.disabledFlag.disabled_mother_tb = false
+        me.disabledFlag.disabled_mother_hepatitis = false
+        me.disabledFlag.disabled_mother_congenital = false
+        me.disabledFlag.disabled_mother_other = false
+      } else if (me.form.mother_none === 1) {
+        me.form.mother_hypertension = 0
+        me.form.mother_diabetes = 0
+        me.form.mother_coronary = 0
+        me.form.mother_allergy = 0
+        me.form.mother_malignant = 0
+        me.form.mother_schizophrenia = 0
+        me.form.mother_stroke = 0
+        me.form.mother_tb = 0
+        me.form.mother_hepatitis = 0
+        me.form.mother_congenital = 0
+        me.form.mother_other = 0
+        me.form.mothe_other_content = ''
+        me.disabledFlag.disabled_mother_hypertension = true
+        me.disabledFlag.disabled_mother_diabetes = true
+        me.disabledFlag.disabled_mother_coronary = true
+        me.disabledFlag.disabled_mother_allergy = true
+        me.disabledFlag.disabled_mother_malignant = true
+        me.disabledFlag.disabled_mother_schizophrenia = true
+        me.disabledFlag.disabled_mother_stroke = true
+        me.disabledFlag.disabled_mother_tb = true
+        me.disabledFlag.disabled_mother_hepatitis = true
+        me.disabledFlag.disabled_mother_congenital = true
+        me.disabledFlag.disabled_mother_other = true
+      }
     },
     changeMotherOther () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.mother_other === 0) {
+        me.form.mothe_other_content = ''
+        me.disabledFlag.disabled_mothe_other_content = true
+      } else if (me.form.mother_other === 1) {
+        me.disabledFlag.disabled_mothe_other_content = false
+      }
     },
     changeBrothersNone () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.brothers_none === 0) {
+        me.disabledFlag.disabled_brothers_hypertension = false
+        me.disabledFlag.disabled_brothers_diabetes = false
+        me.disabledFlag.disabled_brothers_coronary = false
+        me.disabledFlag.disabled_brothers_allergy = false
+        me.disabledFlag.disabled_brothers_malignant = false
+        me.disabledFlag.disabled_brothers_schizophrenia = false
+        me.disabledFlag.disabled_brothers_stroke = false
+        me.disabledFlag.disabled_brothers_tb = false
+        me.disabledFlag.disabled_brothers_hepatitis = false
+        me.disabledFlag.disabled_brothers_congenital = false
+        me.disabledFlag.disabled_brothers_other = false
+      } else if (me.form.brothers_none === 1) {
+        me.form.brothers_hypertension = 0
+        me.form.brothers_diabetes = 0
+        me.form.brothers_coronary = 0
+        me.form.brothers_allergy = 0
+        me.form.brothers_malignant = 0
+        me.form.brothers_schizophrenia = 0
+        me.form.brothers_stroke = 0
+        me.form.brothers_tb = 0
+        me.form.brothers_hepatitis = 0
+        me.form.brothers_congenital = 0
+        me.form.brothers_other = 0
+        me.form.brothers_other_content = ''
+        me.disabledFlag.disabled_brothers_hypertension = true
+        me.disabledFlag.disabled_brothers_diabetes = true
+        me.disabledFlag.disabled_brothers_coronary = true
+        me.disabledFlag.disabled_brothers_allergy = true
+        me.disabledFlag.disabled_brothers_malignant = true
+        me.disabledFlag.disabled_brothers_schizophrenia = true
+        me.disabledFlag.disabled_brothers_stroke = true
+        me.disabledFlag.disabled_brothers_tb = true
+        me.disabledFlag.disabled_brothers_hepatitis = true
+        me.disabledFlag.disabled_brothers_congenital = true
+        me.disabledFlag.disabled_brothers_other = true
+      }
+    },
+    changebrothersOther () {
+      var me = this
+      if (me.form.brothers_other === 0) {
+        me.form.brothers_other_content = ''
+        me.disabledFlag.disabled_brothers_other_content = true
+      } else if (me.form.brothers_other === 1) {
+        me.disabledFlag.disabled_brothers_other_content = false
+      }
     },
     changeChildrenNone () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.children_none === 0) {
+        me.disabledFlag.disabled_children_hypertension = false
+        me.disabledFlag.disabled_children_diabetes = false
+        me.disabledFlag.disabled_children_coronary = false
+        me.disabledFlag.disabled_children_allergy = false
+        me.disabledFlag.disabled_children_malignant = false
+        me.disabledFlag.disabled_children_schizophrenia = false
+        me.disabledFlag.disabled_children_stroke = false
+        me.disabledFlag.disabled_children_tb = false
+        me.disabledFlag.disabled_children_hepatitis = false
+        me.disabledFlag.disabled_children_congenital = false
+        me.disabledFlag.disabled_children_other = false
+      } else if (me.form.children_none === 1) {
+        me.form.children_hypertension = 0
+        me.form.children_diabetes = 0
+        me.form.children_coronary = 0
+        me.form.children_allergy = 0
+        me.form.children_malignant = 0
+        me.form.children_schizophrenia = 0
+        me.form.children_stroke = 0
+        me.form.children_tb = 0
+        me.form.children_hepatitis = 0
+        me.form.children_congenital = 0
+        me.form.children_other = 0
+        me.form.children_other_content = ''
+        me.disabledFlag.disabled_children_hypertension = true
+        me.disabledFlag.disabled_children_diabetes = true
+        me.disabledFlag.disabled_children_coronary = true
+        me.disabledFlag.disabled_children_allergy = true
+        me.disabledFlag.disabled_children_malignant = true
+        me.disabledFlag.disabled_children_schizophrenia = true
+        me.disabledFlag.disabled_children_stroke = true
+        me.disabledFlag.disabled_children_tb = true
+        me.disabledFlag.disabled_children_hepatitis = true
+        me.disabledFlag.disabled_children_congenital = true
+        me.disabledFlag.disabled_children_other = true
+      }
     },
     changeChildrenOther () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.children_other === 0) {
+        me.form.children_other_content = ''
+        me.disabledFlag.disabled_children_other_content = true
+      } else if (me.form.children_other === 1) {
+        me.disabledFlag.disabled_children_other_content = false
+      }
     },
     changeGenetic () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.genetic === 0) {
+        me.form.genetic_diseasename = ''
+        me.disabledFlag.disabled_genetic_diseasename = true
+      } else if (me.form.genetic === 1) {
+        me.disabledFlag.disabled_genetic_diseasename = false
+      }
+    },
+    changeDisabilityWithout (){
+      var me = this
+      if (me.form.disability_without === 1) {
+        me.form.disability_eyes = 0
+        me.form.disability_ear = 0
+        me.form.disability_speech = 0
+        me.form.disability_limb = 0
+        me.form.disability_intellectual = 0
+        me.form.disability_spirit = 0
+        me.form.disability_other = 0
+        me.form.disability_other_con = ''
+        me.disabledFlag.disabled_disability_eyes = true
+        me.disabledFlag.disabled_disability_ear = true
+        me.disabledFlag.disabled_disability_speech = true
+        me.disabledFlag.disabled_disability_limb = true
+        me.disabledFlag.disabled_disability_intellectual = true
+        me.disabledFlag.disabled_disability_spirit = true
+        me.disabledFlag.disabled_disability_other = true
+      } else if (me.form.disability_without === 0) {
+        me.disabledFlag.disabled_disability_eyes = false
+        me.disabledFlag.disabled_disability_ear = false
+        me.disabledFlag.disabled_disability_speech = false
+        me.disabledFlag.disabled_disability_limb = false
+        me.disabledFlag.disabled_disability_intellectual = false
+        me.disabledFlag.disabled_disability_spirit = false
+        me.disabledFlag.disabled_disability_other = false
+      }
+    },
+    changeDisabilityOther () {
+      var me = this
+      if (me.form.disability_other === 0) {
+        me.form.disability_other_con = ''
+        me.disabledFlag.disabled_disability_other_con = true
+      } else if (me.form.disability_other === 1) {
+        me.disabledFlag.disabled_disability_other_con = false
+      }
+    },
+    changeMedicalExpenses99(){
+      var me = this
+      if (me.form.medical_expenses_99 === 0) {
+        me.form.medical_expenses_content = ''
+        me.disabledFlag.disabled_medical_expenses_content = true
+      } else if (me.form.medical_expenses_99 === 1) {
+        me.disabledFlag.disabled_medical_expenses_content = false
+      }
     },
     changeArchiveOperatorName () {
       var me = this
