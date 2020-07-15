@@ -19,11 +19,13 @@
 
 <script>
 import HygieneSickArchivePage from './HygieneSickArchivePage.vue'
+import HygieneSickMedicalPage from '../medical/HygieneSickMedicalPage.vue'
 
 export default {
   name: 'archives-synthesize-page',
   components: {
-    HygieneSickArchivePage
+    HygieneSickArchivePage,
+    HygieneSickMedicalPage
   },
   data () {
     return {
