@@ -368,9 +368,9 @@ export default {
         hemoglobin_yj: '',
         platelet_yj: '',
         leukocyte_yj: '',
-        wbc1_yj: '',
-        wbc2_yj: '',
-        wbc3_yj: '',
+        wbc_1_yj: '',
+        wbc_2_yj: '',
+        wbc_3_yj: '',
         urine_routine_ph_value_yj: '',
         fasting_plasma_glucose_l_yj: '',
         random_glucose_yj: '',
@@ -540,6 +540,62 @@ export default {
         ni_vaccination_org1: '',
         ni_vaccination_org2: '',
         ni_vaccination_org3: '',
+        is_examination_excep: null,
+        examination_excep1: '',
+        examination_excep2: '',
+        examination_excep3: '',
+        examination_excep4: '',
+        health_ass_1: null,
+        health_ass_2: null,
+        health_ass_3: null,
+        health_ass_4: null,
+        health_ass_5: null,
+        health_ass_6: null,
+        health_ass_7: '',
+        health_ass_8: '',
+        health_ass_9: '',
+        health_guidance_slow_disease: null,
+        health_guidance_inhospital: null,
+        health_guidance_review: null,
+        hazard_quit_smocking: null,
+        hazard_health_drink: null,
+        hazard_food: null,
+        hazard_hardening: null,
+        hazard_lose_weight: null,
+        hazard_lose_weight_target: '',
+        hazard_vaccination: null,
+        hazard_vaccination_str: '',
+        hazard_others: null,
+        hazard_others_str: '',
+        health_guidance_check: null,
+        effect_manager_blood: null,
+        effect_manager_diabetes: null,
+        effect_manager_stroke: null,
+        effect_manager_soycho: null,
+        diabetes_untoward_effect: null,
+        stroke_untoward_effect: null,
+        soycho_untoward_effect: null,
+        diabetes_syndrome: null,
+        stroke_syndrome: null,
+        soycho_syndrome: null,
+        blood_untoward_effect: null,
+        blood_syndrome: null,
+        health_ass_gxf: null,
+        health_ass_txf: null,
+        health_ass_qtxf: null,
+        health_ass_xfqt: '',
+        health_ass_21: '',
+        health_ass_22: '',
+        health_ass_23: '',
+        health_ass_24: '',
+        health_ass_25: '',
+        health_ass_26: '',
+        health_ass_10: null,
+        health_ass_11: '',
+        hazard_jyw: null,
+        hazard_jkjy: null,
+        improve_life_way: '',
+        health_guidance_other: '',
         medical_operator_name: '',
         create_operator_name: '',
         team_id_name: '',
@@ -1155,6 +1211,36 @@ export default {
         enmedis_other: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
         ],
+        hazard_lose_weight_target: [
+          { validator: this.validatorHazard_lose_weight_target, trigger: 'blur', decimal: 2, min: 0 }
+        ],
+        hazard_vaccination_str: [
+          { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
+        ],
+        hazard_others_str: [
+          { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
+        ],
+        health_ass_xfqt: [
+          { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
+        ],
+        health_ass_21: [
+          { max: 200, message: '长度小于等于200个字符', trigger: 'blur' }
+        ],
+        health_ass_22: [
+          { max: 200, message: '长度小于等于200个字符', trigger: 'blur' }
+        ],
+        health_ass_23: [
+          { max: 200, message: '长度小于等于200个字符', trigger: 'blur' }
+        ],
+        health_ass_24: [
+          { max: 200, message: '长度小于等于200个字符', trigger: 'blur' }
+        ],
+        health_ass_25: [
+          { max: 200, message: '长度小于等于200个字符', trigger: 'blur' }
+        ],
+        health_ass_26: [
+          { max: 200, message: '长度小于等于200个字符', trigger: 'blur' }
+        ],
         team_id_name: [
           { required: true, message: '请输入管理团队名称', trigger: 'blur' }
         ]
@@ -1509,6 +1595,14 @@ export default {
       }
       if (result.columnName === 'ni_vaccination_org3') {
         this.form.ni_vaccination_org3 = result.label
+        this.$forceUpdate()
+      }
+      if (result.columnName === 'hazard_vaccination_str') {
+        this.form.hazard_vaccination_str = result.label
+        this.$forceUpdate()
+      }
+      if (result.columnName === 'hazard_others_str') {
+        this.form.hazard_others_str = result.label
         this.$forceUpdate()
       }
       if (result.columnName === 'medical_operator_name') {
@@ -2268,6 +2362,14 @@ export default {
         callback()
       }
     },
+    validatorHazard_lose_weight_target (rule, value, callback) {
+      var result = this.Util.validationNumber(value, rule)
+      if (result.status === 'error') {
+        callback(new Error(result.message))
+      } else {
+        callback()
+      }
+    },
     butSubmitClick () {
       var me = this
       me.recordSubmit()
@@ -2293,7 +2395,7 @@ export default {
       me.resetForm('elForm')
       me.fromDataLoading = true
       me.axiosPost(
-        '/HygieneSickMedical/getForm',
+        '/PHHygieneSickMedical/getForm',
         parm
       ).then(function (response) {
         if (response.data.statusCode === 8200) {
@@ -2319,7 +2421,7 @@ export default {
       let me = this
       me.dialogFormVisible = true
       me.axiosPost(
-        '/HygieneSickMedical/deleteRecord',
+        '/PHHygieneSickMedical/deleteRecord',
         me.form
       ).then(function (response) {
         me.dialogFormVisible = false
@@ -2351,7 +2453,7 @@ export default {
       }
       me.fromDataLoading = true
       me.axiosPost(
-        '/HygieneSickMedical/saveRecord',
+        '/PHHygieneSickMedical/saveRecord',
         me.form
       ).then(function (response) {
         me.fromDataLoading = false
