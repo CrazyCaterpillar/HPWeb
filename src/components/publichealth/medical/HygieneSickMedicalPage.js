@@ -15,7 +15,9 @@ export default {
       constyle: 'height: 0px;',
       title: '',
       fromDataLoading: false,
-      userInfo: this.$store.state.userInfo
+      userInfo: this.$store.state.userInfo,
+      screenHeight: document.documentElement.clientHeight,
+      tbHeight: document.documentElement.clientHeight
     }
   },
   props: {
@@ -31,6 +33,8 @@ export default {
       me.$refs.hygieneSickMedicalForm.$emit('open', parm)
     },
     resize (val) {
+      var me = this
+      me.tbHeight = val - 40
     },
     butSubmitClick () {
       var me = this
@@ -39,6 +43,18 @@ export default {
   },
   mounted () {
     var me = this
+    me.resize(document.documentElement.clientHeight)
+    window.addEventListener('resize', () => {
+      return (() => {
+        me.screenHeight = document.documentElement.clientHeight
+      })()
+    }, false)
     me.init(me.openParm)
+  },
+  watch: {
+    screenHeight (val) {
+      var me = this
+      me.resize(val)
+    }
   }
 }

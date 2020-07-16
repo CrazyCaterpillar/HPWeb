@@ -8,7 +8,7 @@
         </div>
       </div>
     </el-header>
-    <el-main class="list-main">
+    <el-main class="list-main" :style="'height:'+(tbHeight) +'px;'">
       <HygieneSickMedicalForm ref="hygieneSickMedicalForm"></HygieneSickMedicalForm>
     </el-main>
   </el-container>
