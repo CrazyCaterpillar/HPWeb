@@ -1,8 +1,15 @@
 import HygieneSickMedicalForm from './HygieneSickMedicalForm.vue'
+import ElderlyOneselfAssessWin from '../ElderlyOneselfAssess/ElderlyOneselfAssessWin.vue'
+import ElderlyDepressionScaleWin from '../ElderlyDepressionScale/ElderlyDepressionScaleWin.vue'
+import ElderlyMentalStateWin from '../ElderlyMentalState/ElderlyMentalStateWin.vue'
+
 export default {
   name: 'hygieneSickMedicalPage',
   components: {
-    HygieneSickMedicalForm
+    HygieneSickMedicalForm,
+    ElderlyOneselfAssessWin,
+    ElderlyDepressionScaleWin,
+    ElderlyMentalStateWin
   },
   data () {
     return {
@@ -39,6 +46,18 @@ export default {
     butSubmitClick () {
       var me = this
       me.$refs.hygieneSickMedicalForm.$emit('recordSubmit')
+    },
+    butElderlyOneseIfAssess () {
+      var me = this
+      me.$refs.elderlyOneselfAssessWin.$emit('open')
+    },
+    butElderlyDepressionScale () {
+      var me = this
+      me.$refs.elderlyDepressionScaleWin.$emit('open')
+    },
+    butElderlyMentalStateWin () {
+      var me = this
+      me.$refs.elderlyMentalStateWin.$emit('open')
     }
   },
   mounted () {
