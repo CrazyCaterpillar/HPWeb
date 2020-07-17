@@ -672,25 +672,25 @@ export default {
           { max: 200, message: '长度小于等于200个字符', trigger: 'blur' }
         ],
         body_temperature: [
-          { validator: this.validatorBody_temperature, trigger: 'blur', decimal: 1, min: 0 }
+          { validator: this.validatorBody_temperature, trigger: 'blur', decimal: 1, min: 35, max: 42 }
         ],
         pulse_frequency: [
-          { validator: this.validatorPulse_frequency, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validatorPulse_frequency, trigger: 'blur', decimal: 2, min: 40, max: 180 }
         ],
         respiratory_rate: [
-          { validator: this.validatorRespiratory_rate, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validatorRespiratory_rate, trigger: 'blur', decimal: 0, min: 10, max: 50 }
         ],
         blood_pressure_left_d: [
-          { validator: this.validatorBlood_pressure_left_d, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validatorBlood_pressure_left_d, trigger: 'blur', decimal: 0, min: 30, max: 150 }
         ],
         blood_pressure_left_u: [
-          { validator: this.validatorBlood_pressure_left_u, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validatorBlood_pressure_left_u, trigger: 'blur', decimal: 0, min: 70, max: 300 }
         ],
         blood_pressure_rigth_d: [
-          { validator: this.validatorBlood_pressure_rigth_d, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validatorBlood_pressure_rigth_d, trigger: 'blur', decimal: 0, min: 30, max: 150 }
         ],
         blood_pressure_rigth_u: [
-          { validator: this.validatorBlood_pressure_rigth_u, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validatorBlood_pressure_rigth_u, trigger: 'blur', decimal: 0, min: 70, max: 300 }
         ],
         blood_pre_sec_d: [
           { validator: this.validatorBlood_pre_sec_d, trigger: 'blur', decimal: 0, min: 0 }
@@ -705,13 +705,13 @@ export default {
           { validator: this.validatorBlood_pre_thr_u, trigger: 'blur', decimal: 0, min: 0 }
         ],
         height: [
-          { validator: this.validatorHeight, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validatorHeight, trigger: 'blur', decimal: 2, min: 40, max: 250 }
         ],
         weight: [
-          { validator: this.validatorWeight, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validatorWeight, trigger: 'blur', decimal: 2, min: 10, max: 150 }
         ],
         waist: [
-          { validator: this.validatorWaist, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validatorWaist, trigger: 'blur', decimal: 2, min: 40, max: 200 }
         ],
         bmi: [
           { validator: this.validatorBmi, trigger: 'blur', decimal: 2, min: 0 }
@@ -1271,6 +1271,8 @@ export default {
         disabled_symptom_breast_bursting: true,
         disabled_symptom_other: true,
         disabled_symptom_other_str: true,
+        disabled_dry_out_age: true,
+        disabled_drink_others_str: true,
         disabled_poison_dust: true,
         disabled_poison_dust_ispre: true,
         disabled_poison_radiogen: true,
@@ -1311,11 +1313,66 @@ export default {
         disabled_denture_2: true,
         disabled_denture_3: true,
         disabled_denture_4: true,
+        disabled_eyeground_exception: true,
+        disabled_skin_others: true,
+        disabled_sclera_others: true,
+        disabled_lymph_node_others: true,
+        disabled_lung_breath_sound_excep: true,
+        disabled_lung_rhonchus_exception: true,
+        disabled_cardiac_souffle_others: true,
+        disabled_abdo_press_pain_oth: true,
+        disabled_abdo_masses_others: true,
+        disabled_abdo_hepatomegaly_oth: true,
+        disabled_abdo_splenomegaly_oth: true,
+        disabled_abdo_shifting_dull_oth: true,
+        disabled_fundament_fingerp_oth: true,
         disabled_breast_mastectomy: true,
         disabled_breast_abnormal_lactation: true,
         disabled_breast_masses: true,
         disabled_breast_others: true,
         disabled_breast_others_str: true,
+        disabled_vulva_exception: true,
+        disabled_vagina_exception: true,
+        disabled_cervix_exception: true,
+        disabled_corpus_exception: true,
+        disabled_attachment_exception: true,
+        disabled_electrocardiogram_excep: true,
+        disabled_cxr_exception: true,
+        disabled_type_b_ultrasonic_excep: true,
+        disabled_cervical_pap_smears_excep: true,
+        disabled_glucose_noallow: true,
+        disabled_electrocardiogram_noallow: true,
+        disabled_blood_routine_noallow: true,
+        disabled_urine_routine_noallow: true,
+        disabled_blood_fat_noallow: true,
+        disabled_renal_function_noallow: true,
+        disabled_liver_function_noallow: true,
+        disabled_glycolated_hemoglobin_noallow: true,
+        disabled_cxr_noallow: true,
+        disabled_type_b_ultrasonic_noallow: true,
+        disabled_microalbuminuria_noallow: true,
+        disabled_stool_occult_blood_noallow: true,
+        disabled_cervical_pap_smears_noallow: true,
+        disabled_hbsag_noallow: true,
+        disabled_blood_uric_acid_noallow: true,
+        disabled_blood_rheology_noallow: true,
+        disabled_blood_routine_outside_others: true,
+        disabled_glucose_routine_outside_others: true,
+        disabled_urine_routine_outside_others: true,
+        disabled_elect_outside_others: true,
+        disabled_mic_outside_others: true,
+        disabled_stool_outside_others: true,
+        disabled_glycolated_outside_others: true,
+        disabled_hbsag_outside_others: true,
+        disabled_liver_outside_others: true,
+        disabled_renal_outside_others: true,
+        disabled_blood_fat_outside_others: true,
+        disabled_cxr_outside_others: true,
+        disabled_type_b_outside_others: true,
+        disabled_cervical_outside_others: true,
+        disabled_xns_outside_others: true,
+        disabled_xlb_outside_others: true,
+        disabled_type_b_ultrasonic_excep_qt: true,
         disabled_cvd_ischemic_stroke: true,
         disabled_cvd_cerebral_hemorrhage: true,
         disabled_cvd_sah: true,
@@ -1344,10 +1401,27 @@ export default {
         disabled_eye_disease_cataract: true,
         disabled_eye_disease_others: true,
         disabled_eye_disease_others_str: true,
+        disabled_nervous_system_disease_str: true,
+        disabled_others_system_disease_str: true,
+        disabled_enmedis_other: true,
+        disabled_hazard_lose_weight_target: true,
+        disabled_hazard_vaccination_str: true,
+        disabled_hazard_others_str: true,
+        disabled_health_ass_gxf: true,
+        disabled_health_ass_txf: true,
+        disabled_health_ass_qtxf: true,
+        disabled_health_ass_xfqt: true,
+        disabled_health_ass_21: true,
+        disabled_health_ass_22: true,
+        disabled_health_ass_23: true,
+        disabled_health_ass_24: true,
+        disabled_health_ass_25: true,
+        disabled_health_ass_26: true,
         disabled_create_operator_name: true,
         disabled_team_id_name: true,
       },
       readonlyFlag: {
+        readonly_bmi: true,
         readonly_medical_operator_name: true,
         readonly_main_doctors_name: true
       },
@@ -1368,7 +1442,7 @@ export default {
   methods: {
     init (parm) {
       var me = this
-      if (parm != null && parm.record != null && parm.record.medicalNo != null) {
+      if (parm != null && parm.record != null && parm.record.keyId != null) {
         me.recordEdit(parm.record)
       } else {
         me.recordAdd(parm.record)
@@ -1607,22 +1681,22 @@ export default {
       }
       if (result.columnName === 'medical_operator_name') {
         this.form.medical_operator_name = result.label
-        this.form.medicalOperator = result.value
+        this.form.medical_operator = result.value
         this.$forceUpdate()
       }
       if (result.columnName === 'create_operator_name') {
         this.form.create_operator_name = result.label
-        this.form.createOperator = result.value
+        this.form.create_operator = result.value
         this.$forceUpdate()
       }
       if (result.columnName === 'team_id_name') {
         this.form.team_id_name = result.label
-        this.form.teamId = result.value
+        this.form.team_id = result.value
         this.$forceUpdate()
       }
       if (result.columnName === 'main_doctors_name') {
         this.form.main_doctors_name = result.label
-        this.form.mainDoctors = result.value
+        this.form.main_doctors = result.value
         this.$forceUpdate()
       }
     },
@@ -2383,11 +2457,20 @@ export default {
         .catch(_ => {})
     },
     formInit () {
+      var me = this
+      var userInfo = me.Util.getUserInfo()
+      me.form.org_id = userInfo.orgId
+      me.form.team_id = userInfo.teamId
+      me.form.team_id_name = userInfo.teamName
+      me.form.create_operator = userInfo.staffCode
+      me.form.create_operator_name = userInfo.staffName
+      me.form.medical_operator = userInfo.staffCode
+      me.form.medical_operator_name = userInfo.staffName
     },
     recordAdd (parm) {
       var me = this
       me.resetForm('elForm')
-      me.form.archive_id = parm.archive_id
+      me.form.archive_id = parm.archiveId
       me.formInit()
     },
     recordEdit (parm) {
@@ -2400,7 +2483,8 @@ export default {
       ).then(function (response) {
         if (response.data.statusCode === 8200) {
           var rpdata = response.data.data
-          me.form = rpdata
+          var rpFormData = JSON.parse(rpdata)
+          me.form = rpFormData[0]
           me.fromDataLoading = false
         }
         if (response.data.statusCode === 8501) {
@@ -2457,15 +2541,15 @@ export default {
         me.form
       ).then(function (response) {
         me.fromDataLoading = false
-        if (response.data.statusCode === 8500) {
+        if (response.data.statusCode === 8501) {
           me.$message({
-            message: response.data.data.text,
+            message: response.data.message,
             type: 'error'
           })
         }
         if (response.data.statusCode === 8200) {
-          if (me.form.medicalNo == null || me.form.medicalNo === '') {
-            me.form.medicalNo = response.data.data.text
+          if (me.form.medical_no == null || me.form.medical_no === '') {
+            me.form.medical_no = response.data.data.text
           }
           if (me.formSaveCallback) {
             me.formSaveCallback('HygieneSickMedical', me.form)
@@ -2482,6 +2566,552 @@ export default {
           message: '数据保存失败！' + error,
           type: 'error'
         })
+      })
+    },
+    changeSymptomOther () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAsymptomatic () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHeight () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeWeight () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHardeningFrequency () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeSmokingCircumstance () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeDrinkFrequency () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeIsDryOut () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeDrinkOthers () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeOccHazHistory0 () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeOccHazHistory1 () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeOccHazHistory2 () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeOccHazHistory3 () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeOccHazHistory4 () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeOccHazHistory5 () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeDentitiondenture () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeMissTeeth () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeDentalCary () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeDenture () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeEyeground () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeSkin () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeSclera () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeLymphNode () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeLungBarrelChest () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeLungBreathSound () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeLungRhonchus () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeCardiacSouffle () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAbdoPressPain () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAbdoMasses () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAbdoHepatomegaly () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAbdoSplenomegaly () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAbdoShiftingDull () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeImmersionFoot () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeFundamentFingerp () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeBreastNotTroubleFind () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeVulva () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeVagina () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeCervix () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeCorpus () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAttachment () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeElectrocardiogram () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeCxr () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeTypeBUltrasonic () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeCervicalPapSmears () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeGlucoseOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeElectrocardiogramOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeBloodRoutineOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeUrineRoutineOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeBloodFatOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeRenalFunctionOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeLiverFunctionOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeGlycolatedHemoglobinOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeCxrOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeTypeBUltrasonicOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeMicroalbuminuriaOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeStoolOccultBloodOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeCervicalPapSmearsOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeBloodUricAcidOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeBloodRheologyOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeTypeBUltrasonicQt () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeCvdUndiscovered () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeCvdOthers () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeRenalUndiscovered () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeRenalOthers () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHeartUndiscovered () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHeartOthers () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAngiosisUndiscovered () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAngiosisOthers () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeEyeDiseaseUndiscovered () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeEyeDiseaseOthers () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeNervousSystemDisease () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeOthersSystemDisease () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeEnmedis () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHealthAss1 () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHazardLoseWeight () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHazardVaccination () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHazardOthers () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHealthAssQtxf () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
       })
     }
   },
