@@ -60,3 +60,7 @@
   /*-webkit-appearance: none;*/
   /*margin: 0;*/
 /*}*/
+
+.el-form-item__label_text {
+  text-align: left;
+}
