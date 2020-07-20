@@ -2570,52 +2570,182 @@ export default {
     },
     changeSymptomOther () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.symptom_other === 0) {
+        me.form.symptom_other_str = ''
+        me.disabledFlag.disabled_symptom_other_str = true
+      } else if (me.form.symptom_other === 1) {
+        me.disabledFlag.disabled_symptom_other_str = false
+      }
     },
     changeAsymptomatic () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.asymptomatic === 0) {
+        me.disabledFlag.disabled_symptom_headache = false
+        me.disabledFlag.disabled_symptom_dizziness = false
+        me.disabledFlag.disabled_symptom_palpitation = false
+        me.disabledFlag.disabled_symptom_chest_stuffiness = false
+        me.disabledFlag.disabled_symptom_chest_pain = false
+        me.disabledFlag.disabled_symptom_chronic_cough = false
+        me.disabledFlag.disabled_symptom_expectoration = false
+        me.disabledFlag.disabled_symptom_dyspnea = false
+        me.disabledFlag.disabled_symptom_polydipsia = false
+        me.disabledFlag.disabled_symptom_polyuria = false
+        me.disabledFlag.disabled_symptom_weight_loss = false
+        me.disabledFlag.disabled_symptom_lack_of_power = false
+        me.disabledFlag.disabled_symptom_joint_gall = false
+        me.disabledFlag.disabled_symptom_blurred_vision = false
+        me.disabledFlag.disabled_symptom_hand_foot_numbness = false
+        me.disabledFlag.disabled_symptom_urinary_urgency = false
+        me.disabledFlag.disabled_symptom_dysuria = false
+        me.disabledFlag.disabled_symptom_constipation = false
+        me.disabledFlag.disabled_symptom_diarrhea = false
+        me.disabledFlag.disabled_symptom_nausea_vomiting = false
+        me.disabledFlag.disabled_symptom_dazzle = false
+        me.disabledFlag.disabled_symptom_tinnitus = false
+        me.disabledFlag.disabled_symptom_breast_bursting = false
+        me.disabledFlag.disabled_symptom_other = false
+      } else if (me.form.asymptomatic === 1) {
+        me.form.symptom_headache = 0
+        me.form.symptom_dizziness = 0
+        me.form.symptom_palpitation = 0
+        me.form.symptom_chest_stuffiness = 0
+        me.form.symptom_chest_pain = 0
+        me.form.symptom_chronic_cough = 0
+        me.form.symptom_expectoration = 0
+        me.form.symptom_dyspnea = 0
+        me.form.symptom_polydipsia = 0
+        me.form.symptom_polyuria = 0
+        me.form.symptom_weight_loss = 0
+        me.form.symptom_lack_of_power = 0
+        me.form.symptom_joint_gall = 0
+        me.form.symptom_blurred_vision = 0
+        me.form.symptom_hand_foot_numbness = 0
+        me.form.symptom_urinary_urgency = 0
+        me.form.symptom_dysuria = 0
+        me.form.symptom_constipation = 0
+        me.form.symptom_diarrhea = 0
+        me.form.symptom_nausea_vomiting = 0
+        me.form.symptom_dazzle = 0
+        me.form.symptom_tinnitus = 0
+        me.form.symptom_breast_bursting = 0
+        me.form.symptom_other = 0
+        me.form.symptom_other_str = ''
+        me.disabledFlag.disabled_symptom_headache = true
+        me.disabledFlag.disabled_symptom_dizziness = true
+        me.disabledFlag.disabled_symptom_palpitation = true
+        me.disabledFlag.disabled_symptom_chest_stuffiness = true
+        me.disabledFlag.disabled_symptom_chest_pain = true
+        me.disabledFlag.disabled_symptom_chronic_cough = true
+        me.disabledFlag.disabled_symptom_expectoration = true
+        me.disabledFlag.disabled_symptom_dyspnea = true
+        me.disabledFlag.disabled_symptom_polydipsia = true
+        me.disabledFlag.disabled_symptom_polyuria = true
+        me.disabledFlag.disabled_symptom_weight_loss = true
+        me.disabledFlag.disabled_symptom_lack_of_power = true
+        me.disabledFlag.disabled_symptom_joint_gall = true
+        me.disabledFlag.disabled_symptom_blurred_vision = true
+        me.disabledFlag.disabled_symptom_hand_foot_numbness = true
+        me.disabledFlag.disabled_symptom_urinary_urgency = true
+        me.disabledFlag.disabled_symptom_dysuria = true
+        me.disabledFlag.disabled_symptom_constipation = true
+        me.disabledFlag.disabled_symptom_diarrhea = true
+        me.disabledFlag.disabled_symptom_nausea_vomiting = true
+        me.disabledFlag.disabled_symptom_dazzle = true
+        me.disabledFlag.disabled_symptom_tinnitus = true
+        me.disabledFlag.disabled_symptom_breast_bursting = true
+        me.disabledFlag.disabled_symptom_other = true
+      }
     },
     changeHeight () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.setBmi()
     },
     changeWeight () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.setBmi()
+    },
+    setBmi(){
+      var me = this
+      if (me.form.height > 0 && me.form.weight > 0) {
+        var height = parseInt(me.form.height)
+        var weight = parseInt(me.form.weight)
+        height = height / 100;
+        me.form.bmi = parseFloat(weight / (height * height)).toFixed(2)
+      }
+      else{
+        me.form.bmi = null
+      }
     },
     changeHardeningFrequency () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      /*if (me.form.hardening_frequency === 4) {
+        me.form.every_hardening_time = null
+        me.form.insist_hardening_time = null
+        me.form.hardening_mode = null
+        me.disabledFlag.disabled_every_hardening_time = true
+        me.disabledFlag.disabled_insist_hardening_time = true
+        me.disabledFlag.disabled_hardening_mode = true
+      }
+      else {
+        me.disabledFlag.disabled_every_hardening_time = false
+        me.disabledFlag.disabled_insist_hardening_time = false
+        me.disabledFlag.disabled_hardening_mode = false
+      }*/
     },
     changeSmokingCircumstance () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      /*if (me.form.smoking_circumstance === 1) {
+        me.form.daily_smoking_quantity = null
+        me.form.begin_smoking_age = null
+        me.form.quit_smoking_age = null
+        me.disabledFlag.disabled_daily_smoking_quantity = true
+        me.disabledFlag.disabled_begin_smoking_age = true
+        me.disabledFlag.disabled_quit_smoking_age = true
+      }
+      else {
+        me.disabledFlag.disabled_daily_smoking_quantity = false
+        me.disabledFlag.disabled_begin_smoking_age = false
+        me.disabledFlag.disabled_quit_smoking_age = false
+      }*/
     },
     changeDrinkFrequency () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      /*if (me.form.drink_frequency === 1) {
+        me.form.every_alcohol_tolerance = null
+        me.form.is_dry_out = null
+        me.form.dry_out_age = null
+        me.form.begin_drink_age = null
+        me.form.one_year_is_temulentia = null
+        me.form.drink_white_spirits = 0
+        me.form.drink_beer = 0
+        me.form.drink_red_wine = 0
+        me.form.drink_yellow_wine = 0
+        me.form.drink_others = 0
+        me.form.drink_others_str = ''
+        me.disabledFlag.disabled_every_alcohol_tolerance = true
+        me.disabledFlag.disabled_is_dry_out = true
+        me.disabledFlag.disabled_dry_out_age = true
+        me.disabledFlag.disabled_begin_drink_age = true
+        me.disabledFlag.disabled_one_year_is_temulentia = true
+        me.disabledFlag.disabled_drink_white_spirits = true
+        me.disabledFlag.disabled_drink_beer = true
+        me.disabledFlag.disabled_drink_red_wine = true
+        me.disabledFlag.disabled_drink_yellow_wine = true
+        me.disabledFlag.disabled_drink_others = true
+        me.disabledFlag.disabled_drink_others_str = true
+      } else {
+        me.disabledFlag.disabled_every_alcohol_tolerance = false
+        me.disabledFlag.disabled_is_dry_out = false
+        me.disabledFlag.disabled_dry_out_age = false
+        me.disabledFlag.disabled_begin_drink_age = false
+        me.disabledFlag.disabled_one_year_is_temulentia = false
+        me.disabledFlag.disabled_drink_white_spirits = false
+        me.disabledFlag.disabled_drink_beer = false
+        me.disabledFlag.disabled_drink_red_wine = false
+        me.disabledFlag.disabled_drink_yellow_wine = false
+        me.disabledFlag.disabled_drink_others = false
+        me.disabledFlag.disabled_drink_others_str = false
+      }*/
     },
     changeIsDryOut () {
       var me = this
