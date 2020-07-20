@@ -611,6 +611,7 @@ export default {
           var rpdata = response.data.data
           var rpFormData = JSON.parse(rpdata)
           me.form = rpFormData[0]
+          me.initFormControls()
           me.fromDataLoading = false
           me.disabledFlag.disabled_archive_operator_name = true
         }
@@ -694,6 +695,32 @@ export default {
           type: 'error'
         })
       })
+    },
+    initFormControls () {
+      var me = this
+      me.changeAllergicWithout()
+      me.changeAllergicOther()
+      me.changeExposureHistory()
+      me.changePastNone()
+      me.changePastHypertension()
+      me.changePastDiabetes()
+      me.changePastCoronary()
+      me.changePastSchizophrenia()
+      me.changePastMalignant()
+      me.changePastApoplexy()
+      me.changePastCopd()
+      me.changePastTb()
+      me.changePastHepatitis()
+      me.changePastOficiala()
+      me.changeOccupationalDisease()
+      me.changePastOther()
+      me.changeSurgery()
+      me.changeTrauma()
+      me.changeTransfusion()
+      me.changeFatherNone()
+      me.changeMotherNone()
+      me.changeBrothersNone()
+      me.changeChildrenNone()
     },
     changeArchiveCode () {
       var me = this
