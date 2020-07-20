@@ -2497,6 +2497,7 @@ export default {
           var rpdata = response.data.data
           var rpFormData = JSON.parse(rpdata)
           me.form = rpFormData[0]
+          me.initFormControls()
           me.fromDataLoading = false
         }
         if (response.data.statusCode === 8501) {
@@ -2579,6 +2580,84 @@ export default {
           type: 'error'
         })
       })
+    },
+    initFormControls () {
+      var me = this
+      me.changeSymptomOther()
+      me.changeAsymptomatic()
+      me.changeHardeningFrequency()
+      me.changeSmokingCircumstance()
+      me.changeDrinkFrequency()
+      //me.changeIsDryOut()
+      //me.changeDrinkOthers()
+      //me.changeOccHazHistory0()
+      //me.changeOccHazHistory1()
+      //me.changeOccHazHistory2()
+      //me.changeOccHazHistory3()
+      //me.changeOccHazHistory4()
+      //me.changeOccHazHistory5()
+      //me.changeDentitiondenture()
+      //me.changeMissTeeth()
+      //me.changeDentalCary()
+      //me.changeDenture()
+      //me.changeEyeground()
+      //me.changeSkin()
+      //me.changeSclera()
+      //me.changeLymphNode()
+      //me.changeLungBarrelChest()
+      //me.changeLungBreathSound()
+      //me.changeLungRhonchus()
+      //me.changeCardiacSouffle()
+      //me.changeAbdoPressPain()
+      //me.changeAbdoMasses()
+      //me.changeAbdoHepatomegaly()
+      //me.changeAbdoSplenomegaly()
+      //me.changeAbdoShiftingDull()
+      //me.changeImmersionFoot()
+      //me.changeFundamentFingerp()
+      //me.changeBreastNotTroubleFind()
+      //me.changeVulva()
+      //me.changeVagina()
+      //me.changeCervix()
+      //me.changeCorpus()
+      //me.changeAttachment()
+      //me.changeElectrocardiogram()
+      //me.changeCxr()
+      //me.changeTypeBUltrasonic()
+      //me.changeCervicalPapSmears()
+      //me.changeGlucoseOutside()
+      //me.changeElectrocardiogramOutside()
+      //me.changeBloodRoutineOutside()
+      //me.changeUrineRoutineOutside()
+      //me.changeBloodFatOutside()
+      //me.changeRenalFunctionOutside()
+      //me.changeLiverFunctionOutside()
+      //me.changeGlycolatedHemoglobinOutside()
+      //me.changeTypeBUltrasonicOutside()
+      //me.changeMicroalbuminuriaOutside()
+      //me.changeStoolOccultBloodOutside()
+      //me.changeCervicalPapSmearsOutside()
+      //me.changeBloodUricAcidOutside()
+      //me.changeBloodRheologyOutside()
+      //me.changeTypeBUltrasonicQt()
+      //me.changeCvdUndiscovered()
+      //me.changeCvdOthers()
+      //me.changeRenalUndiscovered()
+      //me.changeRenalOthers()
+      //me.changeHeartUndiscovered()
+      //me.changeHeartOthers()
+      //me.changeAngiosisUndiscovered()
+      //me.changeAngiosisOthers()
+      //me.changeEyeDiseaseUndiscovered()
+      //me.changeEyeDiseaseOthers()
+      //me.changeNervousSystemDisease()
+      //me.changeOthersSystemDisease()
+      //me.changeEnmedis()
+      //me.changeHealthAss1()
+      //me.changeHazardLoseWeight()
+      //me.changeHazardVaccination()
+      //me.changeHazardOthers()
+      //me.changeHealthAssQtxf()
     },
     changeSymptomOther () {
       var me = this
@@ -2690,7 +2769,7 @@ export default {
     },
     changeHardeningFrequency () {
       var me = this
-      /*if (me.form.hardening_frequency === 4) {
+      if (me.form.hardening_frequency === 4) {
         me.form.every_hardening_time = null
         me.form.insist_hardening_time = null
         me.form.hardening_mode = null
@@ -2702,11 +2781,11 @@ export default {
         me.disabledFlag.disabled_every_hardening_time = false
         me.disabledFlag.disabled_insist_hardening_time = false
         me.disabledFlag.disabled_hardening_mode = false
-      }*/
+      }
     },
     changeSmokingCircumstance () {
       var me = this
-      /*if (me.form.smoking_circumstance === 1) {
+      if (me.form.smoking_circumstance === 1) {
         me.form.daily_smoking_quantity = null
         me.form.begin_smoking_age = null
         me.form.quit_smoking_age = null
@@ -2718,11 +2797,11 @@ export default {
         me.disabledFlag.disabled_daily_smoking_quantity = false
         me.disabledFlag.disabled_begin_smoking_age = false
         me.disabledFlag.disabled_quit_smoking_age = false
-      }*/
+      }
     },
     changeDrinkFrequency () {
       var me = this
-      /*if (me.form.drink_frequency === 1) {
+      if (me.form.drink_frequency === 1) {
         me.form.every_alcohol_tolerance = null
         me.form.is_dry_out = null
         me.form.dry_out_age = null
@@ -2757,7 +2836,7 @@ export default {
         me.disabledFlag.disabled_drink_yellow_wine = false
         me.disabledFlag.disabled_drink_others = false
         me.disabledFlag.disabled_drink_others_str = false
-      }*/
+      }
     },
     changeIsDryOut () {
       var me = this
