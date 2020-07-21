@@ -58,7 +58,7 @@ export default {
       var itemData = dictData
       var item = itemData.filter(
         (itemData) => {
-          return (itemData.dictName === dictName)
+          return (itemData.dict_name === dictName)
         }
       )
       me.items = item

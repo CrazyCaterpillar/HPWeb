@@ -1850,7 +1850,7 @@ export default {
     },
     setBaseDictByType () {
       var me = this
-      var url = '/BaseDict/getDictByType?dictType=HygieneSickMedicalForm'
+      var url = '/PHBaseDict/getDictByType?dictType=HygieneSickMedicalForm'
       var parmString = url.split('?', 2)
       var parmUrl = parmString[0]
       var condition = {condition: parmString[1]}
@@ -1914,7 +1914,7 @@ export default {
           'ud_select_drug_compliance4',
           'ud_select_drug_compliance6',
           'ud_select_drug_compliance5',
-          'ud_select_health_ass_1',
+          'ud_select_health_ass_1'
         ]
         for (var com of refComs) {
           me.$refs[com].$emit(eventName, rpdata)
@@ -1942,64 +1942,64 @@ export default {
       me.changeMissTeeth()
       me.changeDentalCary()
       me.changeDenture()
-      //me.changeEyeground()
-      //me.changeSkin()
-      //me.changeSclera()
-      //me.changeLymphNode()
-      //me.changeLungBarrelChest()
-      //me.changeLungBreathSound()
-      //me.changeLungRhonchus()
-      //me.changeCardiacSouffle()
-      //me.changeAbdoPressPain()
-      //me.changeAbdoMasses()
-      //me.changeAbdoHepatomegaly()
-      //me.changeAbdoSplenomegaly()
-      //me.changeAbdoShiftingDull()
-      //me.changeImmersionFoot()
-      //me.changeFundamentFingerp()
-      //me.changeBreastNotTroubleFind()
-      //me.changeVulva()
-      //me.changeVagina()
-      //me.changeCervix()
-      //me.changeCorpus()
-      //me.changeAttachment()
-      //me.changeElectrocardiogram()
-      //me.changeCxr()
-      //me.changeTypeBUltrasonic()
-      //me.changeCervicalPapSmears()
-      //me.changeGlucoseOutside()
-      //me.changeElectrocardiogramOutside()
-      //me.changeBloodRoutineOutside()
-      //me.changeUrineRoutineOutside()
-      //me.changeBloodFatOutside()
-      //me.changeRenalFunctionOutside()
-      //me.changeLiverFunctionOutside()
-      //me.changeGlycolatedHemoglobinOutside()
-      //me.changeTypeBUltrasonicOutside()
-      //me.changeMicroalbuminuriaOutside()
-      //me.changeStoolOccultBloodOutside()
-      //me.changeCervicalPapSmearsOutside()
-      //me.changeBloodUricAcidOutside()
-      //me.changeBloodRheologyOutside()
-      //me.changeTypeBUltrasonicQt()
-      //me.changeCvdUndiscovered()
-      //me.changeCvdOthers()
-      //me.changeRenalUndiscovered()
-      //me.changeRenalOthers()
-      //me.changeHeartUndiscovered()
-      //me.changeHeartOthers()
-      //me.changeAngiosisUndiscovered()
-      //me.changeAngiosisOthers()
-      //me.changeEyeDiseaseUndiscovered()
-      //me.changeEyeDiseaseOthers()
-      //me.changeNervousSystemDisease()
-      //me.changeOthersSystemDisease()
-      //me.changeEnmedis()
-      //me.changeHealthAss1()
-      //me.changeHazardLoseWeight()
-      //me.changeHazardVaccination()
-      //me.changeHazardOthers()
-      //me.changeHealthAssQtxf()
+      // me.changeEyeground()
+      // me.changeSkin()
+      // me.changeSclera()
+      // me.changeLymphNode()
+      // me.changeLungBarrelChest()
+      // me.changeLungBreathSound()
+      // me.changeLungRhonchus()
+      // me.changeCardiacSouffle()
+      // me.changeAbdoPressPain()
+      // me.changeAbdoMasses()
+      // me.changeAbdoHepatomegaly()
+      // me.changeAbdoSplenomegaly()
+      // me.changeAbdoShiftingDull()
+      // me.changeImmersionFoot()
+      // me.changeFundamentFingerp()
+      // me.changeBreastNotTroubleFind()
+      // me.changeVulva()
+      // me.changeVagina()
+      // me.changeCervix()
+      // me.changeCorpus()
+      // me.changeAttachment()
+      // me.changeElectrocardiogram()
+      // me.changeCxr()
+      // me.changeTypeBUltrasonic()
+      // me.changeCervicalPapSmears()
+      // me.changeGlucoseOutside()
+      // me.changeElectrocardiogramOutside()
+      // me.changeBloodRoutineOutside()
+      // me.changeUrineRoutineOutside()
+      // me.changeBloodFatOutside()
+      // me.changeRenalFunctionOutside()
+      // me.changeLiverFunctionOutside()
+      // me.changeGlycolatedHemoglobinOutside()
+      // me.changeTypeBUltrasonicOutside()
+      // me.changeMicroalbuminuriaOutside()
+      // me.changeStoolOccultBloodOutside()
+      // me.changeCervicalPapSmearsOutside()
+      // me.changeBloodUricAcidOutside()
+      // me.changeBloodRheologyOutside()
+      // me.changeTypeBUltrasonicQt()
+      // me.changeCvdUndiscovered()
+      // me.changeCvdOthers()
+      // me.changeRenalUndiscovered()
+      // me.changeRenalOthers()
+      // me.changeHeartUndiscovered()
+      // me.changeHeartOthers()
+      // me.changeAngiosisUndiscovered()
+      // me.changeAngiosisOthers()
+      // me.changeEyeDiseaseUndiscovered()
+      // me.changeEyeDiseaseOthers()
+      // me.changeNervousSystemDisease()
+      // me.changeOthersSystemDisease()
+      // me.changeEnmedis()
+      // me.changeHealthAss1()
+      // me.changeHazardLoseWeight()
+      // me.changeHazardVaccination()
+      // me.changeHazardOthers()
+      // me.changeHealthAssQtxf()
     },
     changeSymptomOther () {
       var me = this
@@ -2182,8 +2182,7 @@ export default {
       if (me.form.is_dry_out === 2) {
         me.form.dry_out_age = null
         me.disabledFlag.disabled_dry_out_age = true
-      }
-      else if (me.form.is_dry_out === 1)  {
+      } else if (me.form.is_dry_out === 1) {
         me.disabledFlag.disabled_dry_out_age = false
       }
     },
@@ -2192,8 +2191,7 @@ export default {
       if (me.form.drink_others === 0) {
         me.form.drink_others_str = ''
         me.disabledFlag.disabled_drink_others_str = true
-      }
-      else if (me.form.drink_others === 1) {
+      } else if (me.form.drink_others === 1) {
         me.disabledFlag.disabled_drink_others_str = false
       }
     },
@@ -2269,7 +2267,7 @@ export default {
         me.disabledFlag.disabled_hazard_name_dust = true
         me.disabledFlag.disabled_work_time_dust = true
         me.disabledFlag.disabled_poison_dust_ispre = true
-      } else if (me.form.occ_haz_history_1 === 1)  {
+      } else if (me.form.occ_haz_history_1 === 1) {
         me.disabledFlag.disabled_poison_dust = false
         me.disabledFlag.disabled_hazard_name_dust = false
         me.disabledFlag.disabled_work_time_dust = false
@@ -2287,8 +2285,7 @@ export default {
         me.disabledFlag.disabled_hazard_name_rad = true
         me.disabledFlag.disabled_work_time_rad = true
         me.disabledFlag.disabled_poison_radiogen_ispre = true
-      }
-      else if (me.form.occ_haz_history_2 === 1)  {
+      } else if (me.form.occ_haz_history_2 === 1) {
         me.disabledFlag.disabled_poison_radiogen = false
         me.disabledFlag.disabled_hazard_name_rad = false
         me.disabledFlag.disabled_work_time_rad = false
@@ -2306,8 +2303,7 @@ export default {
         me.disabledFlag.disabled_hazard_name_phy = true
         me.disabledFlag.disabled_work_time_phy = true
         me.disabledFlag.disabled_poison_physical_ispre = true
-      }
-      else if (me.form.occ_haz_history_3 === 1)  {
+      } else if (me.form.occ_haz_history_3 === 1) {
         me.disabledFlag.disabled_poison_physicalfactor = false
         me.disabledFlag.disabled_hazard_name_phy = false
         me.disabledFlag.disabled_work_time_phy = false
@@ -2325,8 +2321,7 @@ export default {
         me.disabledFlag.disabled_hazard_name_che = true
         me.disabledFlag.disabled_work_time_che = true
         me.disabledFlag.disabled_poison_chemical_ispre = true
-      }
-      else if (me.form.occ_haz_history_4 === 1)  {
+      } else if (me.form.occ_haz_history_4 === 1) {
         me.disabledFlag.disabled_poison_chemical = false
         me.disabledFlag.disabled_hazard_name_che = false
         me.disabledFlag.disabled_work_time_che = false
@@ -2344,8 +2339,7 @@ export default {
         me.disabledFlag.disabled_hazard_name_oth = true
         me.disabledFlag.disabled_work_time_oth = true
         me.disabledFlag.disabled_poison_others_ispre = true
-      }
-      else if (me.form.occ_haz_history_5 === 1)  {
+      } else if (me.form.occ_haz_history_5 === 1) {
         me.disabledFlag.disabled_poison_others = false
         me.disabledFlag.disabled_hazard_name_oth = false
         me.disabledFlag.disabled_work_time_oth = false
@@ -2385,8 +2379,7 @@ export default {
         me.disabledFlag.disabled_denture_2 = true
         me.disabledFlag.disabled_denture_3 = true
         me.disabledFlag.disabled_denture_4 = true
-      }
-      else if (me.form.dentitiondenture === 0){
+      } else if (me.form.dentitiondenture === 0) {
         me.disabledFlag.disabled_miss_teeth = false
         me.disabledFlag.disabled_dental_cary = false
         me.disabledFlag.disabled_denture = false
@@ -2403,8 +2396,7 @@ export default {
         me.disabledFlag.disabled_miss_teeth_2 = true
         me.disabledFlag.disabled_miss_teeth_3 = true
         me.disabledFlag.disabled_miss_teeth_4 = true
-      }
-      else if (me.form.miss_teeth === 1){
+      } else if (me.form.miss_teeth === 1) {
         me.disabledFlag.disabled_miss_teeth_1 = false
         me.disabledFlag.disabled_miss_teeth_2 = false
         me.disabledFlag.disabled_miss_teeth_3 = false
@@ -2422,8 +2414,7 @@ export default {
         me.disabledFlag.disabled_dental_cary_2 = true
         me.disabledFlag.disabled_dental_cary_3 = true
         me.disabledFlag.disabled_dental_cary_4 = true
-      }
-      else if (me.form.dental_cary === 1){
+      } else if (me.form.dental_cary === 1) {
         me.disabledFlag.disabled_dental_cary_1 = false
         me.disabledFlag.disabled_dental_cary_2 = false
         me.disabledFlag.disabled_dental_cary_3 = false
@@ -2441,8 +2432,7 @@ export default {
         me.disabledFlag.disabled_denture_2 = true
         me.disabledFlag.disabled_denture_3 = true
         me.disabledFlag.disabled_denture_4 = true
-      }
-      else if (me.form.denture === 1){
+      } else if (me.form.denture === 1) {
         me.disabledFlag.disabled_denture_1 = false
         me.disabledFlag.disabled_denture_2 = false
         me.disabledFlag.disabled_denture_3 = false
