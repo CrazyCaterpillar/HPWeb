@@ -2591,18 +2591,18 @@ export default {
       me.changeHardeningFrequency()
       me.changeSmokingCircumstance()
       me.changeDrinkFrequency()
-      //me.changeIsDryOut()
-      //me.changeDrinkOthers()
-      //me.changeOccHazHistory0()
-      //me.changeOccHazHistory1()
-      //me.changeOccHazHistory2()
-      //me.changeOccHazHistory3()
-      //me.changeOccHazHistory4()
-      //me.changeOccHazHistory5()
-      //me.changeDentitiondenture()
-      //me.changeMissTeeth()
-      //me.changeDentalCary()
-      //me.changeDenture()
+      me.changeIsDryOut()
+      me.changeDrinkOthers()
+      me.changeOccHazHistory0()
+      me.changeOccHazHistory1()
+      me.changeOccHazHistory2()
+      me.changeOccHazHistory3()
+      me.changeOccHazHistory4()
+      me.changeOccHazHistory5()
+      me.changeDentitiondenture()
+      me.changeMissTeeth()
+      me.changeDentalCary()
+      me.changeDenture()
       //me.changeEyeground()
       //me.changeSkin()
       //me.changeSclera()
@@ -2830,7 +2830,7 @@ export default {
       } else {
         me.disabledFlag.disabled_every_alcohol_tolerance = false
         me.disabledFlag.disabled_is_dry_out = false
-        me.disabledFlag.disabled_dry_out_age = false
+        //me.disabledFlag.disabled_dry_out_age = false
         me.disabledFlag.disabled_begin_drink_age = false
         me.disabledFlag.disabled_one_year_is_temulentia = false
         me.disabledFlag.disabled_drink_white_spirits = false
@@ -2838,92 +2838,282 @@ export default {
         me.disabledFlag.disabled_drink_red_wine = false
         me.disabledFlag.disabled_drink_yellow_wine = false
         me.disabledFlag.disabled_drink_others = false
-        me.disabledFlag.disabled_drink_others_str = false
+        //me.disabledFlag.disabled_drink_others_str = false
       }
     },
     changeIsDryOut () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.is_dry_out === 2) {
+        me.form.dry_out_age = null
+        me.disabledFlag.disabled_dry_out_age = true
+      }
+      else if (me.form.is_dry_out === 1)  {
+        me.disabledFlag.disabled_dry_out_age = false
+      }
     },
     changeDrinkOthers () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.drink_others === 0) {
+        me.form.drink_others_str = ''
+        me.disabledFlag.disabled_drink_others_str = true
+      }
+      else if (me.form.drink_others === 1) {
+        me.disabledFlag.disabled_drink_others_str = false
+      }
     },
     changeOccHazHistory0 () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.occ_haz_history_0 === 1) {
+        me.form.occ_haz_history_1 = 0
+        me.form.occ_haz_history_2 = 0
+        me.form.occ_haz_history_3 = 0
+        me.form.occ_haz_history_4 = 0
+        me.form.occ_haz_history_5 = 0
+        me.disabledFlag.disabled_occ_haz_history_1 = true
+        me.disabledFlag.disabled_occ_haz_history_2 = true
+        me.disabledFlag.disabled_occ_haz_history_3 = true
+        me.disabledFlag.disabled_occ_haz_history_4 = true
+        me.disabledFlag.disabled_occ_haz_history_5 = true
+        me.form.poison_dust = ''
+        me.form.hazard_name_dust = ''
+        me.form.work_time_dust = null
+        me.form.poison_dust_ispre = null
+        me.disabledFlag.disabled_poison_dust = true
+        me.disabledFlag.disabled_hazard_name_dust = true
+        me.disabledFlag.disabled_work_time_dust = true
+        me.disabledFlag.disabled_poison_dust_ispre = true
+        me.form.poison_radiogen = ''
+        me.form.hazard_name_rad = ''
+        me.form.work_time_rad = null
+        me.form.poison_radiogen_ispre = null
+        me.disabledFlag.disabled_poison_radiogen = true
+        me.disabledFlag.disabled_hazard_name_rad = true
+        me.disabledFlag.disabled_work_time_rad = true
+        me.disabledFlag.disabled_poison_radiogen_ispre = true
+        me.form.poison_physicalfactor = ''
+        me.form.hazard_name_phy = ''
+        me.form.work_time_phy = null
+        me.form.poison_physical_ispre = null
+        me.disabledFlag.disabled_poison_physicalfactor = true
+        me.disabledFlag.disabled_hazard_name_phy = true
+        me.disabledFlag.disabled_work_time_phy = true
+        me.disabledFlag.disabled_poison_physical_ispre = true
+        me.form.poison_chemical = ''
+        me.form.hazard_name_che = ''
+        me.form.work_time_che = null
+        me.form.poison_chemical_ispre = null
+        me.disabledFlag.disabled_poison_chemical = true
+        me.disabledFlag.disabled_hazard_name_che = true
+        me.disabledFlag.disabled_work_time_che = true
+        me.disabledFlag.disabled_poison_chemical_ispre = true
+        me.form.poison_others = ''
+        me.form.hazard_name_oth = ''
+        me.form.work_time_oth = null
+        me.form.poison_others_ispre = null
+        me.disabledFlag.disabled_poison_others = true
+        me.disabledFlag.disabled_hazard_name_oth = true
+        me.disabledFlag.disabled_work_time_oth = true
+        me.disabledFlag.disabled_poison_others_ispre = true
+      }
+      else if (me.form.occ_haz_history_0 === 0)  {
+        me.disabledFlag.disabled_occ_haz_history_1 = false
+        me.disabledFlag.disabled_occ_haz_history_2 = false
+        me.disabledFlag.disabled_occ_haz_history_3 = false
+        me.disabledFlag.disabled_occ_haz_history_4 = false
+        me.disabledFlag.disabled_occ_haz_history_5 = false
+      }
     },
     changeOccHazHistory1 () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.occ_haz_history_1 === 0) {
+        me.form.poison_dust = ''
+        me.form.hazard_name_dust = ''
+        me.form.work_time_dust = null
+        me.form.poison_dust_ispre = null
+        me.disabledFlag.disabled_poison_dust = true
+        me.disabledFlag.disabled_hazard_name_dust = true
+        me.disabledFlag.disabled_work_time_dust = true
+        me.disabledFlag.disabled_poison_dust_ispre = true
+      }
+      else if (me.form.occ_haz_history_1 === 1)  {
+        me.disabledFlag.disabled_poison_dust = false
+        me.disabledFlag.disabled_hazard_name_dust = false
+        me.disabledFlag.disabled_work_time_dust =false
+        me.disabledFlag.disabled_poison_dust_ispre = false
+      }
     },
     changeOccHazHistory2 () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.occ_haz_history_2 === 0) {
+        me.form.poison_radiogen = ''
+        me.form.hazard_name_rad = ''
+        me.form.work_time_rad = null
+        me.form.poison_radiogen_ispre = null
+        me.disabledFlag.disabled_poison_radiogen = true
+        me.disabledFlag.disabled_hazard_name_rad = true
+        me.disabledFlag.disabled_work_time_rad = true
+        me.disabledFlag.disabled_poison_radiogen_ispre = true
+      }
+      else if (me.form.occ_haz_history_2 === 1)  {
+        me.disabledFlag.disabled_poison_radiogen = false
+        me.disabledFlag.disabled_hazard_name_rad = false
+        me.disabledFlag.disabled_work_time_rad = false
+        me.disabledFlag.disabled_poison_radiogen_ispre = false
+      }
     },
     changeOccHazHistory3 () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.occ_haz_history_3 === 0) {
+        me.form.poison_physicalfactor = ''
+        me.form.hazard_name_phy = ''
+        me.form.work_time_phy = null
+        me.form.poison_physical_ispre = null
+        me.disabledFlag.disabled_poison_physicalfactor = true
+        me.disabledFlag.disabled_hazard_name_phy = true
+        me.disabledFlag.disabled_work_time_phy = true
+        me.disabledFlag.disabled_poison_physical_ispre = true
+      }
+      else if (me.form.occ_haz_history_3 === 1)  {
+        me.disabledFlag.disabled_poison_physicalfactor = false
+        me.disabledFlag.disabled_hazard_name_phy = false
+        me.disabledFlag.disabled_work_time_phy = false
+        me.disabledFlag.disabled_poison_physical_ispre = false
+      }
     },
     changeOccHazHistory4 () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.occ_haz_history_4 === 0) {
+        me.form.poison_chemical = ''
+        me.form.hazard_name_che = ''
+        me.form.work_time_che = null
+        me.form.poison_chemical_ispre = null
+        me.disabledFlag.disabled_poison_chemical = true
+        me.disabledFlag.disabled_hazard_name_che = true
+        me.disabledFlag.disabled_work_time_che = true
+        me.disabledFlag.disabled_poison_chemical_ispre = true
+      }
+      else if (me.form.occ_haz_history_4 === 1)  {
+        me.disabledFlag.disabled_poison_chemical = false
+        me.disabledFlag.disabled_hazard_name_che = false
+        me.disabledFlag.disabled_work_time_che = false
+        me.disabledFlag.disabled_poison_chemical_ispre = false
+      }
     },
     changeOccHazHistory5 () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.occ_haz_history_5 === 0) {
+        me.form.poison_others = ''
+        me.form.hazard_name_oth = ''
+        me.form.work_time_oth = null
+        me.form.poison_others_ispre = null
+        me.disabledFlag.disabled_poison_others = true
+        me.disabledFlag.disabled_hazard_name_oth = true
+        me.disabledFlag.disabled_work_time_oth = true
+        me.disabledFlag.disabled_poison_others_ispre = true
+      }
+      else if (me.form.occ_haz_history_5 === 1)  {
+        me.disabledFlag.disabled_poison_others = false
+        me.disabledFlag.disabled_hazard_name_oth = false
+        me.disabledFlag.disabled_work_time_oth = false
+        me.disabledFlag.disabled_poison_others_ispre = false
+      }
     },
     changeDentitiondenture () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.dentitiondenture === 1) {
+        me.form.miss_teeth = 0
+        me.form.dental_cary = 0
+        me.form.denture = 0
+        me.disabledFlag.disabled_miss_teeth = true
+        me.disabledFlag.disabled_dental_cary = true
+        me.disabledFlag.disabled_denture = true
+        me.form.miss_teeth_1 = ''
+        me.form.miss_teeth_2 = ''
+        me.form.miss_teeth_3 = ''
+        me.form.miss_teeth_4 = ''
+        me.disabledFlag.disabled_miss_teeth_1 = true
+        me.disabledFlag.disabled_miss_teeth_2 = true
+        me.disabledFlag.disabled_miss_teeth_3 = true
+        me.disabledFlag.disabled_miss_teeth_4 = true
+        me.form.dental_cary_1 = ''
+        me.form.dental_cary_2 = ''
+        me.form.dental_cary_3 = ''
+        me.form.dental_cary_4 = ''
+        me.disabledFlag.disabled_dental_cary_1 = true
+        me.disabledFlag.disabled_dental_cary_2 = true
+        me.disabledFlag.disabled_dental_cary_3 = true
+        me.disabledFlag.disabled_dental_cary_4 = true
+        me.form.denture_1 = ''
+        me.form.denture_2 = ''
+        me.form.denture_3 = ''
+        me.form.denture_4 = ''
+        me.disabledFlag.disabled_denture_1 = true
+        me.disabledFlag.disabled_denture_2 = true
+        me.disabledFlag.disabled_denture_3 = true
+        me.disabledFlag.disabled_denture_4 = true
+      }
+      else if (me.form.dentitiondenture === 0){
+        me.disabledFlag.disabled_miss_teeth = false
+        me.disabledFlag.disabled_dental_cary = false
+        me.disabledFlag.disabled_denture = false
+      }
     },
     changeMissTeeth () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.miss_teeth === 0) {
+        me.form.miss_teeth_1 = ''
+        me.form.miss_teeth_2 = ''
+        me.form.miss_teeth_3 = ''
+        me.form.miss_teeth_4 = ''
+        me.disabledFlag.disabled_miss_teeth_1 = true
+        me.disabledFlag.disabled_miss_teeth_2 = true
+        me.disabledFlag.disabled_miss_teeth_3 = true
+        me.disabledFlag.disabled_miss_teeth_4 = true
+      }
+      else if (me.form.miss_teeth === 1){
+        me.disabledFlag.disabled_miss_teeth_1 = false
+        me.disabledFlag.disabled_miss_teeth_2 = false
+        me.disabledFlag.disabled_miss_teeth_3 = false
+        me.disabledFlag.disabled_miss_teeth_4 = false
+      }
     },
     changeDentalCary () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.dental_cary === 0) {
+        me.form.dental_cary_1 = ''
+        me.form.dental_cary_2 = ''
+        me.form.dental_cary_3 = ''
+        me.form.dental_cary_4 = ''
+        me.disabledFlag.disabled_dental_cary_1 = true
+        me.disabledFlag.disabled_dental_cary_2 = true
+        me.disabledFlag.disabled_dental_cary_3 = true
+        me.disabledFlag.disabled_dental_cary_4 = true
+      }
+      else if (me.form.dental_cary === 1){
+        me.disabledFlag.disabled_dental_cary_1 = false
+        me.disabledFlag.disabled_dental_cary_2 = false
+        me.disabledFlag.disabled_dental_cary_3 = false
+        me.disabledFlag.disabled_dental_cary_4 = false
+      }
     },
     changeDenture () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.denture === 0) {
+        me.form.denture_1 = ''
+        me.form.denture_2 = ''
+        me.form.denture_3 = ''
+        me.form.denture_4 = ''
+        me.disabledFlag.disabled_denture_1 = true
+        me.disabledFlag.disabled_denture_2 = true
+        me.disabledFlag.disabled_denture_3 = true
+        me.disabledFlag.disabled_denture_4 = true
+      }
+      else if (me.form.denture === 1){
+        me.disabledFlag.disabled_denture_1 = false
+        me.disabledFlag.disabled_denture_2 = false
+        me.disabledFlag.disabled_denture_3 = false
+        me.disabledFlag.disabled_denture_4 = false
+      }
     },
     changeEyeground () {
       var me = this
