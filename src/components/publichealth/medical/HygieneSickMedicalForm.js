@@ -672,166 +672,166 @@ export default {
           { max: 200, message: '长度小于等于200个字符', trigger: 'blur' }
         ],
         body_temperature: [
-          { validator: this.validatorBody_temperature, trigger: 'blur', decimal: 1, min: 35, max: 42 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 1, min: 35, max: 42 }
         ],
         pulse_frequency: [
-          { validator: this.validatorPulse_frequency, trigger: 'blur', decimal: 2, min: 40, max: 180 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 40, max: 180 }
         ],
         respiratory_rate: [
-          { validator: this.validatorRespiratory_rate, trigger: 'blur', decimal: 0, min: 10, max: 50 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 10, max: 50 }
         ],
         blood_pressure_left_d: [
-          { validator: this.validatorBlood_pressure_left_d, trigger: 'blur', decimal: 0, min: 30, max: 150 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 30, max: 150 }
         ],
         blood_pressure_left_u: [
-          { validator: this.validatorBlood_pressure_left_u, trigger: 'blur', decimal: 0, min: 70, max: 300 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 70, max: 300 }
         ],
         blood_pressure_rigth_d: [
-          { validator: this.validatorBlood_pressure_rigth_d, trigger: 'blur', decimal: 0, min: 30, max: 150 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 30, max: 150 }
         ],
         blood_pressure_rigth_u: [
-          { validator: this.validatorBlood_pressure_rigth_u, trigger: 'blur', decimal: 0, min: 70, max: 300 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 70, max: 300 }
         ],
         blood_pre_sec_d: [
-          { validator: this.validatorBlood_pre_sec_d, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         blood_pre_sec_u: [
-          { validator: this.validatorBlood_pre_sec_u, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         blood_pre_thr_d: [
-          { validator: this.validatorBlood_pre_thr_d, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         blood_pre_thr_u: [
-          { validator: this.validatorBlood_pre_thr_u, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         height: [
-          { validator: this.validatorHeight, trigger: 'blur', decimal: 2, min: 40, max: 250 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 40, max: 250 }
         ],
         weight: [
-          { validator: this.validatorWeight, trigger: 'blur', decimal: 2, min: 10, max: 150 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 10, max: 150 }
         ],
         waist: [
-          { validator: this.validatorWaist, trigger: 'blur', decimal: 2, min: 40, max: 200 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 40, max: 200 }
         ],
         bmi: [
-          { validator: this.validatorBmi, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         mini_mental_state_examination: [
-          { validator: this.validatorMini_mental_state_examination, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         elderly_depression_check: [
-          { validator: this.validatorElderly_depression_check, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         every_hardening_time: [
-          { validator: this.validatorEvery_hardening_time, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         insist_hardening_time: [
-          { validator: this.validatorInsist_hardening_time, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         hardening_mode: [
           { max: 40, message: '长度小于等于40个字符', trigger: 'blur' }
         ],
         daily_smoking_quantity: [
-          { validator: this.validatorDaily_smoking_quantity, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         begin_smoking_age: [
-          { validator: this.validatorBegin_smoking_age, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         quit_smoking_age: [
-          { validator: this.validatorQuit_smoking_age, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         every_alcohol_tolerance: [
-          { validator: this.validatorEvery_alcohol_tolerance, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         dry_out_age: [
-          { validator: this.validatorDry_out_age, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         begin_drink_age: [
-          { validator: this.validatorBegin_drink_age, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         drink_others_str: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         occupational_disease_work_time: [
-          { validator: this.validatorOccupational_disease_work_time, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         hazard_name_dust: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         work_time_dust: [
-          { validator: this.validatorWork_time_dust, trigger: 'blur', decimal: 1, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 1, min: 0 }
         ],
         hazard_name_rad: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         work_time_rad: [
-          { validator: this.validatorWork_time_rad, trigger: 'blur', decimal: 1, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 1, min: 0 }
         ],
         hazard_name_phy: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         work_time_phy: [
-          { validator: this.validatorWork_time_phy, trigger: 'blur', decimal: 1, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 1, min: 0 }
         ],
         hazard_name_che: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         work_time_che: [
-          { validator: this.validatorWork_time_che, trigger: 'blur', decimal: 1, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 1, min: 0 }
         ],
         hazard_name_oth: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         work_time_oth: [
-          { validator: this.validatorWork_time_oth, trigger: 'blur', decimal: 1, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 1, min: 0 }
         ],
         miss_teeth_1: [
-          { validator: this.validatorMiss_teeth_1, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         miss_teeth_2: [
-          { validator: this.validatorMiss_teeth_2, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         miss_teeth_3: [
-          { validator: this.validatorMiss_teeth_3, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         miss_teeth_4: [
-          { validator: this.validatorMiss_teeth_4, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         dental_cary_1: [
-          { validator: this.validatorDental_cary_1, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         dental_cary_2: [
-          { validator: this.validatorDental_cary_2, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         dental_cary_3: [
-          { validator: this.validatorDental_cary_3, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         dental_cary_4: [
-          { validator: this.validatorDental_cary_4, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         denture_1: [
-          { validator: this.validatorDenture_1, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         denture_2: [
-          { validator: this.validatorDenture_2, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         denture_3: [
-          { validator: this.validatorDenture_3, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         denture_4: [
-          { validator: this.validatorDenture_4, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         vision_left_eye: [
-          { validator: this.validatorVision_left_eye, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         vision_right_eye: [
-          { validator: this.validatorVision_right_eye, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         straighten_vision_left_eye: [
-          { validator: this.validatorStraighten_vision_left_eye, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         straighten_vision_right_eye: [
-          { validator: this.validatorStraighten_vision_right_eye, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         eyeground_exception: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
@@ -852,10 +852,10 @@ export default {
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
         ],
         heart_rate: [
-          { validator: this.validatorHeart_rate, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         cardiac_rhythm: [
-          { validator: this.validatorCardiac_rhythm, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         cardiac_souffle_others: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
@@ -900,13 +900,13 @@ export default {
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
         ],
         hemoglobin: [
-          { validator: this.validatorHemoglobin, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         leukocyte: [
-          { validator: this.validatorLeukocyte, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         platelet: [
-          { validator: this.validatorPlatelet, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         blood_routine_others: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
@@ -927,10 +927,10 @@ export default {
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
         ],
         fasting_plasma_glucose_l: [
-          { validator: this.validatorFasting_plasma_glucose_l, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         fasting_plasma_glucose_dl: [
-          { validator: this.validatorFasting_plasma_glucose_dl, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         electrocardiogram_excep: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
@@ -942,43 +942,43 @@ export default {
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         liver_function_salt: [
-          { validator: this.validatorLiver_function_salt, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         liver_function_sgot: [
-          { validator: this.validatorLiver_function_sgot, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         liver_function_albumin: [
-          { validator: this.validatorLiver_function_albumin, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         liver_function_total_bilirubin: [
-          { validator: this.validatorLiver_function_total_bilirubin, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         liver_function_cb: [
-          { validator: this.validatorLiver_function_cb, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         renal_function_creatinine: [
-          { validator: this.validatorRenal_function_creatinine, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         renal_function_bun: [
-          { validator: this.validatorRenal_function_bun, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         renal_function_blood_potassium: [
-          { validator: this.validatorRenal_function_blood_potassium, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         renal_function_natremia: [
-          { validator: this.validatorRenal_function_natremia, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_fat_tc: [
-          { validator: this.validatorBlood_fat_tc, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_fat_triglyceride: [
-          { validator: this.validatorBlood_fat_triglyceride, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_fat_ldlc: [
-          { validator: this.validatorBlood_fat_ldlc, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_fat_hdlc: [
-          { validator: this.validatorBlood_fat_hdlc, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         cxr_exception: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
@@ -993,7 +993,7 @@ export default {
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
         ],
         random_glucose: [
-          { validator: this.validatorRandom_glucose, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         lungs_content: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
@@ -1005,100 +1005,100 @@ export default {
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
         ],
         liver_fun_alb_all: [
-          { validator: this.validatorLiver_fun_alb_all, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         wbc_1: [
-          { validator: this.validatorWbc_1, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         wbc_2: [
-          { validator: this.validatorWbc_2, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         wbc_3: [
-          { validator: this.validatorWbc_3, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_uric_acid: [
-          { validator: this.validatorBlood_uric_acid, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_high_rate: [
-          { validator: this.validatorBlood_rheology_high_rate, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_high_rate_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_middle_rate: [
-          { validator: this.validatorBlood_rheology_middle_rate, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_middle_rate_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_low_rate: [
-          { validator: this.validatorBlood_rheology_low_rate, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_low_rate_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_viscosity: [
-          { validator: this.validatorBlood_rheology_viscosity, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_viscosity_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_sedi: [
-          { validator: this.validatorBlood_rheology_sedi, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_sedi_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_hematocrit: [
-          { validator: this.validatorBlood_rheology_hematocrit, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_hematocrit_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_h_relative: [
-          { validator: this.validatorBlood_rheology_h_relative, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_h_relative_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_l_relative: [
-          { validator: this.validatorBlood_rheology_l_relative, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_l_relative_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_equationk: [
-          { validator: this.validatorBlood_rheology_equationk, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_equationk_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_aggregation: [
-          { validator: this.validatorBlood_rheology_aggregation, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_aggregation_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_l_reduced: [
-          { validator: this.validatorBlood_rheology_l_reduced, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_l_reduced_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_h_reduced: [
-          { validator: this.validatorBlood_rheology_h_reduced, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_h_reduced_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_r_cell: [
-          { validator: this.validatorBlood_rheology_r_cell, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_r_cell_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
         ],
         blood_rheology_r_cell_tk: [
-          { validator: this.validatorBlood_rheology_r_cell_tk, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_rheology_r_cell_tk_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
@@ -1113,19 +1113,19 @@ export default {
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         urine_routine_ph_value: [
-          { validator: this.validatorUrine_routine_ph_value, trigger: 'blur', decimal: 2 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2 }
         ],
         urine_routine_proportionof: [
-          { validator: this.validatorUrine_routine_proportionof, trigger: 'blur', decimal: 3 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3 }
         ],
         urine_routine_nitrite: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         renal_failure_uric_acid: [
-          { validator: this.validatorRenal_failure_uric_acid, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_routine_red_cell: [
-          { validator: this.validatorBlood_routine_red_cell, trigger: 'blur', decimal: 3, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3, min: 0 }
         ],
         blood_routine_outside_others: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
@@ -1179,7 +1179,7 @@ export default {
           { max: 250, message: '长度小于等于250个字符', trigger: 'blur' }
         ],
         fibrinogen: [
-          { validator: this.validatorFibrinogen, trigger: 'blur', decimal: 3 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 3 }
         ],
         fibrinogen_un: [
           { max: 10, message: '长度小于等于10个字符', trigger: 'blur' }
@@ -1212,7 +1212,7 @@ export default {
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
         ],
         hazard_lose_weight_target: [
-          { validator: this.validatorHazard_lose_weight_target, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         hazard_vaccination_str: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
@@ -1433,7 +1433,7 @@ export default {
         disabled_health_ass_25: true,
         disabled_health_ass_26: true,
         disabled_create_operator_name: true,
-        disabled_team_id_name: true,
+        disabled_team_id_name: true
       },
       readonlyFlag: {
         readonly_bmi: true,
@@ -1715,750 +1715,6 @@ export default {
         this.$forceUpdate()
       }
     },
-    validatorBody_temperature (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorPulse_frequency (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorRespiratory_rate (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_pressure_left_d (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_pressure_left_u (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_pressure_rigth_d (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_pressure_rigth_u (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_pre_sec_d (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_pre_sec_u (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_pre_thr_d (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_pre_thr_u (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorHeight (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWeight (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWaist (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBmi (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorMini_mental_state_examination (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorElderly_depression_check (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorEvery_hardening_time (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorInsist_hardening_time (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorDaily_smoking_quantity (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBegin_smoking_age (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorQuit_smoking_age (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorEvery_alcohol_tolerance (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorDry_out_age (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBegin_drink_age (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorOccupational_disease_work_time (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWork_time_dust (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWork_time_rad (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWork_time_phy (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWork_time_che (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWork_time_oth (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorMiss_teeth_1 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorMiss_teeth_2 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorMiss_teeth_3 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorMiss_teeth_4 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorDental_cary_1 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorDental_cary_2 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorDental_cary_3 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorDental_cary_4 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorDenture_1 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorDenture_2 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorDenture_3 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorDenture_4 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorVision_left_eye (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorVision_right_eye (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorStraighten_vision_left_eye (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorStraighten_vision_right_eye (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorHeart_rate (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorCardiac_rhythm (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorHemoglobin (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorLeukocyte (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorPlatelet (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorFasting_plasma_glucose_l (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorFasting_plasma_glucose_dl (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorLiver_function_salt (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorLiver_function_sgot (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorLiver_function_albumin (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorLiver_function_total_bilirubin (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorLiver_function_cb (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorRenal_function_creatinine (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorRenal_function_bun (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorRenal_function_blood_potassium (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorRenal_function_natremia (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_fat_tc (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_fat_triglyceride (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_fat_ldlc (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_fat_hdlc (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorRandom_glucose (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorLiver_fun_alb_all (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWbc_1 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWbc_2 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWbc_3 (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_uric_acid (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_high_rate (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_middle_rate (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_low_rate (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_viscosity (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_sedi (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_hematocrit (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_h_relative (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_l_relative (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_equationk (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_aggregation (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_l_reduced (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_h_reduced (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_r_cell (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_rheology_r_cell_tk (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorUrine_routine_ph_value (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorUrine_routine_proportionof (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorRenal_failure_uric_acid (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorBlood_routine_red_cell (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorFibrinogen (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorHazard_lose_weight_target (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
     butSubmitClick () {
       var me = this
       me.recordSubmit()
@@ -2582,6 +1838,89 @@ export default {
           message: '数据保存失败！' + error,
           type: 'error'
         })
+      })
+    },
+    validationNumber (rule, value, callback) {
+      var result = this.Util.validationNumber(value, rule)
+      if (result.status === 'error') {
+        callback(new Error(result.message))
+      } else {
+        callback()
+      }
+    },
+    setBaseDictByType () {
+      var me = this
+      var url = '/BaseDict/getDictByType?dictType=0'
+      var parmString = url.split('?', 2)
+      var parmUrl = parmString[0]
+      var condition = {condition: parmString[1]}
+      me.axiosPost(
+        parmUrl,
+        condition
+      ).then(function (response) {
+        var rpdata = response.data.rows
+        var eventName = 'setItemData'
+        var refComs = [
+          'ud_select_medical_way',
+          'ud_select_elderly_health_status',
+          'ud_select_elderly_self_care',
+          'ud_select_elderly_cognitive_fun',
+          'ud_select_elderly_affective_state',
+          'ud_select_hardening_frequency',
+          'ud_select_smoking_circumstance',
+          'ud_select_drink_frequency',
+          'ud_select_is_dry_out',
+          'ud_select_one_year_is_temulentia',
+          'ud_select_lips',
+          'ud_select_pharyngealportion',
+          'ud_select_audition',
+          'ud_select_motor_function',
+          'ud_select_eyeground',
+          'ud_select_skin',
+          'ud_select_sclera',
+          'ud_select_lymph_node',
+          'ud_select_lung_barrel_chest',
+          'ud_select_lung_breath_sound',
+          'ud_select_lung_rhonchus',
+          'ud_select_cardiac_rhythm',
+          'ud_select_cardiac_souffle',
+          'ud_select_abdo_press_pain',
+          'ud_select_abdo_masses',
+          'ud_select_abdo_hepatomegaly',
+          'ud_select_abdo_splenomegaly',
+          'ud_select_abdo_shifting_dull',
+          'ud_select_immersion_foot',
+          'ud_select_dorsum_of_foot_arteriopalmus',
+          'ud_select_fundament_fingerp',
+          'ud_select_vulva',
+          'ud_select_vagina',
+          'ud_select_cervix',
+          'ud_select_corpus',
+          'ud_select_attachment',
+          'ud_select_electrocardiogram',
+          'ud_select_stool_occult_blood',
+          'ud_select_hbsag',
+          'ud_select_cxr',
+          'ud_select_type_b_ultrasonic',
+          'ud_select_cervical_pap_smears',
+          'ud_select_urine_routine',
+          'ud_select_type_b_ultrasonic_qt',
+          'ud_select_nervous_system_disease',
+          'ud_select_enmedis',
+          'ud_select_other_disease_no',
+          'ud_select_drug_compliance1',
+          'ud_select_drug_compliance2',
+          'ud_select_drug_compliance3',
+          'ud_select_drug_compliance4',
+          'ud_select_drug_compliance6',
+          'ud_select_drug_compliance5',
+          'ud_select_health_ass_1',
+        ]
+        for (var com of refComs) {
+          me.$refs[com].$emit(eventName, rpdata)
+        }
+      }).catch(function (error) {
+        console.log(error)
       })
     },
     initFormControls () {
@@ -2758,15 +2097,14 @@ export default {
       var me = this
       me.setBmi()
     },
-    setBmi(){
+    setBmi () {
       var me = this
       if (me.form.height > 0 && me.form.weight > 0) {
         var height = parseInt(me.form.height)
         var weight = parseInt(me.form.weight)
-        height = height / 100;
+        height = height / 100
         me.form.bmi = parseFloat(weight / (height * height)).toFixed(2)
-      }
-      else{
+      } else {
         me.form.bmi = null
       }
     },
@@ -2779,8 +2117,7 @@ export default {
         me.disabledFlag.disabled_every_hardening_time = true
         me.disabledFlag.disabled_insist_hardening_time = true
         me.disabledFlag.disabled_hardening_mode = true
-      }
-      else {
+      } else {
         me.disabledFlag.disabled_every_hardening_time = false
         me.disabledFlag.disabled_insist_hardening_time = false
         me.disabledFlag.disabled_hardening_mode = false
@@ -2795,8 +2132,7 @@ export default {
         me.disabledFlag.disabled_daily_smoking_quantity = true
         me.disabledFlag.disabled_begin_smoking_age = true
         me.disabledFlag.disabled_quit_smoking_age = true
-      }
-      else {
+      } else {
         me.disabledFlag.disabled_daily_smoking_quantity = false
         me.disabledFlag.disabled_begin_smoking_age = false
         me.disabledFlag.disabled_quit_smoking_age = false
@@ -2830,7 +2166,7 @@ export default {
       } else {
         me.disabledFlag.disabled_every_alcohol_tolerance = false
         me.disabledFlag.disabled_is_dry_out = false
-        //me.disabledFlag.disabled_dry_out_age = false
+        // me.disabledFlag.disabled_dry_out_age = false
         me.disabledFlag.disabled_begin_drink_age = false
         me.disabledFlag.disabled_one_year_is_temulentia = false
         me.disabledFlag.disabled_drink_white_spirits = false
@@ -2838,7 +2174,7 @@ export default {
         me.disabledFlag.disabled_drink_red_wine = false
         me.disabledFlag.disabled_drink_yellow_wine = false
         me.disabledFlag.disabled_drink_others = false
-        //me.disabledFlag.disabled_drink_others_str = false
+        // me.disabledFlag.disabled_drink_others_str = false
       }
     },
     changeIsDryOut () {
@@ -2914,8 +2250,7 @@ export default {
         me.disabledFlag.disabled_hazard_name_oth = true
         me.disabledFlag.disabled_work_time_oth = true
         me.disabledFlag.disabled_poison_others_ispre = true
-      }
-      else if (me.form.occ_haz_history_0 === 0)  {
+      } else if (me.form.occ_haz_history_0 === 0) {
         me.disabledFlag.disabled_occ_haz_history_1 = false
         me.disabledFlag.disabled_occ_haz_history_2 = false
         me.disabledFlag.disabled_occ_haz_history_3 = false
@@ -2934,11 +2269,10 @@ export default {
         me.disabledFlag.disabled_hazard_name_dust = true
         me.disabledFlag.disabled_work_time_dust = true
         me.disabledFlag.disabled_poison_dust_ispre = true
-      }
-      else if (me.form.occ_haz_history_1 === 1)  {
+      } else if (me.form.occ_haz_history_1 === 1)  {
         me.disabledFlag.disabled_poison_dust = false
         me.disabledFlag.disabled_hazard_name_dust = false
-        me.disabledFlag.disabled_work_time_dust =false
+        me.disabledFlag.disabled_work_time_dust = false
         me.disabledFlag.disabled_poison_dust_ispre = false
       }
     },
@@ -3533,6 +2867,7 @@ export default {
     var me = this
     me.$on('open', function (parm) {
       me.init(parm)
+      me.setBaseDictByType()
     })
     me.$on('recordSubmit', function () {
       me.recordSubmit()
