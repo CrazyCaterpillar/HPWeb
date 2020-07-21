@@ -48,6 +48,20 @@ export default {
     },
     change: function (val) {
       this.$emit('input', val)
+    },
+    setItemData (dictData) {
+      var me = this
+      var parmString = me.url.split('?', 2)
+      var condition = parmString[1]
+      var dictName = condition.split('=', 2)
+      dictName = dictName[1]
+      var itemData = dictData
+      var item = itemData.filter(
+        (itemData) => {
+          return (itemData.dictName === dictName)
+        }
+      )
+      me.items = item
     }
   },
   mounted () {
@@ -56,7 +70,10 @@ export default {
       me.url = parm
       me.loadData()
     })
-    me.loadData()
+    me.$on('setItemData', function (dictData) {
+      me.setItemData(dictData)
+    })
+    // me.loadData()
   }
 }
 </script>
