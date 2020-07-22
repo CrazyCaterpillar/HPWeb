@@ -1942,20 +1942,18 @@ export default {
       me.changeMissTeeth()
       me.changeDentalCary()
       me.changeDenture()
-      // me.changeEyeground()
-      // me.changeSkin()
-      // me.changeSclera()
-      // me.changeLymphNode()
-      // me.changeLungBarrelChest()
-      // me.changeLungBreathSound()
-      // me.changeLungRhonchus()
-      // me.changeCardiacSouffle()
-      // me.changeAbdoPressPain()
-      // me.changeAbdoMasses()
-      // me.changeAbdoHepatomegaly()
-      // me.changeAbdoSplenomegaly()
-      // me.changeAbdoShiftingDull()
-      // me.changeImmersionFoot()
+      me.changeEyeground()
+      me.changeSkin()
+      me.changeSclera()
+      me.changeLymphNode()
+      me.changeLungBreathSound()
+      me.changeLungRhonchus()
+      me.changeCardiacSouffle()
+      me.changeAbdoPressPain()
+      me.changeAbdoMasses()
+      me.changeAbdoHepatomegaly()
+      me.changeAbdoSplenomegaly()
+      me.changeAbdoShiftingDull()
       // me.changeFundamentFingerp()
       // me.changeBreastNotTroubleFind()
       // me.changeVulva()
@@ -2117,7 +2115,7 @@ export default {
         me.disabledFlag.disabled_every_hardening_time = true
         me.disabledFlag.disabled_insist_hardening_time = true
         me.disabledFlag.disabled_hardening_mode = true
-      } else {
+      } else if (me.form.hardening_frequency >= 1 && me.form.hardening_frequency <= 3) {
         me.disabledFlag.disabled_every_hardening_time = false
         me.disabledFlag.disabled_insist_hardening_time = false
         me.disabledFlag.disabled_hardening_mode = false
@@ -2132,7 +2130,7 @@ export default {
         me.disabledFlag.disabled_daily_smoking_quantity = true
         me.disabledFlag.disabled_begin_smoking_age = true
         me.disabledFlag.disabled_quit_smoking_age = true
-      } else {
+      } else if (me.form.smoking_circumstance >= 2 && me.form.smoking_circumstance <= 3) {
         me.disabledFlag.disabled_daily_smoking_quantity = false
         me.disabledFlag.disabled_begin_smoking_age = false
         me.disabledFlag.disabled_quit_smoking_age = false
@@ -2163,10 +2161,9 @@ export default {
         me.disabledFlag.disabled_drink_yellow_wine = true
         me.disabledFlag.disabled_drink_others = true
         me.disabledFlag.disabled_drink_others_str = true
-      } else {
+      } else if (me.form.drink_frequency >= 2 && me.form.drink_frequency <= 4) {
         me.disabledFlag.disabled_every_alcohol_tolerance = false
         me.disabledFlag.disabled_is_dry_out = false
-        // me.disabledFlag.disabled_dry_out_age = false
         me.disabledFlag.disabled_begin_drink_age = false
         me.disabledFlag.disabled_one_year_is_temulentia = false
         me.disabledFlag.disabled_drink_white_spirits = false
@@ -2174,7 +2171,6 @@ export default {
         me.disabledFlag.disabled_drink_red_wine = false
         me.disabledFlag.disabled_drink_yellow_wine = false
         me.disabledFlag.disabled_drink_others = false
-        // me.disabledFlag.disabled_drink_others_str = false
       }
     },
     changeIsDryOut () {
@@ -2441,115 +2437,154 @@ export default {
     },
     changeEyeground () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.eyeground === 1) {
+        me.form.eyeground_exception = ''
+        me.disabledFlag.disabled_eyeground_exception = true
+      } else if (me.form.eyeground === 2) {
+        me.disabledFlag.disabled_eyeground_exception = false
+      }
     },
     changeSkin () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.skin === 7) {
+        me.disabledFlag.disabled_skin_others = false
+      } else if (me.form.skin >= 1 && me.form.skin <= 6) {
+        me.form.skin_others = ''
+        me.disabledFlag.disabled_skin_others = true
+      }
     },
     changeSclera () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.sclera === 4) {
+        me.disabledFlag.disabled_sclera_others = false
+      } else if (me.form.sclera >= 1 && me.form.sclera <= 3) {
+        me.form.sclera_others = ''
+        me.disabledFlag.disabled_sclera_others = true
+      }
     },
     changeLymphNode () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.lymph_node === 4) {
+        me.disabledFlag.disabled_lymph_node_others = false
+      } else if (me.form.lymph_node >= 1 && me.form.lymph_node <= 3) {
+        me.form.lymph_node_others = ''
+        me.disabledFlag.disabled_lymph_node_others = true
+      }
     },
-    changeLungBarrelChest () {
-      var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
-    },
+    // changeLungBarrelChest () {
+    //   var me = this
+    //   me.$message({
+    //     message: '变更',
+    //     type: 'warning'
+    //   })
+    // },
     changeLungBreathSound () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.lung_breath_sound === 1) {
+        me.form.lung_breath_sound_excep = ''
+        me.disabledFlag.disabled_lung_breath_sound_excep = true
+      } else if (me.form.lung_breath_sound === 2) {
+        me.disabledFlag.disabled_lung_breath_sound_excep = false
+      }
     },
     changeLungRhonchus () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.lung_rhonchus === 4) {
+        me.disabledFlag.disabled_lung_rhonchus_exception = false
+      } else if (me.form.lung_rhonchus >= 1 && me.form.lung_rhonchus <= 3) {
+        me.form.lung_rhonchus_exception = ''
+        me.disabledFlag.disabled_lung_rhonchus_exception = true
+      }
     },
     changeCardiacSouffle () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.cardiac_souffle === 1) {
+        me.disabledFlag.disabled_cardiac_souffle_others = false
+      } else if (me.form.cardiac_souffle === 0) {
+        me.form.cardiac_souffle_others = ''
+        me.disabledFlag.disabled_cardiac_souffle_others = true
+      }
     },
     changeAbdoPressPain () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.abdo_press_pain === 1) {
+        me.disabledFlag.disabled_abdo_press_pain_oth = false
+      } else if (me.form.abdo_press_pain === 0) {
+        me.form.abdo_press_pain_oth = ''
+        me.disabledFlag.disabled_abdo_press_pain_oth = true
+      }
     },
     changeAbdoMasses () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.abdo_masses === 1) {
+        me.disabledFlag.disabled_abdo_masses_others = false
+      } else if (me.form.abdo_masses === 0) {
+        me.form.abdo_masses_others = ''
+        me.disabledFlag.disabled_abdo_masses_others = true
+      }
     },
     changeAbdoHepatomegaly () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.abdo_hepatomegaly === 1) {
+        me.disabledFlag.disabled_abdo_hepatomegaly_oth = false
+      } else if (me.form.abdo_hepatomegaly === 0) {
+        me.form.abdo_hepatomegaly_oth = ''
+        me.disabledFlag.disabled_abdo_hepatomegaly_oth = true
+      }
     },
     changeAbdoSplenomegaly () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.abdo_splenomegaly === 1) {
+        me.disabledFlag.disabled_abdo_splenomegaly_oth = false
+      } else if (me.form.abdo_splenomegaly === 0) {
+        me.form.abdo_splenomegaly_oth = ''
+        me.disabledFlag.disabled_abdo_splenomegaly_oth = true
+      }
     },
     changeAbdoShiftingDull () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.abdo_shifting_dull === 1) {
+        me.disabledFlag.disabled_abdo_shifting_dull_oth = false
+      } else if (me.form.abdo_shifting_dull === 0) {
+        me.form.abdo_shifting_dull_oth = ''
+        me.disabledFlag.disabled_abdo_shifting_dull_oth = true
+      }
     },
-    changeImmersionFoot () {
-      var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
-    },
+    // changeImmersionFoot () {
+    //   var me = this
+    //   me.$message({
+    //     message: '变更',
+    //     type: 'warning'
+    //   })
+    // },
     changeFundamentFingerp () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.fundament_fingerp === 5) {
+        me.disabledFlag.disabled_fundament_fingerp_oth = false
+      } else if (me.form.fundament_fingerp >= 1 && me.form.fundament_fingerp <= 4) {
+        me.form.fundament_fingerp_oth = ''
+        me.disabledFlag.disabled_fundament_fingerp_oth = true
+      }
     },
     changeBreastNotTroubleFind () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.breast_not_trouble_find === 1) {
+        me.disabledFlag.disabled_breast_mastectomy = false
+        me.disabledFlag.disabled_breast_abnormal_lactation = false
+        me.disabledFlag.disabled_breast_masses = false
+        me.disabledFlag.disabled_breast_others = false
+      } else if (me.form.breast_not_trouble_find === 0) {
+        me.form.breast_mastectomy = 0
+        me.form.breast_abnormal_lactation = 0
+        me.form.breast_masses = 0
+        me.form.breast_others = 0
+        me.form.breast_others_str = ''
+        me.disabledFlag.disabled_breast_mastectomy = true
+        me.disabledFlag.disabled_breast_abnormal_lactation = true
+        me.disabledFlag.disabled_breast_masses = true
+        me.disabledFlag.disabled_breast_others = true
+        me.disabledFlag.disabled_breast_others_str = true
+      }
     },
     changeVulva () {
       var me = this

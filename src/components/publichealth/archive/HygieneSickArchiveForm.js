@@ -732,7 +732,7 @@ export default {
     },
     setBaseDictByType () {
       var me = this
-      var url = '/BaseDict/getDictByType?dictType=0'
+      var url = '/PHBaseDict/getDictByType?dictType=HygieneSickArchiveForm'
       var parmString = url.split('?', 2)
       var parmUrl = parmString[0]
       var condition = {condition: parmString[1]}
