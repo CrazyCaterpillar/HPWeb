@@ -494,7 +494,7 @@ export default {
         disabled_children_other: true,
         disabled_children_other_content: true,
         disabled_genetic_diseasename: true,
-        //disabled_disability_without: true,
+        // disabled_disability_without: true,
         disabled_disability_eyes: true,
         disabled_disability_ear: true,
         disabled_disability_speech: true,
@@ -534,7 +534,7 @@ export default {
   methods: {
     init (parm) {
       var me = this
-      if (parm.record.archiveId != null && parm.record.archiveId != 0) {
+      if (parm.record.archiveId !== null && parm.record.archiveId !== 0) {
         me.recordEdit(parm.record)
       } else {
         me.recordAdd(parm.record)
@@ -721,6 +721,51 @@ export default {
       me.changeMotherNone()
       me.changeBrothersNone()
       me.changeChildrenNone()
+    },
+    validationNumber (rule, value, callback) {
+      var result = this.Util.validationNumber(value, rule)
+      if (result.status === 'error') {
+        callback(new Error(result.message))
+      } else {
+        callback()
+      }
+    },
+    setBaseDictByType () {
+      var me = this
+      var url = '/BaseDict/getDictByType?dictType=0'
+      var parmString = url.split('?', 2)
+      var parmUrl = parmString[0]
+      var condition = {condition: parmString[1]}
+      me.axiosPost(
+        parmUrl,
+        condition
+      ).then(function (response) {
+        var rpdata = response.data.rows
+        var eventName = 'setItemData'
+        var refComs = [
+          'ud_select_sick_sex',
+          'ud_select_residence',
+          'ud_select_nation',
+          'ud_select_blood',
+          'ud_select_blood_rh',
+          'ud_select_education',
+          'ud_select_occupation',
+          'ud_select_marriage',
+          'ud_select_archive_status',
+          'ud_select_archiving_way',
+          'ud_select_sick_status',
+          'ud_select_exhaust_type',
+          'ud_select_fuel_type',
+          'ud_select_drinking_water',
+          'ud_select_toilet_health',
+          'ud_select_animal_pound'
+        ]
+        for (var com of refComs) {
+          me.$refs[com].$emit(eventName, rpdata)
+        }
+      }).catch(function (error) {
+        console.log(error)
+      })
     },
     changeArchiveCode () {
       var me = this
@@ -1235,7 +1280,7 @@ export default {
         me.disabledFlag.disabled_genetic_diseasename = false
       }
     },
-    changeDisabilityWithout (){
+    changeDisabilityWithout () {
       var me = this
       if (me.form.disability_without === 1) {
         me.form.disability_eyes = 0
@@ -1272,7 +1317,7 @@ export default {
         me.disabledFlag.disabled_disability_other_con = false
       }
     },
-    changeMedicalExpenses99(){
+    changeMedicalExpenses99 () {
       var me = this
       if (me.form.medical_expenses_99 === 0) {
         me.form.medical_expenses_content = ''
@@ -1293,6 +1338,7 @@ export default {
     var me = this
     me.$on('open', function (parm) {
       me.init(parm)
+      me.setBaseDictByType()
     })
     me.$on('recordSubmit', function () {
       me.recordSubmit()
