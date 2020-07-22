@@ -2586,6 +2586,13 @@ export default {
         me.disabledFlag.disabled_breast_others_str = true
       }
     },
+    changeBreastOthers () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
     changeVulva () {
       var me = this
       me.$message({
