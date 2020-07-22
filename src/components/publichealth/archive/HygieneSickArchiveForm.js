@@ -724,6 +724,15 @@ export default {
       me.changeMotherNone()
       me.changeBrothersNone()
       me.changeChildrenNone()
+      me.changeMedicalExpenses99()
+      me.changeAllergicOther()
+      me.changeFatherOther()
+      me.changeMotherOther()
+      me.changeBrothersOther()
+      me.changeChildrenOther()
+      me.changeGenetic()
+      me.changeDisabilityWithout()
+      me.changeDisabilityOther()
     },
     validationNumber (rule, value, callback) {
       var result = this.Util.validationNumber(value, rule)
@@ -905,6 +914,10 @@ export default {
         me.disabledFlag.disabled_past_othercontent_date = true
         me.disabledFlag.disabled_past_malignantcon = true
         me.disabledFlag.disabled_past_oficialacon = true
+        me.disabledFlag.disabled_past_other_content = true
+        me.disabledFlag.disabled_past_malignant_con = true
+        me.disabledFlag.disabled_past_oficiala_con = true
+        // me.disabledFlag.disabled_occ_disease_con = true
       }
     },
     changePastHypertension () {
@@ -1006,10 +1019,13 @@ export default {
     changeOccupationalDisease () {
       var me = this
       if (me.form.occupational_disease === 0) {
+        // me.form.occ_disease_con = ''
         me.form.occupational_disease_date = ''
+        // me.disabledFlag.disabled_occ_disease_con = true
         me.disabledFlag.disabled_occupational_disease_date = true
       } else if (me.form.occupational_disease === 1) {
         me.disabledFlag.disabled_occupational_disease_date = false
+        // me.disabledFlag.disabled_occ_disease_con = false
       }
     },
     changePastOther () {
@@ -1216,7 +1232,7 @@ export default {
         me.disabledFlag.disabled_brothers_other = true
       }
     },
-    changebrothersOther () {
+    changeBrothersOther () {
       var me = this
       if (me.form.brothers_other === 0) {
         me.form.brothers_other_content = ''
