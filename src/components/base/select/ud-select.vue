@@ -56,12 +56,14 @@ export default {
       var dictName = condition.split('=', 2)
       dictName = dictName[1]
       var itemData = dictData
-      var item = itemData.filter(
-        (itemData) => {
-          return (itemData.dict_name === dictName)
-        }
-      )
-      me.items = item
+      if (itemData !== null && itemData !== undefined) {
+        var item = itemData.filter(
+          (itemData) => {
+            return (itemData.dict_name === dictName)
+          }
+        )
+        me.items = item
+      }
     }
   },
   mounted () {
