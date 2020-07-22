@@ -883,6 +883,7 @@ export default {
         me.form.past_oficiala_date = ''
         me.form.past_oficiala_con = ''
         me.form.occupational_disease = 0
+        me.form.occ_disease_con = ''
         me.form.occupational_disease_date = ''
         me.form.past_other = 0
         me.form.past_other_content = ''
@@ -917,7 +918,7 @@ export default {
         me.disabledFlag.disabled_past_other_content = true
         me.disabledFlag.disabled_past_malignant_con = true
         me.disabledFlag.disabled_past_oficiala_con = true
-        // me.disabledFlag.disabled_occ_disease_con = true
+        me.disabledFlag.disabled_occ_disease_con = true
       }
     },
     changePastHypertension () {
@@ -1019,13 +1020,13 @@ export default {
     changeOccupationalDisease () {
       var me = this
       if (me.form.occupational_disease === 0) {
-        // me.form.occ_disease_con = ''
+        me.form.occ_disease_con = ''
         me.form.occupational_disease_date = ''
-        // me.disabledFlag.disabled_occ_disease_con = true
+        me.disabledFlag.disabled_occ_disease_con = true
         me.disabledFlag.disabled_occupational_disease_date = true
       } else if (me.form.occupational_disease === 1) {
         me.disabledFlag.disabled_occupational_disease_date = false
-        // me.disabledFlag.disabled_occ_disease_con = false
+        me.disabledFlag.disabled_occ_disease_con = false
       }
     },
     changePastOther () {
