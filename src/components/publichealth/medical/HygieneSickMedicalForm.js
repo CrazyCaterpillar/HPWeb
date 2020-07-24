@@ -822,16 +822,16 @@ export default {
           { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
         ],
         vision_left_eye: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0, max: 5.3 }
         ],
         vision_right_eye: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0, max: 5.3 }
         ],
         straighten_vision_left_eye: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0, max: 5.3 }
         ],
         straighten_vision_right_eye: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0, max: 5.3 }
         ],
         eyeground_exception: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
@@ -1516,6 +1516,22 @@ export default {
       }
       if (result.columnName === 'blood_routine_others') {
         this.form.blood_routine_others = result.label
+        this.$forceUpdate()
+      }
+      if (result.columnName === 'proteinuria') {
+        this.form.proteinuria = result.label
+        this.$forceUpdate()
+      }
+      if (result.columnName === 'urine_sugar') {
+        this.form.urine_sugar = result.label
+        this.$forceUpdate()
+      }
+      if (result.columnName === 'ket') {
+        this.form.ket = result.label
+        this.$forceUpdate()
+      }
+      if (result.columnName === 'urinary_occult_blood') {
+        this.form.urinary_occult_blood = result.label
         this.$forceUpdate()
       }
       if (result.columnName === 'urine_routine_others') {
