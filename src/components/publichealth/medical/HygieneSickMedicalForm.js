@@ -1954,20 +1954,21 @@ export default {
       me.changeAbdoHepatomegaly()
       me.changeAbdoSplenomegaly()
       me.changeAbdoShiftingDull()
-      // me.changeFundamentFingerp()
-      // me.changeBreastNotTroubleFind()
-      // me.changeVulva()
-      // me.changeVagina()
-      // me.changeCervix()
-      // me.changeCorpus()
-      // me.changeAttachment()
+      me.changeFundamentFingerp()
+      me.changeBreastNotTroubleFind()
+      me.changeBreastOthers()
+      me.changeVulva()
+      me.changeVagina()
+      me.changeCervix()
+      me.changeCorpus()
+      me.changeAttachment()
       // me.changeElectrocardiogram()
       // me.changeCxr()
       // me.changeTypeBUltrasonic()
       // me.changeCervicalPapSmears()
       // me.changeGlucoseOutside()
       // me.changeElectrocardiogramOutside()
-      // me.changeBloodRoutineOutside()
+      me.changeBloodRoutineOutside()
       // me.changeUrineRoutineOutside()
       // me.changeBloodFatOutside()
       // me.changeRenalFunctionOutside()
@@ -2471,13 +2472,6 @@ export default {
         me.disabledFlag.disabled_lymph_node_others = true
       }
     },
-    // changeLungBarrelChest () {
-    //   var me = this
-    //   me.$message({
-    //     message: '变更',
-    //     type: 'warning'
-    //   })
-    // },
     changeLungBreathSound () {
       var me = this
       if (me.form.lung_breath_sound === 1) {
@@ -2550,13 +2544,6 @@ export default {
         me.disabledFlag.disabled_abdo_shifting_dull_oth = true
       }
     },
-    // changeImmersionFoot () {
-    //   var me = this
-    //   me.$message({
-    //     message: '变更',
-    //     type: 'warning'
-    //   })
-    // },
     changeFundamentFingerp () {
       var me = this
       if (me.form.fundament_fingerp === 5) {
@@ -2568,12 +2555,12 @@ export default {
     },
     changeBreastNotTroubleFind () {
       var me = this
-      if (me.form.breast_not_trouble_find === 1) {
+      if (me.form.breast_not_trouble_find === 0) {
         me.disabledFlag.disabled_breast_mastectomy = false
         me.disabledFlag.disabled_breast_abnormal_lactation = false
         me.disabledFlag.disabled_breast_masses = false
         me.disabledFlag.disabled_breast_others = false
-      } else if (me.form.breast_not_trouble_find === 0) {
+      } else if (me.form.breast_not_trouble_find === 1) {
         me.form.breast_mastectomy = 0
         me.form.breast_abnormal_lactation = 0
         me.form.breast_masses = 0
@@ -2588,45 +2575,57 @@ export default {
     },
     changeBreastOthers () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.breast_others === 1) {
+        me.disabledFlag.disabled_breast_others_str = false
+      } else if (me.form.breast_others === 0) {
+        me.form.breast_others_str = ''
+        me.disabledFlag.disabled_breast_others_str = true
+      }
     },
     changeVulva () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.vulva === 2) {
+        me.disabledFlag.disabled_vulva_exception = false
+      } else if (me.form.vulva === 1) {
+        me.form.vulva_exception = ''
+        me.disabledFlag.disabled_vulva_exception = true
+      }
     },
     changeVagina () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.vagina === 2) {
+        me.disabledFlag.disabled_vagina_exception = false
+      } else if (me.form.vagina === 1) {
+        me.form.vagina_exception = ''
+        me.disabledFlag.disabled_vagina_exception = true
+      }
     },
     changeCervix () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.cervix === 2) {
+        me.disabledFlag.disabled_cervix_exception = false
+      } else if (me.form.cervix === 1) {
+        me.form.cervix_exception = ''
+        me.disabledFlag.disabled_cervix_exception = true
+      }
     },
     changeCorpus () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.corpus === 2) {
+        me.disabledFlag.disabled_corpus_exception = false
+      } else if (me.form.corpus === 1) {
+        me.form.corpus_exception = ''
+        me.disabledFlag.disabled_corpus_exception = true
+      }
     },
     changeAttachment () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.attachment === 2) {
+        me.disabledFlag.disabled_attachment_exception = false
+      } else if (me.form.attachment === 1) {
+        me.form.attachment_exception = ''
+        me.disabledFlag.disabled_attachment_exception = true
+      }
     },
     changeElectrocardiogram () {
       var me = this
@@ -2672,10 +2671,12 @@ export default {
     },
     changeBloodRoutineOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.blood_routine_outside === 1) {
+        me.disabledFlag.disabled_blood_routine_outside_others = false
+      } else if (me.form.blood_routine_outside === 0) {
+        me.form.blood_routine_outside_others = ''
+        me.disabledFlag.disabled_blood_routine_outside_others = true
+      }
     },
     changeUrineRoutineOutside () {
       var me = this
