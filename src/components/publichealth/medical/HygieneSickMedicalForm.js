@@ -1978,31 +1978,32 @@ export default {
       me.changeCervix()
       me.changeCorpus()
       me.changeAttachment()
-      // me.changeElectrocardiogram()
-      // me.changeCxr()
-      // me.changeTypeBUltrasonic()
-      // me.changeCervicalPapSmears()
-      // me.changeGlucoseOutside()
-      // me.changeElectrocardiogramOutside()
+      me.changeElectrocardiogram()
+      me.changeCxr()
+      me.changeCxrOutside()
+      me.changeTypeBUltrasonic()
+      me.changeCervicalPapSmears()
+      me.changeGlucoseOutside()
+      me.changeElectrocardiogramOutside()
       me.changeBloodRoutineOutside()
-      // me.changeUrineRoutineOutside()
-      // me.changeBloodFatOutside()
-      // me.changeRenalFunctionOutside()
-      // me.changeLiverFunctionOutside()
-      // me.changeGlycolatedHemoglobinOutside()
-      // me.changeTypeBUltrasonicOutside()
-      // me.changeMicroalbuminuriaOutside()
-      // me.changeStoolOccultBloodOutside()
-      // me.changeCervicalPapSmearsOutside()
-      // me.changeBloodUricAcidOutside()
-      // me.changeBloodRheologyOutside()
-      // me.changeTypeBUltrasonicQt()
-      // me.changeCvdUndiscovered()
-      // me.changeCvdOthers()
-      // me.changeRenalUndiscovered()
-      // me.changeRenalOthers()
-      // me.changeHeartUndiscovered()
-      // me.changeHeartOthers()
+      me.changeUrineRoutineOutside()
+      me.changeBloodFatOutside()
+      me.changeRenalFunctionOutside()
+      me.changeLiverFunctionOutside()
+      me.changeGlycolatedHemoglobinOutside()
+      me.changeTypeBUltrasonicOutside()
+      me.changeMicroalbuminuriaOutside()
+      me.changeStoolOccultBloodOutside()
+      me.changeCervicalPapSmearsOutside()
+      me.changeBloodUricAcidOutside()
+      me.changeBloodRheologyOutside()
+      me.changeTypeBUltrasonicQt()
+      me.changeCvdUndiscovered()
+      me.changeCvdOthers()
+      me.changeRenalUndiscovered()
+      me.changeRenalOthers()
+      me.changeHeartUndiscovered()
+      me.changeHeartOthers()
       // me.changeAngiosisUndiscovered()
       // me.changeAngiosisOthers()
       // me.changeEyeDiseaseUndiscovered()
@@ -2645,45 +2646,57 @@ export default {
     },
     changeElectrocardiogram () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.electrocardiogram === 2) {
+        me.disabledFlag.disabled_electrocardiogram_excep = false
+      } if (me.form.electrocardiogram === 1) {
+        me.form.electrocardiogram_excep = ''
+        me.disabledFlag.disabled_electrocardiogram_excep = true
+      }
     },
     changeCxr () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.cxr === 2) {
+        me.disabledFlag.disabled_cxr_exception = false
+      } if (me.form.cxr === 1) {
+        me.form.cxr_exception = ''
+        me.disabledFlag.disabled_cxr_exception = true
+      }
     },
     changeTypeBUltrasonic () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.type_b_ultrasonic === 2) {
+        me.disabledFlag.disabled_type_b_ultrasonic_excep = false
+      } if (me.form.type_b_ultrasonic === 1) {
+        me.form.type_b_ultrasonic_excep = ''
+        me.disabledFlag.disabled_type_b_ultrasonic_excep = true
+      }
     },
     changeCervicalPapSmears () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.cervical_pap_smears === 2) {
+        me.disabledFlag.disabled_cervical_pap_smears_excep = false
+      } if (me.form.cervical_pap_smears === 1) {
+        me.form.cervical_pap_smears_excep = ''
+        me.disabledFlag.disabled_cervical_pap_smears_excep = true
+      }
     },
     changeGlucoseOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.glucose_outside === 1) {
+        me.disabledFlag.disabled_glucose_routine_outside_others = false
+      } if (me.form.glucose_outside === 0) {
+        me.form.glucose_routine_outside_others = ''
+        me.disabledFlag.disabled_glucose_routine_outside_others = true
+      }
     },
     changeElectrocardiogramOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.electrocardiogram_outside === 1) {
+        me.disabledFlag.disabled_elect_outside_others = false
+      } if (me.form.electrocardiogram_outside === 0) {
+        me.form.elect_outside_others = ''
+        me.disabledFlag.disabled_elect_outside_others = true
+      }
     },
     changeBloodRoutineOutside () {
       var me = this
@@ -2696,136 +2709,225 @@ export default {
     },
     changeUrineRoutineOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.urine_routine_outside === 1) {
+        me.disabledFlag.disabled_urine_routine_outside_others = false
+      } else if (me.form.urine_routine_outside === 0) {
+        me.form.urine_routine_outside_others = ''
+        me.disabledFlag.disabled_urine_routine_outside_others = true
+      }
     },
     changeBloodFatOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.blood_fat_outside === 1) {
+        me.disabledFlag.disabled_blood_fat_outside_others = false
+      } if (me.form.blood_fat_outside === 0) {
+        me.form.blood_fat_outside_others = ''
+        me.disabledFlag.disabled_blood_fat_outside_others = true
+      }
     },
     changeRenalFunctionOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.renal_function_outside === 1) {
+        me.disabledFlag.disabled_renal_outside_others = false
+      } if (me.form.renal_function_outside === 0) {
+        me.form.renal_outside_others = ''
+        me.disabledFlag.disabled_renal_outside_others = true
+      }
     },
     changeLiverFunctionOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.liver_function_outside === 1) {
+        me.disabledFlag.disabled_liver_outside_others = false
+      } if (me.form.liver_function_outside === 0) {
+        me.form.liver_outside_others = ''
+        me.disabledFlag.disabled_liver_outside_others = true
+      }
     },
     changeGlycolatedHemoglobinOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.glycolated_hemoglobin_outside === 1) {
+        me.disabledFlag.disabled_glycolated_outside_others = false
+      } if (me.form.glycolated_hemoglobin_outside === 0) {
+        me.form.glycolated_outside_others = ''
+        me.disabledFlag.disabled_glycolated_outside_others = true
+      }
     },
     changeCxrOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.cxr_outside === 1) {
+        me.disabledFlag.disabled_cxr_outside_others = false
+      } if (me.form.cxr_outside === 0) {
+        me.form.cxr_outside_others = ''
+        me.disabledFlag.disabled_cxr_outside_others = true
+      }
     },
     changeTypeBUltrasonicOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.type_b_ultrasonic_outside === 1) {
+        me.disabledFlag.disabled_type_b_outside_others = false
+      } if (me.form.type_b_ultrasonic_outside === 0) {
+        me.form.type_b_outside_others = ''
+        me.disabledFlag.disabled_type_b_outside_others = true
+      }
     },
     changeMicroalbuminuriaOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.microalbuminuria_outside === 1) {
+        me.disabledFlag.disabled_mic_outside_others = false
+      } if (me.form.microalbuminuria_outside === 0) {
+        me.form.mic_outside_others = ''
+        me.disabledFlag.disabled_mic_outside_others = true
+      }
     },
     changeStoolOccultBloodOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.stool_occult_blood_outside === 1) {
+        me.disabledFlag.disabled_stool_outside_others = false
+      } if (me.form.stool_occult_blood_outside === 0) {
+        me.form.stool_outside_others = ''
+        me.disabledFlag.disabled_stool_outside_others = true
+      }
     },
     changeCervicalPapSmearsOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.cervical_pap_smears_outside === 1) {
+        me.disabledFlag.disabled_cervical_outside_others = false
+      } if (me.form.cervical_pap_smears_outside === 0) {
+        me.form.cervical_outside_others = ''
+        me.disabledFlag.disabled_cervical_outside_others = true
+      }
     },
     changeBloodUricAcidOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.blood_uric_acid_outside === 1) {
+        me.disabledFlag.disabled_xns_outside_others = false
+      } if (me.form.blood_uric_acid_outside === 0) {
+        me.form.xns_outside_others = ''
+        me.disabledFlag.disabled_xns_outside_others = true
+      }
     },
     changeBloodRheologyOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.blood_rheology_outside === 1) {
+        me.disabledFlag.disabled_xlb_outside_others = false
+      } if (me.form.blood_rheology_outside === 0) {
+        me.form.xlb_outside_others = ''
+        me.disabledFlag.disabled_xlb_outside_others = true
+      }
     },
     changeTypeBUltrasonicQt () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.type_b_ultrasonic_qt === 2) {
+        me.disabledFlag.disabled_type_b_ultrasonic_excep_qt = false
+      } if (me.form.type_b_ultrasonic_qt === 1) {
+        me.form.type_b_ultrasonic_excep_qt = ''
+        me.disabledFlag.disabled_type_b_ultrasonic_excep_qt = true
+      }
     },
     changeCvdUndiscovered () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.cvd_undiscovered === 1) {
+        me.disabledFlag.disabled_cvd_ischemic_stroke = false
+        me.disabledFlag.disabled_cvd_cerebral_hemorrhage = false
+        me.disabledFlag.disabled_cvd_sah = false
+        me.disabledFlag.disabled_cvd_tia = false
+        me.disabledFlag.disabled_cvd_others = false
+        // me.disabledFlag.disabled_cvd_others_str = false
+      } if (me.form.cvd_undiscovered === 0) {
+        me.form.cvd_ischemic_stroke = '0'
+        me.disabledFlag.disabled_cvd_ischemic_stroke = true
+        me.form.cvd_cerebral_hemorrhage = '0'
+        me.disabledFlag.disabled_cvd_cerebral_hemorrhage = true
+        me.form.cvd_sah = '0'
+        me.disabledFlag.disabled_cvd_sah = true
+        me.form.cvd_tia = '0'
+        me.disabledFlag.disabled_cvd_tia = true
+        me.form.cvd_others = '0'
+        me.disabledFlag.disabled_cvd_others = true
+        me.form.cvd_others_str = ''
+        me.disabledFlag.disabled_cvd_others_str = true
+      }
     },
     changeCvdOthers () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.cvd_others === 1) {
+        me.disabledFlag.disabled_cvd_others_str = false
+      } if (me.form.cvd_others === 0) {
+        me.form.cvd_others_str = ''
+        me.disabledFlag.disabled_cvd_others_str = true
+      }
     },
     changeRenalUndiscovered () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.renal_undiscovered === 1) {
+        me.disabledFlag.disabled_renal_dn = false
+        me.disabledFlag.disabled_renal_failure = false
+        me.disabledFlag.disabled_renal_agn = false
+        me.disabledFlag.disabled_renal_cgn = false
+        me.disabledFlag.disabled_renal_others = false
+        // me.disabledFlag.disabled_renal_others_str = false
+      } if (me.form.renal_undiscovered === 0) {
+        me.form.renal_dn = '0'
+        me.disabledFlag.disabled_renal_dn = true
+        me.form.renal_failure = '0'
+        me.disabledFlag.disabled_renal_failure = true
+        me.form.renal_agn = '0'
+        me.disabledFlag.disabled_renal_agn = true
+        me.form.renal_cgn = '0'
+        me.disabledFlag.disabled_renal_cgn = true
+        me.form.renal_others = '0'
+        me.disabledFlag.disabled_renal_others = true
+        me.form.renal_others_str = ''
+        me.disabledFlag.disabled_renal_others_str = true
+      }
     },
     changeRenalOthers () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.renal_others === 1) {
+        me.disabledFlag.disabled_renal_others_str = false
+      } if (me.form.renal_others === 0) {
+        me.form.renal_others_str = ''
+        me.disabledFlag.disabled_renal_others_str = true
+      }
     },
     changeHeartUndiscovered () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.heart_undiscovered === 1) {
+        me.disabledFlag.disabled_heart_myocardial_infarction = false
+        me.disabledFlag.disabled_heart_angina_pectoris = false
+        me.disabledFlag.disabled_heart_coronary_artery = false
+        me.disabledFlag.disabled_heart_chf = false
+        me.disabledFlag.disabled_heart_precordialpain = false
+        me.disabledFlag.disabled_c_heart_dis = false
+        me.disabledFlag.disabled_heart_others = false
+        // me.disabledFlag.disabled_heart_others_str = false
+      } if (me.form.heart_undiscovered === 0) {
+        me.form.heart_myocardial_infarction = '0'
+        me.disabledFlag.disabled_heart_myocardial_infarction = true
+        me.form.heart_angina_pectoris = '0'
+        me.disabledFlag.disabled_heart_angina_pectoris = true
+        me.form.heart_coronary_artery = '0'
+        me.disabledFlag.disabled_heart_coronary_artery = true
+        me.form.heart_chf = '0'
+        me.disabledFlag.disabled_heart_chf = true
+        me.form.heart_precordialpain = '0'
+        me.disabledFlag.disabled_heart_precordialpain = true
+        me.form.c_heart_dis = '0'
+        me.disabledFlag.disabled_c_heart_dis = true
+        me.form.heart_others = '0'
+        me.disabledFlag.disabled_heart_others = true
+        me.form.heart_others_str = ''
+        me.disabledFlag.disabled_heart_others_str = true
+      }
     },
     changeHeartOthers () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.heart_others === 1) {
+        me.disabledFlag.disabled_heart_others_str = false
+      } if (me.form.heart_others === 0) {
+        me.form.heart_others_str = ''
+        me.disabledFlag.disabled_heart_others_str = true
+      }
     },
     changeAngiosisUndiscovered () {
       var me = this
