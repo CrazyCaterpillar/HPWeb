@@ -2004,13 +2004,13 @@ export default {
       me.changeRenalOthers()
       me.changeHeartUndiscovered()
       me.changeHeartOthers()
-      // me.changeAngiosisUndiscovered()
-      // me.changeAngiosisOthers()
-      // me.changeEyeDiseaseUndiscovered()
-      // me.changeEyeDiseaseOthers()
-      // me.changeNervousSystemDisease()
+      me.changeAngiosisUndiscovered()
+      me.changeAngiosisOthers()
+      me.changeEyeDiseaseUndiscovered()
+      me.changeEyeDiseaseOthers()
+      me.changeNervousSystemDisease()
       // me.changeOthersSystemDisease()
-      // me.changeEnmedis()
+      me.changeEnmedis()
       // me.changeHealthAss1()
       // me.changeHazardLoseWeight()
       // me.changeHazardVaccination()
@@ -2826,14 +2826,14 @@ export default {
     },
     changeCvdUndiscovered () {
       var me = this
-      if (me.form.cvd_undiscovered === 1) {
+      if (me.form.cvd_undiscovered === 0) {
         me.disabledFlag.disabled_cvd_ischemic_stroke = false
         me.disabledFlag.disabled_cvd_cerebral_hemorrhage = false
         me.disabledFlag.disabled_cvd_sah = false
         me.disabledFlag.disabled_cvd_tia = false
         me.disabledFlag.disabled_cvd_others = false
         // me.disabledFlag.disabled_cvd_others_str = false
-      } if (me.form.cvd_undiscovered === 0) {
+      } if (me.form.cvd_undiscovered === 1) {
         me.form.cvd_ischemic_stroke = '0'
         me.disabledFlag.disabled_cvd_ischemic_stroke = true
         me.form.cvd_cerebral_hemorrhage = '0'
@@ -2859,14 +2859,14 @@ export default {
     },
     changeRenalUndiscovered () {
       var me = this
-      if (me.form.renal_undiscovered === 1) {
+      if (me.form.renal_undiscovered === 0) {
         me.disabledFlag.disabled_renal_dn = false
         me.disabledFlag.disabled_renal_failure = false
         me.disabledFlag.disabled_renal_agn = false
         me.disabledFlag.disabled_renal_cgn = false
         me.disabledFlag.disabled_renal_others = false
         // me.disabledFlag.disabled_renal_others_str = false
-      } if (me.form.renal_undiscovered === 0) {
+      } if (me.form.renal_undiscovered === 1) {
         me.form.renal_dn = '0'
         me.disabledFlag.disabled_renal_dn = true
         me.form.renal_failure = '0'
@@ -2892,7 +2892,7 @@ export default {
     },
     changeHeartUndiscovered () {
       var me = this
-      if (me.form.heart_undiscovered === 1) {
+      if (me.form.heart_undiscovered === 0) {
         me.disabledFlag.disabled_heart_myocardial_infarction = false
         me.disabledFlag.disabled_heart_angina_pectoris = false
         me.disabledFlag.disabled_heart_coronary_artery = false
@@ -2901,7 +2901,7 @@ export default {
         me.disabledFlag.disabled_c_heart_dis = false
         me.disabledFlag.disabled_heart_others = false
         // me.disabledFlag.disabled_heart_others_str = false
-      } if (me.form.heart_undiscovered === 0) {
+      } if (me.form.heart_undiscovered === 1) {
         me.form.heart_myocardial_infarction = '0'
         me.disabledFlag.disabled_heart_myocardial_infarction = true
         me.form.heart_angina_pectoris = '0'
@@ -2931,38 +2931,72 @@ export default {
     },
     changeAngiosisUndiscovered () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.angiosis_undiscovered === 0) {
+        me.disabledFlag.disabled_hypertension = false
+        me.disabledFlag.disabled_angiosis_da = false
+        me.disabledFlag.disabled_angiosis_occlusion_arteries = false
+        me.disabledFlag.disabled_angiosis_others = false
+        // me.disabledFlag.disabled_angiosis_others_str = false
+      } if (me.form.angiosis_undiscovered === 1) {
+        me.form.hypertension = '0'
+        me.disabledFlag.disabled_hypertension = true
+        me.form.angiosis_da = '0'
+        me.disabledFlag.disabled_angiosis_da = true
+        me.form.angiosis_occlusion_arteries = '0'
+        me.disabledFlag.disabled_angiosis_occlusion_arteries = true
+        me.form.angiosis_others = '0'
+        me.disabledFlag.disabled_angiosis_others = true
+        me.form.angiosis_others_str = ''
+        me.disabledFlag.disabled_angiosis_others_str = true
+      }
     },
     changeAngiosisOthers () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.angiosis_others === 1) {
+        me.disabledFlag.disabled_angiosis_others_str = false
+      } if (me.form.angiosis_others === 0) {
+        me.form.angiosis_others_str = ''
+        me.disabledFlag.disabled_angiosis_others_str = true
+      }
     },
     changeEyeDiseaseUndiscovered () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.eye_disease_undiscovered === 0) {
+        me.disabledFlag.disabled_retinal_hemorrhage = false
+        me.disabledFlag.disabled_papilledema = false
+        me.disabledFlag.disabled_eye_disease_cataract = false
+        me.disabledFlag.disabled_eye_disease_others = false
+        // me.disabledFlag.disabled_eye_disease_others_str = false
+      } if (me.form.eye_disease_undiscovered === 1) {
+        me.form.retinal_hemorrhage = '0'
+        me.disabledFlag.disabled_retinal_hemorrhage = true
+        me.form.papilledema = '0'
+        me.disabledFlag.disabled_papilledema = true
+        me.form.eye_disease_cataract = '0'
+        me.disabledFlag.disabled_eye_disease_cataract = true
+        me.form.eye_disease_others = '0'
+        me.disabledFlag.disabled_eye_disease_others = true
+        me.form.eye_disease_others_str = ''
+        me.disabledFlag.disabled_eye_disease_others_str = true
+      }
     },
     changeEyeDiseaseOthers () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.eye_disease_others === 1) {
+        me.disabledFlag.disabled_eye_disease_others_str = false
+      } if (me.form.eye_disease_others === 0) {
+        me.form.eye_disease_others_str = ''
+        me.disabledFlag.disabled_eye_disease_others_str = true
+      }
     },
     changeNervousSystemDisease () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.nervous_system_disease === 2) {
+        me.disabledFlag.disabled_nervous_system_disease_str = false
+      } if (me.form.nervous_system_disease === 1 || me.form.nervous_system_disease === 3) {
+        me.form.nervous_system_disease_str = ''
+        me.disabledFlag.disabled_nervous_system_disease_str = true
+      }
     },
     changeOthersSystemDisease () {
       var me = this
@@ -2973,10 +3007,12 @@ export default {
     },
     changeEnmedis () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.enmedis === 3) {
+        me.disabledFlag.disabled_enmedis_other = false
+      } if (me.form.enmedis === 1 || me.form.enmedis === 2) {
+        me.form.enmedis_other = ''
+        me.disabledFlag.disabled_enmedis_other = true
+      }
     },
     changeHealthAss1 () {
       var me = this
