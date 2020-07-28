@@ -1538,6 +1538,14 @@ export default {
         this.form.urine_routine_others = result.label
         this.$forceUpdate()
       }
+      if (result.columnName === 'electrocardiogram_excep') {
+        this.form.electrocardiogram_excep = result.label
+        this.$forceUpdate()
+      }
+      if (result.columnName === 'cxr_exception') {
+        this.form.cxr_exception = result.label
+        this.$forceUpdate()
+      }
       if (result.columnName === 'type_b_ultrasonic_excep') {
         this.form.type_b_ultrasonic_excep = result.label
         this.$forceUpdate()
@@ -1572,6 +1580,10 @@ export default {
       }
       if (result.columnName === 'eye_disease_others_str') {
         this.form.eye_disease_others_str = result.label
+        this.$forceUpdate()
+      }
+      if (result.columnName === 'nervous_system_disease_str') {
+        this.form.nervous_system_disease_str = result.label
         this.$forceUpdate()
       }
       if (result.columnName === 'others_system_disease_str') {
@@ -2797,6 +2809,13 @@ export default {
         me.disabledFlag.disabled_cervical_outside_others = true
       }
     },
+    changeHbsagOutside () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
     changeBloodUricAcidOutside () {
       var me = this
       if (me.form.blood_uric_acid_outside === 1) {
@@ -3013,6 +3032,13 @@ export default {
         me.form.enmedis_other = ''
         me.disabledFlag.disabled_enmedis_other = true
       }
+    },
+    changeOtherDiseaseNo () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
     },
     changeHealthAss1 () {
       var me = this
