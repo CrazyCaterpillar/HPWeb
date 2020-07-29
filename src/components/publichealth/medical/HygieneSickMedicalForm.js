@@ -2028,6 +2028,8 @@ export default {
       // me.changeHazardVaccination()
       // me.changeHazardOthers()
       // me.changeHealthAssQtxf()
+      me.changeHbsagOutside()
+      me.changeOtherDiseaseNo()
     },
     changeSymptomOther () {
       var me = this
@@ -2811,10 +2813,12 @@ export default {
     },
     changeHbsagOutside () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.hbsag_outside === 1) {
+        me.disabledFlag.disabled_hbsag_outside_others = false
+      } if (me.form.hbsag_outside === 0) {
+        me.form.hbsag_outside_others = ''
+        me.disabledFlag.disabled_hbsag_outside_others = true
+      }
     },
     changeBloodUricAcidOutside () {
       var me = this
@@ -3035,10 +3039,12 @@ export default {
     },
     changeOtherDiseaseNo () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.other_disease_no === 2) {
+        me.disabledFlag.disabled_others_system_disease_str = false
+      } if (me.form.other_disease_no === 1) {
+        me.form.others_system_disease_str = ''
+        me.disabledFlag.disabled_others_system_disease_str = true
+      }
     },
     changeHealthAss1 () {
       var me = this
