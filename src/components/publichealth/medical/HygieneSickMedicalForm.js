@@ -2023,7 +2023,7 @@ export default {
       me.changeNervousSystemDisease()
       // me.changeOthersSystemDisease()
       me.changeEnmedis()
-      // me.changeHealthAss1()
+      me.changeHealthAss1()
       // me.changeHazardLoseWeight()
       // me.changeHazardVaccination()
       // me.changeHazardOthers()
