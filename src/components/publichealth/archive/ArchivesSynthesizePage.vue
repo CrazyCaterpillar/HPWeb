@@ -79,40 +79,30 @@ export default {
       if (me.queryParm.pageType === '1001') {
         pageCom = 'HygieneSickArchivePage'
         me.treeShow = false
+        let panel = {
+          code: me.queryParm.pageType,
+          content: pageCom,
+          show: true,
+          openParm: {
+            record: {
+              archiveId: me.queryParm.arcId,
+              keyId: me.queryParm.keyId
+            }
+          }
+        }
+        me.mainPanels.push(panel)
       }
       if (me.queryParm.pageType === '2001') {
         pageCom = 'HygieneSickMedicalPage'
         me.treeShow = true
-        me.treeDataLoad()
-      }
-      let panel = {
-        code: me.queryParm.pageType,
-        content: pageCom,
-        show: true,
-        openParm: {
-          record: {
+        me.treeDataLoad({
+          data: {
             archiveId: me.queryParm.arcId,
-            keyId: me.queryParm.keyId
+            nodeType: 'HygieneSickMedical',
+            level: 1
           }
-        }
+        })
       }
-      me.mainPanels.push(panel)
-      // if (me.openParm.record.archiveId === null) {
-      //   let panel = {
-      //     code: '1001',
-      //     content: 'HygieneSickArchivePage',
-      //     show: true,
-      //     openParm: {
-      //       record: {
-      //         archiveId: null
-      //       }
-      //     }
-      //   }
-      //   me.mainPanels.push(panel)
-      // } else {
-      //   me.archiveId = me.openParm.record.archiveId
-      //   me.treeDataLoad()
-      // }
     },
     formSaveCallback (type, parm) {
       var me = this
@@ -193,31 +183,22 @@ export default {
       if (this.resolve == null) {
         this.resolve = resolve
       }
+      if (resolve === undefined) {
+        resolve = this.resolve
+      }
       if (node == null) {
         return
       }
-      if (me.openParm.record.archiveId === null) {
+      if (node.level === 0) {
         return
       }
       var parm = null
-      if (node.level === 0) {
-        parm = {
-          archiveId: me.openParm.record.archiveId,
-          nodeParent: 'root'
-        }
-      } else {
-        parm = node.data
-      }
+      parm = node.data
       me.axiosPost(
-        '/HygieneSickArchiveTree/getArchiveTreeNodes',
+        '/PHHygieneSickArchiveTree/getArchiveTreeNodes',
         parm
       ).then(function (response) {
-        var rpdata = response.data
-        if (node.level === 0) {
-          for (var i = 0; i < rpdata.length; i++) {
-            me.treeNodeCodes.push(rpdata[i].nodeCode)
-          }
-        }
+        var rpdata = JSON.parse(response.data.data)
         resolve(rpdata)
       })
       //   .catch(function (error) {

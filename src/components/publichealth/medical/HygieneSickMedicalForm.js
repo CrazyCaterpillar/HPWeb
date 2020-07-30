@@ -1457,7 +1457,7 @@ export default {
   methods: {
     init (parm) {
       var me = this
-      if (parm != null && parm.record != null && parm.record.keyId != null) {
+      if (parm != null && parm.record != null && parm.record.medical_no != null) {
         me.recordEdit(parm.record)
       } else {
         me.recordAdd(parm.record)
