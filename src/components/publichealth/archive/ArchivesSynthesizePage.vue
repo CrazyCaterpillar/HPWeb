@@ -83,6 +83,7 @@ export default {
       if (me.queryParm.pageType === '2001') {
         pageCom = 'HygieneSickMedicalPage'
         me.treeShow = true
+        me.treeDataLoad()
       }
       let panel = {
         code: me.queryParm.pageType,
