@@ -2021,13 +2021,12 @@ export default {
       me.changeEyeDiseaseUndiscovered()
       me.changeEyeDiseaseOthers()
       me.changeNervousSystemDisease()
-      // me.changeOthersSystemDisease()
       me.changeEnmedis()
       me.changeHealthAss1()
-      // me.changeHazardLoseWeight()
-      // me.changeHazardVaccination()
-      // me.changeHazardOthers()
-      // me.changeHealthAssQtxf()
+      me.changeHazardLoseWeight()
+      me.changeHazardVaccination()
+      me.changeHazardOthers()
+      me.changeHealthAssQtxf()
       me.changeHbsagOutside()
       me.changeOtherDiseaseNo()
     },
@@ -3024,7 +3023,7 @@ export default {
     changeOthersSystemDisease () {
       var me = this
       me.$message({
-        message: '变更',
+        message: '变更1',
         type: 'warning'
       })
     },
@@ -3048,38 +3047,75 @@ export default {
     },
     changeHealthAss1 () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.health_ass_1 === 2) {
+        me.disabledFlag.disabled_health_ass_gxf = false
+        me.disabledFlag.disabled_health_ass_txf = false
+        me.disabledFlag.disabled_health_ass_qtxf = false
+        // me.disabledFlag.disabled_health_ass_xfqt = false
+        me.disabledFlag.disabled_health_ass_21 = false
+        me.disabledFlag.disabled_health_ass_22 = false
+        me.disabledFlag.disabled_health_ass_23 = false
+        me.disabledFlag.disabled_health_ass_24 = false
+        me.disabledFlag.disabled_health_ass_25 = false
+        me.disabledFlag.disabled_health_ass_26 = false
+      } if (me.form.health_ass_1 === 1) {
+        me.form.health_ass_gxf = '0'
+        me.disabledFlag.disabled_health_ass_gxf = true
+        me.form.health_ass_txf = '0'
+        me.disabledFlag.disabled_health_ass_txf = true
+        me.form.health_ass_qtxf = '0'
+        me.disabledFlag.disabled_health_ass_qtxf = true
+        me.form.health_ass_xfqt = ''
+        me.disabledFlag.disabled_health_ass_xfqt = true
+        me.form.health_ass_21 = ''
+        me.disabledFlag.disabled_health_ass_21 = true
+        me.form.health_ass_22 = ''
+        me.disabledFlag.disabled_health_ass_22 = true
+        me.form.health_ass_23 = ''
+        me.disabledFlag.disabled_health_ass_23 = true
+        me.form.health_ass_24 = ''
+        me.disabledFlag.disabled_health_ass_24 = true
+        me.form.health_ass_25 = ''
+        me.disabledFlag.disabled_health_ass_25 = true
+        me.form.health_ass_26 = ''
+        me.disabledFlag.disabled_health_ass_26 = true
+      }
     },
     changeHazardLoseWeight () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.hazard_lose_weight === 1) {
+        me.disabledFlag.disabled_hazard_lose_weight_target = false
+      } if (me.form.hazard_lose_weight === 0) {
+        me.form.hazard_lose_weight_target = ''
+        me.disabledFlag.disabled_hazard_lose_weight_target = true
+      }
     },
     changeHazardVaccination () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.hazard_vaccination === 1) {
+        me.disabledFlag.disabled_hazard_vaccination_str = false
+      } if (me.form.hazard_vaccination === 0) {
+        me.form.hazard_vaccination_str = ''
+        me.disabledFlag.disabled_hazard_vaccination_str = true
+      }
     },
     changeHazardOthers () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.hazard_others === 1) {
+        me.disabledFlag.disabled_hazard_others_str = false
+      } if (me.form.hazard_others === 0) {
+        me.form.hazard_others_str = ''
+        me.disabledFlag.disabled_hazard_others_str = true
+      }
     },
     changeHealthAssQtxf () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.health_ass_qtxf === 1) {
+        me.disabledFlag.disabled_health_ass_xfqt = false
+      } if (me.form.health_ass_qtxf === 0) {
+        me.form.health_ass_xfqt = ''
+        me.disabledFlag.disabled_health_ass_xfqt = true
+      }
     }
   },
   mounted () {
