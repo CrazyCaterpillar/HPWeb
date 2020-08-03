@@ -1618,6 +1618,10 @@ export default {
         this.form.fp_org_name1 = result.label
         this.$forceUpdate()
       }
+      if (result.columnName === 'fp_org_name2') {
+        this.form.fp_org_name2 = result.label
+        this.$forceUpdate()
+      }
       if (result.columnName === 'drug_name1') {
         this.form.drug_name1 = result.label
         this.$forceUpdate()
@@ -1720,6 +1724,10 @@ export default {
       }
       if (result.columnName === 'hazard_others_str') {
         this.form.hazard_others_str = result.label
+        this.$forceUpdate()
+      }
+      if (result.columnName === 'health_ass_xfqt') {
+        this.form.health_ass_xfqt = result.label
         this.$forceUpdate()
       }
       if (result.columnName === 'medical_operator_name') {
