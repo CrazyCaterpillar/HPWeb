@@ -49,15 +49,30 @@ export default {
     },
     butElderlyOneseIfAssess () {
       var me = this
-      me.$refs.elderlyOneselfAssessWin.$emit('open')
+      var parm = {
+        record: {
+          medical_no: me.$refs.hygieneSickMedicalForm.form.medical_no
+        }
+      }
+      me.$refs.elderlyOneselfAssessWin.$emit('open', parm)
     },
     butElderlyDepressionScale () {
       var me = this
-      me.$refs.elderlyDepressionScaleWin.$emit('open')
+      var parm = {
+        record: {
+          medical_no: me.$refs.hygieneSickMedicalForm.form.medical_no
+        }
+      }
+      me.$refs.elderlyDepressionScaleWin.$emit('open', parm)
     },
     butElderlyMentalStateWin () {
       var me = this
-      me.$refs.elderlyMentalStateWin.$emit('open')
+      var parm = {
+        record: {
+          medical_no: me.$refs.hygieneSickMedicalForm.form.medical_no
+        }
+      }
+      me.$refs.elderlyMentalStateWin.$emit('open', parm)
     }
   },
   mounted () {
