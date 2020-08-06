@@ -38,6 +38,8 @@ export default {
         ]
       },
       disabledFlag: {
+        disabled_assess_score: true,
+        disabled_assess_result: true,
       },
       readonlyFlag: {
         readonly_assess_operator_name: true
@@ -222,6 +224,41 @@ export default {
         }
       }).catch(function (error) {
         console.log(error)
+      })
+    },
+    changeAssessFood () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAssessWash () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAssessDress () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAssessWc () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAssessSport () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
       })
     }
   },
