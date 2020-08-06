@@ -207,12 +207,42 @@ export default {
           type: 'error'
         })
       })
+    },
+    validationNumber (rule, value, callback) {
+      var result = this.Util.validationNumber(value, rule)
+      if (result.status === 'error') {
+        callback(new Error(result.message))
+      } else {
+        callback()
+      }
+    },
+    setBaseDictByType () {
+      var me = this
+      var url = '/BaseDict/getDictByType?dictType=0'
+      var parmString = url.split('?', 2)
+      var parmUrl = parmString[0]
+      var condition = {condition: parmString[1]}
+      me.axiosPost(
+        parmUrl,
+        condition
+      ).then(function (response) {
+        var rpdata = response.data.rows
+        var eventName = 'setItemData'
+        var refComs = [
+        ]
+        for (var com of refComs) {
+          me.$refs[com].$emit(eventName, rpdata)
+        }
+      }).catch(function (error) {
+        console.log(error)
+      })
     }
   },
   mounted () {
     var me = this
     me.$on('open', function (parm) {
       me.init(parm)
+      me.setBaseDictByType()
     })
     me.$on('recordSubmit', function () {
       me.recordSubmit()

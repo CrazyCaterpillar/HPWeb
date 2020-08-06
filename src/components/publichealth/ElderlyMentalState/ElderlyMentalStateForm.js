@@ -70,19 +70,19 @@ export default {
       },
       rules: {
         time_year: [
-          { validator: this.validatorTime_year, trigger: 'blur', decimal: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0 }
         ],
         time_month: [
-          { validator: this.validatorTime_month, trigger: 'blur', decimal: 0, min: 1, max: 12 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 1, max: 12 }
         ],
         time_date: [
-          { validator: this.validatorTime_date, trigger: 'blur', decimal: 0, min: 1, max: 31 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 1, max: 31 }
         ],
         time_week: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         time_score: [
-          { validator: this.validatorTime_score, trigger: 'blur', decimal: 0, min: 0, max: 5 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 5 }
         ],
         place_nation: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
@@ -100,7 +100,7 @@ export default {
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         place_score: [
-          { validator: this.validatorPlace_score, trigger: 'blur', decimal: 0, min: 0, max: 5 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 5 }
         ],
         recall_word_1: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
@@ -112,7 +112,7 @@ export default {
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         recall_word_score: [
-          { validator: this.validatorRecall_word_score, trigger: 'blur', decimal: 0, min: 0, max: 3 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 3 }
         ],
         name_1: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
@@ -121,25 +121,25 @@ export default {
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         name_score: [
-          { validator: this.validatorName_score, trigger: 'blur', decimal: 0, min: 0, max: 2 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 2 }
         ],
         language_repeat: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         language_repeat_score: [
-          { validator: this.validatorLanguage_repeat_score, trigger: 'blur', decimal: 0, min: 0, max: 1 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 1 }
         ],
         comprehension_score: [
-          { validator: this.validatorComprehension_score, trigger: 'blur', decimal: 0, min: 0, max: 3 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 3 }
         ],
         reading_score: [
-          { validator: this.validatorReading_score, trigger: 'blur', decimal: 0, min: 0, max: 1 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 1 }
         ],
         writeing_score: [
-          { validator: this.validatorWriteing_score, trigger: 'blur', decimal: 0, min: 0, max: 1 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 1 }
         ],
         painting_score: [
-          { validator: this.validatorPainting_score, trigger: 'blur', decimal: 0, min: 0, max: 1 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 1 }
         ],
         recall_1: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
@@ -151,7 +151,7 @@ export default {
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         recall_score: [
-          { validator: this.validatorRecall_score, trigger: 'blur', decimal: 0, min: 0, max: 3 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 3 }
         ],
         computing_1: [
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
@@ -169,10 +169,10 @@ export default {
           { max: 50, message: '长度小于等于50个字符', trigger: 'blur' }
         ],
         computing_score: [
-          { validator: this.validatorComputing_score, trigger: 'blur', decimal: 0, min: 0, max: 5 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0, max: 5 }
         ],
         assess_score: [
-          { validator: this.validatorAssess_score, trigger: 'blur', decimal: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0 }
         ],
         writeing: [
           { max: 100, message: '长度小于等于100个字符', trigger: 'blur' }
@@ -220,126 +220,6 @@ export default {
         this.form.create_operator_name = result.label
         this.form.createOperator = result.value
         this.$forceUpdate()
-      }
-    },
-    validatorTime_year (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorTime_month (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorTime_date (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorTime_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorPlace_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorRecall_word_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorName_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorLanguage_repeat_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorComprehension_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorReading_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorWriteing_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorPainting_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorRecall_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorComputing_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
-      }
-    },
-    validatorAssess_score (rule, value, callback) {
-      var result = this.Util.validationNumber(value, rule)
-      if (result.status === 'error') {
-        callback(new Error(result.message))
-      } else {
-        callback()
       }
     },
     butSubmitClick () {
@@ -456,12 +336,42 @@ export default {
           type: 'error'
         })
       })
+    },
+    validationNumber (rule, value, callback) {
+      var result = this.Util.validationNumber(value, rule)
+      if (result.status === 'error') {
+        callback(new Error(result.message))
+      } else {
+        callback()
+      }
+    },
+    setBaseDictByType () {
+      var me = this
+      var url = '/BaseDict/getDictByType?dictType=0'
+      var parmString = url.split('?', 2)
+      var parmUrl = parmString[0]
+      var condition = {condition: parmString[1]}
+      me.axiosPost(
+        parmUrl,
+        condition
+      ).then(function (response) {
+        var rpdata = response.data.rows
+        var eventName = 'setItemData'
+        var refComs = [
+        ]
+        for (var com of refComs) {
+          me.$refs[com].$emit(eventName, rpdata)
+        }
+      }).catch(function (error) {
+        console.log(error)
+      })
     }
   },
   mounted () {
     var me = this
     me.$on('open', function (parm) {
       me.init(parm)
+      me.setBaseDictByType()
     })
     me.$on('recordSubmit', function () {
       me.recordSubmit()
