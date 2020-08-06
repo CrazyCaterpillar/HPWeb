@@ -59,7 +59,7 @@ export default {
   methods: {
     init (parm) {
       var me = this
-      if (parm != null && parm.record != null && parm.record.assessNo != null) {
+      if (parm != null && parm.record != null && parm.record.assess_no !== 0) {
         me.recordEdit(parm.record)
       } else {
         me.recordAdd(parm.record)
@@ -104,12 +104,13 @@ export default {
       me.resetForm('elForm')
       me.fromDataLoading = true
       me.axiosPost(
-        '/ElderlyOneselfAssess/getForm',
+        '/PHHygieneSickMedical/getAssessForm',
         parm
       ).then(function (response) {
         if (response.data.statusCode === 8200) {
           var rpdata = response.data.data
-          me.form = rpdata
+          var rpFormData = JSON.parse(rpdata)
+          me.form = rpFormData[0]
           me.fromDataLoading = false
         }
         if (response.data.statusCode === 8501) {
@@ -130,7 +131,7 @@ export default {
       let me = this
       me.dialogFormVisible = true
       me.axiosPost(
-        '/ElderlyOneselfAssess/deleteRecord',
+        '/PHHygieneSickMedical/deleteRecord',
         me.form
       ).then(function (response) {
         me.dialogFormVisible = false

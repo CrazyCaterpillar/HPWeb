@@ -49,12 +49,33 @@ export default {
     },
     butElderlyOneseIfAssess () {
       var me = this
+      var assessNo = 0
       var parm = {
         record: {
-          medical_no: me.$refs.hygieneSickMedicalForm.form.medical_no
+          medical_no: me.$refs.hygieneSickMedicalForm.form.medical_no,
+          archive_id: me.$refs.hygieneSickMedicalForm.form.archive_id,
+          assess_no: assessNo
         }
       }
-      me.$refs.elderlyOneselfAssessWin.$emit('open', parm)
+      me.axiosPost(
+        '/PHHygieneSickMedical/getAssessNo',
+        parm
+      ).then(function (response) {
+        if (response.data.statusCode === 8200) {
+          var obj = JSON.parse(response.data.data)
+          parm.record.assess_no = obj[0].assess_no
+          me.$refs.elderlyOneselfAssessWin.$emit('open', parm)
+        }
+        if (response.data.statusCode === 8501) {
+          me.$refs.elderlyOneselfAssessWin.$emit('open', parm)
+        }
+      }).catch(function (error) {
+        me.fromDataLoading = false
+        me.$message({
+          message: error,
+          type: 'error'
+        })
+      })
     },
     butElderlyDepressionScale () {
       var me = this
