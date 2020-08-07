@@ -1,9 +1,13 @@
 <template>
-  <el-container :style="constyle" class="list-container" v-loading="fromDataLoading">
+  <el-container :style="constyle" class="list-container">
     <el-aside v-show="treeShow" width="160px" style="border-right: #eeeeee 1px solid">
+      <el-button style="width: 100%;"
+                 type="primary" @click="butAddClick"
+                 size="medium" plain icon="el-icon-plus"
+                 v-loading.fullscreen.lock="fullscreenLoading">新增</el-button>
       <el-tree ref="elTree" node-key="node_code" :load="treeDataLoad" :props="defaultProps" @node-click="handleNodeClick" lazy></el-tree>
     </el-aside>
-    <el-main class="list-main">
+    <el-main class="list-main" v-loading="fromDataLoading">
       <div v-for="panel in mainPanels" v-bind:key="panel.code">
         <div ref="formPage" :is="panel.content"
              v-show="panel.show"
@@ -49,7 +53,8 @@ export default {
         pageType: '1',
         arcId: 0,
         keyId: 0
-      }
+      },
+      fullscreenLoading: false
     }
   },
   props: {
@@ -214,6 +219,37 @@ export default {
         if (code === me.mainPanels[i].code) {
           me.mainPanels.splice(i, 1)
         }
+      }
+    },
+    butAddClick () {
+      var me = this
+      // me.fromDataLoading = true
+      if (me.queryParm.pageType === '2001') {
+        var panel = {
+          code: '2001-0',
+          content: 'HygieneSickMedicalPage',
+          show: true,
+          openParm: {
+            record: {
+              archive_id: me.queryParm.arcId,
+              medical_no: null
+            }
+          }
+        }
+        let selectIndex = -1
+        for (var i = 0; i < me.mainPanels.length; i++) {
+          me.mainPanels[i].show = false
+          if (panel.code === me.mainPanels[i].code) {
+            selectIndex = i
+          }
+        }
+        if (selectIndex !== -1) {
+          me.mainPanels[selectIndex].show = true
+          me.$refs.formPage[selectIndex].init(panel.openParm)
+          return
+        }
+        me.mainPanels.push(panel)
+        // me.fromDataLoading = false
       }
     }
   },
