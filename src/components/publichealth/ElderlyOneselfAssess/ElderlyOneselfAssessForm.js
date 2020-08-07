@@ -173,7 +173,6 @@ export default {
         if (response.data.statusCode === 8501) {
           me.$message({
             message: response.data.message,
-
             type: 'error'
           })
         }
