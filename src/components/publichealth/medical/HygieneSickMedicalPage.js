@@ -89,17 +89,51 @@ export default {
       me.$refs.elderlyDepressionScaleWin.$emit('open', parm)
     },
     butElderlyMentalStateWin () {
+      // var me = this
+      // var parm = {
+      //   record: {
+      //     medical_no: me.$refs.hygieneSickMedicalForm.form.medical_no
+      //   }
+      // }
+      // me.$refs.elderlyMentalStateWin.$emit('open', parm)
       var me = this
+      var reportNo = 0
       var parm = {
         record: {
-          medical_no: me.$refs.hygieneSickMedicalForm.form.medical_no
+          medical_no: me.$refs.hygieneSickMedicalForm.form.medical_no,
+          archive_id: me.$refs.hygieneSickMedicalForm.form.archive_id,
+          reprot_no: reportNo
         }
       }
-      me.$refs.elderlyMentalStateWin.$emit('open', parm)
+      me.axiosPost(
+        '/PHHygieneSickMedical/getStateNo',
+        parm
+      ).then(function (response) {
+        if (response.data.statusCode === 8200) {
+          var obj = JSON.parse(response.data.data)
+          parm.record.reprot_no = obj[0].reprot_no
+          me.$refs.elderlyMentalStateWin.$emit('open', parm, function (form) {
+            me.elderlyMentalStateWinBack(form)
+          })
+        }
+        if (response.data.statusCode === 8501) {
+          me.$refs.elderlyMentalStateWin.$emit('open', parm)
+        }
+      }).catch(function (error) {
+        me.fromDataLoading = false
+        me.$message({
+          message: error,
+          type: 'error'
+        })
+      })
     },
     elderlyOneselfAssessWinBack (form) {
       var me = this
       me.$refs.hygieneSickMedicalForm.$emit('elderlyOneselfAssessWinBack', form)
+    },
+    elderlyMentalStateWinBack (form) {
+      var me = this
+      me.$refs.hygieneSickMedicalForm.$emit('elderlyMentalStateWinBack', form)
     }
   },
   mounted () {
