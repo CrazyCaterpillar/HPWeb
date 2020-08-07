@@ -257,6 +257,7 @@ export default {
           var rpFormData = JSON.parse(rpdata)
           me.form = rpFormData[0]
           me.fromDataLoading = false
+
         }
         if (response.data.statusCode === 8501) {
           me.$message({

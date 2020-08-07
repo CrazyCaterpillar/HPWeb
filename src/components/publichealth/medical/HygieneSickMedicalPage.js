@@ -89,13 +89,6 @@ export default {
       me.$refs.elderlyDepressionScaleWin.$emit('open', parm)
     },
     butElderlyMentalStateWin () {
-      // var me = this
-      // var parm = {
-      //   record: {
-      //     medical_no: me.$refs.hygieneSickMedicalForm.form.medical_no
-      //   }
-      // }
-      // me.$refs.elderlyMentalStateWin.$emit('open', parm)
       var me = this
       var reportNo = 0
       var parm = {

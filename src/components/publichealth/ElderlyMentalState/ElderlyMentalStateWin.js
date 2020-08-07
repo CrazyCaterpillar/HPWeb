@@ -50,6 +50,7 @@ export default {
     var me = this
     me.$on('open', function (parm, funBack) {
       me.init(parm, funBack)
+
     })
   }
 }
