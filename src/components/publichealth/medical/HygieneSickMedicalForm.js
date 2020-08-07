@@ -2160,6 +2160,27 @@ export default {
         me.disabledFlag.disabled_hardening_mode = false
       }
     },
+    changeEatClitocybineEqualization () {
+      var me = this
+      me.$message({
+        message: '饮食习惯荤素均衡变更',
+        type: 'warning'
+      })
+    },
+    changeEatMeatdietFlash () {
+      var me = this
+      me.$message({
+        message: '饮食习惯荤食为主变更',
+        type: 'warning'
+      })
+    },
+    changeEatVegetarianFlash () {
+      var me = this
+      me.$message({
+        message: '饮食习惯素食为主变更',
+        type: 'warning'
+      })
+    },
     changeSmokingCircumstance () {
       var me = this
       if (me.form.smoking_circumstance === 1) {
