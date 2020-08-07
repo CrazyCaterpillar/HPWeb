@@ -39,7 +39,7 @@ export default {
       },
       disabledFlag: {
         disabled_assess_score: true,
-        disabled_assess_result: true,
+        disabled_assess_result: true
       },
       readonlyFlag: {
         readonly_assess_operator_name: true
@@ -55,17 +55,18 @@ export default {
     openNewTabpage: Function,
     closePanel: Function,
     openParm: Object,
-    panelCode: String,
-    formSaveCallback: Function
+    panelCode: String
+    // formSaveCallback: Function
   },
   methods: {
-    init (parm) {
+    init (parm, formSaveCallback) {
       var me = this
       if (parm != null && parm.record != null && parm.record.assess_no !== 0) {
         me.recordEdit(parm.record)
       } else {
         me.recordAdd(parm.record)
       }
+      me.formSaveCallback = formSaveCallback
     },
     resetForm (formName) {
       let me = this
@@ -165,22 +166,19 @@ export default {
       }
       me.fromDataLoading = true
       me.axiosPost(
-        '/ElderlyOneselfAssess/saveRecord',
+        '/PHHygieneSickMedical/saveAssessRecord',
         me.form
       ).then(function (response) {
         me.fromDataLoading = false
-        if (response.data.statusCode === 8500) {
+        if (response.data.statusCode === 8501) {
           me.$message({
-            message: response.data.data.text,
+            message: response.data.message,
             type: 'error'
           })
         }
         if (response.data.statusCode === 8200) {
-          if (me.form.assessNo == null || me.form.assessNo === '') {
-            me.form.assessNo = response.data.data.text
-          }
           if (me.formSaveCallback) {
-            me.formSaveCallback('ElderlyOneselfAssess', me.form)
+            me.formSaveCallback(me.form)
           }
           me.fromDataLoading = false
           me.$message({
@@ -206,7 +204,7 @@ export default {
     },
     setBaseDictByType () {
       var me = this
-      var url = '/BaseDict/getDictByType?dictType=0'
+      var url = '/PHBaseDict/getDictByType?dictType=ElderlyOneselfAssessForm'
       var parmString = url.split('?', 2)
       var parmUrl = parmString[0]
       var condition = {condition: parmString[1]}
@@ -217,7 +215,7 @@ export default {
         var rpdata = response.data.rows
         var eventName = 'setItemData'
         var refComs = [
-          'ud_select_assess_result',
+          'ud_select_assess_result'
         ]
         for (var com of refComs) {
           me.$refs[com].$emit(eventName, rpdata)
@@ -228,44 +226,104 @@ export default {
     },
     changeAssessFood () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessResult()
     },
     changeAssessWash () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessResult()
     },
     changeAssessDress () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessResult()
     },
     changeAssessWc () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessResult()
     },
     changeAssessSport () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessResult()
+    },
+    changeAssessResult () {
+      var me = this
+      var assessFood = 0
+      var assessWash = 0
+      var assessDress = 0
+      var assessWc = 0
+      var assessSport = 0
+      var assessScore = 0
+      var assessResult = 0
+      if (me.form.assess_food === 1 || me.form.assess_food === 2) {
+        assessFood = 0
+      } else if (me.form.assess_food === 3) {
+        assessFood = 3
+      } else if (me.form.assess_food === 4) {
+        assessFood = 5
+      } else {
+        assessFood = 0
+      }
+      if (me.form.assess_wash === 1) {
+        assessWash = 0
+      } else if (me.form.assess_wash === 2) {
+        assessWash = 1
+      } else if (me.form.assess_wash === 3) {
+        assessWash = 3
+      } else if (me.form.assess_wash === 4) {
+        assessWash = 7
+      } else {
+        assessWash = 0
+      }
+      if (me.form.assess_dress === 1 || me.form.assess_dress === 2) {
+        assessDress = 0
+      } else if (me.form.assess_dress === 3) {
+        assessDress = 3
+      } else if (me.form.assess_dress === 4) {
+        assessDress = 5
+      } else {
+        assessDress = 0
+      }
+      if (me.form.assess_wc === 1) {
+        assessWc = 0
+      } else if (me.form.assess_wc === 2) {
+        assessWc = 1
+      } else if (me.form.assess_wc === 3) {
+        assessWc = 5
+      } else if (me.form.assess_wc === 4) {
+        assessWc = 10
+      } else {
+        assessWc = 0
+      }
+      if (me.form.assess_sport === 1) {
+        assessSport = 0
+      } else if (me.form.assess_sport === 2) {
+        assessSport = 1
+      } else if (me.form.assess_sport === 3) {
+        assessSport = 5
+      } else if (me.form.assess_sport === 4) {
+        assessSport = 10
+      } else {
+        assessSport = 0
+      }
+      assessScore = assessFood + assessWash + assessDress + assessWc + assessSport
+      me.form.assess_score = parseFloat(assessScore)
+      if (assessScore >= 0 && assessScore <= 3) {
+        assessResult = 1
+      } else if (assessScore >= 4 && assessScore <= 8) {
+        assessResult = 2
+      } else if (assessScore >= 9 && assessScore <= 18) {
+        assessResult = 3
+      } else if (assessScore >= 19) {
+        assessResult = 4
+      } else {
+        assessResult = 4
+      }
+      me.form.assess_result = parseFloat(assessResult)
     }
   },
   mounted () {
     var me = this
-    me.$on('open', function (parm) {
-      me.init(parm)
+    me.$on('open', function (parm, formSaveCallback) {
+      me.init(parm, formSaveCallback)
       me.setBaseDictByType()
     })
     me.$on('recordSubmit', function () {

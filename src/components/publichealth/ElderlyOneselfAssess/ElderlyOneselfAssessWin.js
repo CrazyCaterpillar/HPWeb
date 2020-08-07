@@ -22,11 +22,11 @@ export default {
     formSaveCallback: Function
   },
   methods: {
-    init (parm) {
+    init (parm, funBack) {
       var me = this
       me.dialogFormVisible = true
       this.$nextTick(() => {
-        me.$refs.elderlyOneselfAssessForm.$emit('open', parm)
+        me.$refs.elderlyOneselfAssessForm.$emit('open', parm, funBack)
       })
     },
     resize (val) {
@@ -48,8 +48,8 @@ export default {
   },
   mounted () {
     var me = this
-    me.$on('open', function (parm) {
-      me.init(parm)
+    me.$on('open', function (parm, funBack) {
+      me.init(parm, funBack)
     })
   }
 }

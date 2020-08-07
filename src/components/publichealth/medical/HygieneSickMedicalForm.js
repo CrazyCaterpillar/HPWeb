@@ -3124,6 +3124,10 @@ export default {
         me.form.health_ass_xfqt = ''
         me.disabledFlag.disabled_health_ass_xfqt = true
       }
+    },
+    elderlyOneselfAssessWinBack (form) {
+      var me = this
+      me.form.elderly_self_care = form.assess_result
     }
   },
   mounted () {
@@ -3134,6 +3138,9 @@ export default {
     })
     me.$on('recordSubmit', function () {
       me.recordSubmit()
+    })
+    me.$on('elderlyOneselfAssessWinBack', function (form) {
+      me.elderlyOneselfAssessWinBack(form)
     })
   }
 }

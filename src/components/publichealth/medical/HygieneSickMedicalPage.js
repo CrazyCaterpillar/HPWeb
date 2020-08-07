@@ -64,7 +64,9 @@ export default {
         if (response.data.statusCode === 8200) {
           var obj = JSON.parse(response.data.data)
           parm.record.assess_no = obj[0].assess_no
-          me.$refs.elderlyOneselfAssessWin.$emit('open', parm)
+          me.$refs.elderlyOneselfAssessWin.$emit('open', parm, function (form) {
+            me.elderlyOneselfAssessWinBack(form)
+          })
         }
         if (response.data.statusCode === 8501) {
           me.$refs.elderlyOneselfAssessWin.$emit('open', parm)
@@ -94,6 +96,10 @@ export default {
         }
       }
       me.$refs.elderlyMentalStateWin.$emit('open', parm)
+    },
+    elderlyOneselfAssessWinBack (form) {
+      var me = this
+      me.$refs.hygieneSickMedicalForm.$emit('elderlyOneselfAssessWinBack', form)
     }
   },
   mounted () {
