@@ -231,8 +231,8 @@ export default {
           show: true,
           openParm: {
             record: {
-              archive_id: me.queryParm.arcId,
-              medical_no: null
+              archiveId: me.queryParm.arcId,
+              keyId: null
             }
           }
         }
