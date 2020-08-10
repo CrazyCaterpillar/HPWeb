@@ -6,7 +6,7 @@ import ArchivesSynthesizePage from '@/components/publichealth/archive/ArchivesSy
 Vue.use(Router)
 
 export default new Router({
-  mode: 'hash', // 去掉url中的#
+  mode: 'history', // 默认hash 去掉url中的# history
   routes: [
     {
       path: '/',
