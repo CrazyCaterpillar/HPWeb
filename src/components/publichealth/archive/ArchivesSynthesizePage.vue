@@ -74,6 +74,38 @@ export default {
       if (me.$route.query.pageType != null) {
         me.queryParm.pageType = me.$route.query.pageType
       }
+      if (me.$route.query.idCard != null) {
+        var parm = {
+          record: {
+            idCard: me.$route.query.idCard
+          }
+        }
+        me.axiosPost(
+          '/PHHygieneSickArchive/getArchiveId',
+          parm
+        ).then(function (response) {
+          if (response.data.statusCode === 8200) {
+            var obj = JSON.parse(response.data.data)
+            me.queryParm.arcId = obj[0].archive_id
+            me.initForm()
+          }
+          if (response.data.statusCode === 8501) {
+            me.$message({
+              message: response.data.message,
+              type: 'error'
+            })
+          }
+        }).catch(function (error) {
+          me.fromDataLoading = false
+          me.$message({
+            message: error,
+            type: 'error'
+          })
+        })
+      }
+    },
+    initForm () {
+      var me = this
       if (me.$route.query.arcId != null) {
         me.queryParm.arcId = me.$route.query.arcId
       }
