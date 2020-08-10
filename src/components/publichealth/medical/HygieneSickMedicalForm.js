@@ -1797,7 +1797,7 @@ export default {
         }
         if (response.data.statusCode === 8501) {
           me.$message({
-            message: response.data.statusMess,
+            message: response.data.message,
             type: 'error'
           })
         }
@@ -3149,6 +3149,10 @@ export default {
     elderlyOneselfAssessWinBack (form) {
       var me = this
       me.form.elderly_self_care = form.assess_result
+    },
+    elderlyMentalStateWinBack (form) {
+      var me = this
+      me.form.mini_mental_state_examination = form.assess_score
     }
   },
   mounted () {
@@ -3162,6 +3166,9 @@ export default {
     })
     me.$on('elderlyOneselfAssessWinBack', function (form) {
       me.elderlyOneselfAssessWinBack(form)
+    })
+    me.$on('elderlyMentalStateWinBack', function (form) {
+      me.elderlyMentalStateWinBack(form)
     })
   }
 }

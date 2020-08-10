@@ -183,7 +183,7 @@ export default {
       },
       disabledFlag: {
         disabled_assess_score: true,
-        disabled_education_name: true,
+        disabled_education_name: true
       },
       readonlyFlag: {
         readonly_create_operator_name: true
@@ -205,7 +205,7 @@ export default {
   methods: {
     init (parm, formSaveCallback) {
       var me = this
-      if (parm != null && parm.record != null && parm.record.reportNo !== 0) {
+      if (parm != null && parm.record != null && parm.record.reprot_no !== 0) {
         me.recordEdit(parm.record)
       } else {
         me.recordAdd(parm.record)
@@ -369,79 +369,87 @@ export default {
     },
     changeTimeScore () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changePlaceScore () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeRecallWordScore () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeNameScore () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeComprehensionScore () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeReadingScore () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeWriteingScore () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changePaintingScore () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeRecallScore () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeComputingScore () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
+    },
+    changeAssessScore () {
+      var me = this
+      var assessScore = 0
+      if (me.form.time_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.time_score)
+      }
+      if (me.form.place_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.place_score)
+      }
+      if (me.form.recall_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.recall_score)
+      }
+      if (me.form.computing_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.computing_score)
+      }
+      if (me.form.recall_word_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.recall_word_score)
+      }
+      if (me.form.name_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.recall_word_score)
+      }
+      if (me.form.language_repeat_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.language_repeat_score)
+      }
+      if (me.form.comprehension_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.comprehension_score)
+      }
+      if (me.form.reading_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.reading_score)
+      }
+      if (me.form.writeing_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.writeing_score)
+      }
+      if (me.form.painting_score > 0) {
+        assessScore = assessScore + parseFloat(me.form.painting_score)
+      }
+      me.form.assess_score = parseFloat(assessScore)
     }
   },
   mounted () {
     var me = this
-    me.$on('open', function (parm) {
-      me.init(parm)
+    me.$on('open', function (parm, formSaveCallback) {
+      me.init(parm, formSaveCallback)
       me.setBaseDictByType()
     })
     me.$on('recordSubmit', function () {
