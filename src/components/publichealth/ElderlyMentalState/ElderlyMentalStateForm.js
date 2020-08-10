@@ -182,6 +182,8 @@ export default {
         ]
       },
       disabledFlag: {
+        disabled_assess_score: true,
+        disabled_education_name: true,
       },
       readonlyFlag: {
         readonly_create_operator_name: true
@@ -363,6 +365,76 @@ export default {
         }
       }).catch(function (error) {
         console.log(error)
+      })
+    },
+    changeTimeScore () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changePlaceScore () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeRecallWordScore () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeNameScore () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeComprehensionScore () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeReadingScore () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeWriteingScore () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changePaintingScore () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeRecallScore () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeComputingScore () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
       })
     }
   },
