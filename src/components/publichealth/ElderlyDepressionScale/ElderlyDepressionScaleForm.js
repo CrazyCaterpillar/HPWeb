@@ -73,17 +73,18 @@ export default {
     openNewTabpage: Function,
     closePanel: Function,
     openParm: Object,
-    panelCode: String,
-    formSaveCallback: Function
+    panelCode: String
+    // formSaveCallback: Function
   },
   methods: {
-    init (parm) {
+    init (parm, formSaveCallback) {
       var me = this
-      if (parm != null && parm.record != null && parm.record.reportNo != null) {
+      if (parm != null && parm.record != null && parm.record.reprot_no !== 0) {
         me.recordEdit(parm.record)
       } else {
         me.recordAdd(parm.record)
       }
+      me.formSaveCallback = formSaveCallback
     },
     resetForm (formName) {
       let me = this
@@ -119,17 +120,18 @@ export default {
       me.resetForm('elForm')
       me.fromDataLoading = true
       me.axiosPost(
-        '/ElderlyDepressionScale/getForm',
+        '/PHHygieneSickMedical/getDepressionForm',
         parm
       ).then(function (response) {
         if (response.data.statusCode === 8200) {
           var rpdata = response.data.data
-          me.form = rpdata
+          var rpFormData = JSON.parse(rpdata)
+          me.form = rpFormData[0]
           me.fromDataLoading = false
         }
         if (response.data.statusCode === 8501) {
           me.$message({
-            message: response.data.statusMess,
+            message: response.data.message,
             type: 'error'
           })
         }
@@ -145,7 +147,7 @@ export default {
       let me = this
       me.dialogFormVisible = true
       me.axiosPost(
-        '/ElderlyDepressionScale/deleteRecord',
+        '/PHHygieneSickMedical/deleteRecord',
         me.form
       ).then(function (response) {
         me.dialogFormVisible = false
@@ -177,22 +179,19 @@ export default {
       }
       me.fromDataLoading = true
       me.axiosPost(
-        '/ElderlyDepressionScale/saveRecord',
+        '/PHHygieneSickMedical/saveDepressionRecord',
         me.form
       ).then(function (response) {
         me.fromDataLoading = false
-        if (response.data.statusCode === 8500) {
+        if (response.data.statusCode === 8501) {
           me.$message({
-            message: response.data.data.text,
+            message: response.data.message,
             type: 'error'
           })
         }
         if (response.data.statusCode === 8200) {
-          if (me.form.reportNo == null || me.form.reportNo === '') {
-            me.form.reportNo = response.data.data.text
-          }
           if (me.formSaveCallback) {
-            me.formSaveCallback('ElderlyDepressionScale', me.form)
+            me.formSaveCallback(me.form)
           }
           me.fromDataLoading = false
           me.$message({
@@ -218,7 +217,7 @@ export default {
     },
     setBaseDictByType () {
       var me = this
-      var url = '/BaseDict/getDictByType?dictType=0'
+      var url = '/PHBaseDict/getDictByType?dictType=ElderlyDepressionScaleForm'
       var parmString = url.split('?', 2)
       var parmUrl = parmString[0]
       var condition = {condition: parmString[1]}
@@ -240,8 +239,8 @@ export default {
   },
   mounted () {
     var me = this
-    me.$on('open', function (parm) {
-      me.init(parm)
+    me.$on('open', function (parm, formSaveCallback) {
+      me.init(parm, formSaveCallback)
       me.setBaseDictByType()
     })
     me.$on('recordSubmit', function () {

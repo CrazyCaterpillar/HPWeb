@@ -3153,6 +3153,10 @@ export default {
     elderlyMentalStateWinBack (form) {
       var me = this
       me.form.mini_mental_state_examination = form.assess_score
+    },
+    elderlyDepressionScaleWinBack (form) {
+      var me = this
+      me.form.elderly_depression_check = form.assess_score
     }
   },
   mounted () {
@@ -3169,6 +3173,9 @@ export default {
     })
     me.$on('elderlyMentalStateWinBack', function (form) {
       me.elderlyMentalStateWinBack(form)
+    })
+    me.$on('elderlyDepressionScaleWinBack', function (form) {
+      me.elderlyDepressionScaleWinBack(form)
     })
   }
 }
