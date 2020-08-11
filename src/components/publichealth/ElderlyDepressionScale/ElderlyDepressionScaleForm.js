@@ -235,6 +235,216 @@ export default {
       }).catch(function (error) {
         console.log(error)
       })
+    },
+    changeLifeSatisfied () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeLostInterest () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeEmptiness () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeBoring () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHope () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeTroubleThink () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeEnergy () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeFearFuture () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHappy () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHelpless () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeRestlessness () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeIndoor () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeWorryFuture () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeRememberProblem () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeLifeWonderful () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeLifeNoMeaning () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeWorryPast () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeLifeExcited () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeStudyHard () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeVigorous () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHopeless () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeFeelOtherBetter () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeMessThing () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeCry () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeInattention () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeNoSocialActivity () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeEassyDecide () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeSane () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeLikeGetup () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeListless () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
     }
   },
   mounted () {
