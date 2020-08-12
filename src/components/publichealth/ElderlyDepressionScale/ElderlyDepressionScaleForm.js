@@ -238,213 +238,218 @@ export default {
     },
     changeLifeSatisfied () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeLostInterest () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeEmptiness () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeBoring () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeHope () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeTroubleThink () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeEnergy () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeFearFuture () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeHappy () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeHelpless () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeRestlessness () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeIndoor () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeWorryFuture () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeRememberProblem () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeLifeWonderful () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeLifeNoMeaning () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeWorryPast () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeLifeExcited () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeStudyHard () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeVigorous () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeHopeless () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeFeelOtherBetter () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeMessThing () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeCry () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeInattention () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeNoSocialActivity () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeEassyDecide () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeSane () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeLikeGetup () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
     },
     changeListless () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      me.changeAssessScore()
+    },
+    changeAssessScore () {
+      var me = this
+      var assessScore = 0
+      if (me.form.life_satisfied === 0) {
+        assessScore = assessScore + parseFloat(me.form.life_satisfied)
+      }
+      if (me.form.lost_interest === 1) {
+        assessScore = assessScore + parseFloat(me.form.lost_interest)
+      }
+      if (me.form.emptiness === 1) {
+        assessScore = assessScore + parseFloat(me.form.emptiness)
+      }
+      if (me.form.boring === 1) {
+        assessScore = assessScore + parseFloat(me.form.boring)
+      }
+      if (me.form.hope === 0) {
+        assessScore = assessScore + parseFloat(me.form.hope)
+      }
+      if (me.form.trouble_think === 1) {
+        assessScore = assessScore + parseFloat(me.form.trouble_think)
+      }
+      if (me.form.energy === 0) {
+        assessScore = assessScore + parseFloat(me.form.energy)
+      }
+      if (me.form.fear_future === 1) {
+        assessScore = assessScore + parseFloat(me.form.fear_future)
+      }
+      if (me.form.happy === 0) {
+        assessScore = assessScore + parseFloat(me.form.happy)
+      }
+      if (me.form.helpless === 1) {
+        assessScore = assessScore + parseFloat(me.form.helpless)
+      }
+      if (me.form.restlessness === 1) {
+        assessScore = assessScore + parseFloat(me.form.restlessness)
+      }
+      if (me.form.indoor === 1) {
+        assessScore = assessScore + parseFloat(me.form.indoor)
+      }
+      if (me.form.worry_future === 1) {
+        assessScore = assessScore + parseFloat(me.form.worry_future)
+      }
+      if (me.form.remember_problem === 1) {
+        assessScore = assessScore + parseFloat(me.form.remember_problem)
+      }
+      if (me.form.life_wonderful === 0) {
+        assessScore = assessScore + parseFloat(me.form.life_wonderful)
+      }
+      if (me.form.listless === 1) {
+        assessScore = assessScore + parseFloat(me.form.listless)
+      }
+      if (me.form.life_no_meaning === 1) {
+        assessScore = assessScore + parseFloat(me.form.life_no_meaning)
+      }
+      if (me.form.worry_past === 1) {
+        assessScore = assessScore + parseFloat(me.form.worry_past)
+      }
+      if (me.form.life_excited === 0) {
+        assessScore = assessScore + parseFloat(me.form.life_excited)
+      }
+      if (me.form.study_hard === 1) {
+        assessScore = assessScore + parseFloat(me.form.study_hard)
+      }
+      if (me.form.vigorous === 0) {
+        assessScore = assessScore + parseFloat(me.form.vigorous)
+      }
+      if (me.form.hopeless === 1) {
+        assessScore = assessScore + parseFloat(me.form.hopeless)
+      }
+      if (me.form.feel_other_better === 1) {
+        assessScore = assessScore + parseFloat(me.form.feel_other_better)
+      }
+      if (me.form.mess_thing === 1) {
+        assessScore = assessScore + parseFloat(me.form.mess_thing)
+      }
+      if (me.form.cry === 1) {
+        assessScore = assessScore + parseFloat(me.form.cry)
+      }
+      if (me.form.inattention === 1) {
+        assessScore = assessScore + parseFloat(me.form.inattention)
+      }
+      if (me.form.like_getup === 0) {
+        assessScore = assessScore + parseFloat(me.form.like_getup)
+      }
+      if (me.form.no_social_activity === 1) {
+        assessScore = assessScore + parseFloat(me.form.no_social_activity)
+      }
+      if (me.form.eassy_decide === 0) {
+        assessScore = assessScore + parseFloat(me.form.eassy_decide)
+      }
+      if (me.form.sane === 0) {
+        assessScore = assessScore + parseFloat(me.form.sane)
+      }
+      me.form.assess_score = parseFloat(assessScore)
     }
   },
   mounted () {
