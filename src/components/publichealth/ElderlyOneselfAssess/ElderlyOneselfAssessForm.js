@@ -77,7 +77,7 @@ export default {
     setValueByDict (result) {
       if (result.columnName === 'assess_operator_name') {
         this.form.assess_operator_name = result.label
-        this.form.assessOperator = result.value
+        this.form.assess_operator = result.value
         this.$forceUpdate()
       }
     },

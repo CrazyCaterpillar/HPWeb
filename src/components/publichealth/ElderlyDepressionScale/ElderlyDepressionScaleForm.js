@@ -360,94 +360,94 @@ export default {
       var me = this
       var assessScore = 0
       if (me.form.life_satisfied === 0) {
-        assessScore = assessScore + parseFloat(me.form.life_satisfied)
+        assessScore = assessScore + 1
       }
       if (me.form.lost_interest === 1) {
-        assessScore = assessScore + parseFloat(me.form.lost_interest)
+        assessScore = assessScore + 1
       }
       if (me.form.emptiness === 1) {
-        assessScore = assessScore + parseFloat(me.form.emptiness)
+        assessScore = assessScore + 1
       }
       if (me.form.boring === 1) {
-        assessScore = assessScore + parseFloat(me.form.boring)
+        assessScore = assessScore + 1
       }
       if (me.form.hope === 0) {
-        assessScore = assessScore + parseFloat(me.form.hope)
+        assessScore = assessScore + 1
       }
       if (me.form.trouble_think === 1) {
-        assessScore = assessScore + parseFloat(me.form.trouble_think)
+        assessScore = assessScore + 1
       }
       if (me.form.energy === 0) {
-        assessScore = assessScore + parseFloat(me.form.energy)
+        assessScore = assessScore + 1
       }
       if (me.form.fear_future === 1) {
-        assessScore = assessScore + parseFloat(me.form.fear_future)
+        assessScore = assessScore + 1
       }
       if (me.form.happy === 0) {
-        assessScore = assessScore + parseFloat(me.form.happy)
+        assessScore = assessScore + 1
       }
       if (me.form.helpless === 1) {
-        assessScore = assessScore + parseFloat(me.form.helpless)
+        assessScore = assessScore + 1
       }
       if (me.form.restlessness === 1) {
-        assessScore = assessScore + parseFloat(me.form.restlessness)
+        assessScore = assessScore + 1
       }
       if (me.form.indoor === 1) {
-        assessScore = assessScore + parseFloat(me.form.indoor)
+        assessScore = assessScore + 1
       }
       if (me.form.worry_future === 1) {
-        assessScore = assessScore + parseFloat(me.form.worry_future)
+        assessScore = assessScore + 1
       }
       if (me.form.remember_problem === 1) {
-        assessScore = assessScore + parseFloat(me.form.remember_problem)
+        assessScore = assessScore + 1
       }
       if (me.form.life_wonderful === 0) {
-        assessScore = assessScore + parseFloat(me.form.life_wonderful)
+        assessScore = assessScore + 1
       }
       if (me.form.listless === 1) {
-        assessScore = assessScore + parseFloat(me.form.listless)
+        assessScore = assessScore + 1
       }
       if (me.form.life_no_meaning === 1) {
-        assessScore = assessScore + parseFloat(me.form.life_no_meaning)
+        assessScore = assessScore + 1
       }
       if (me.form.worry_past === 1) {
-        assessScore = assessScore + parseFloat(me.form.worry_past)
+        assessScore = assessScore + 1
       }
       if (me.form.life_excited === 0) {
-        assessScore = assessScore + parseFloat(me.form.life_excited)
+        assessScore = assessScore + 1
       }
       if (me.form.study_hard === 1) {
-        assessScore = assessScore + parseFloat(me.form.study_hard)
+        assessScore = assessScore + 1
       }
       if (me.form.vigorous === 0) {
-        assessScore = assessScore + parseFloat(me.form.vigorous)
+        assessScore = assessScore + 1
       }
       if (me.form.hopeless === 1) {
-        assessScore = assessScore + parseFloat(me.form.hopeless)
+        assessScore = assessScore + 1
       }
       if (me.form.feel_other_better === 1) {
-        assessScore = assessScore + parseFloat(me.form.feel_other_better)
+        assessScore = assessScore + 1
       }
       if (me.form.mess_thing === 1) {
-        assessScore = assessScore + parseFloat(me.form.mess_thing)
+        assessScore = assessScore + 1
       }
       if (me.form.cry === 1) {
-        assessScore = assessScore + parseFloat(me.form.cry)
+        assessScore = assessScore + 1
       }
       if (me.form.inattention === 1) {
-        assessScore = assessScore + parseFloat(me.form.inattention)
+        assessScore = assessScore + 1
       }
       if (me.form.like_getup === 0) {
-        assessScore = assessScore + parseFloat(me.form.like_getup)
+        assessScore = assessScore + 1
       }
       if (me.form.no_social_activity === 1) {
-        assessScore = assessScore + parseFloat(me.form.no_social_activity)
+        assessScore = assessScore + 1
       }
       if (me.form.eassy_decide === 0) {
-        assessScore = assessScore + parseFloat(me.form.eassy_decide)
+        assessScore = assessScore + 1
       }
       if (me.form.sane === 0) {
-        assessScore = assessScore + parseFloat(me.form.sane)
+        assessScore = assessScore + 1
       }
       me.form.assess_score = parseFloat(assessScore)
     }

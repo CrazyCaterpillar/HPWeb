@@ -221,7 +221,7 @@ export default {
     setValueByDict (result) {
       if (result.columnName === 'create_operator_name') {
         this.form.create_operator_name = result.label
-        this.form.createOperator = result.value
+        this.form.create_operator = result.value
         this.$forceUpdate()
       }
     },
