@@ -4,4 +4,4 @@
   </el-form>
 </template>
 <script src="./ElderlyDepressionScaleForm.js"></script>
-<style scoped src="../../../../assets/css/base-form.css"></style>
+<style scoped src="../../../assets/css/base-form.css"></style>
