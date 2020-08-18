@@ -54,7 +54,9 @@ export default {
         arcId: 0,
         keyId: 0
       },
-      fullscreenLoading: false
+      fullscreenLoading: false,
+      archManageOrg: null,
+      archManageTear: null
     }
   },
   props: {
@@ -70,6 +72,38 @@ export default {
   },
   methods: {
     init () {
+      var me = this
+      me.getLoginUser()
+    },
+    getLoginUser () {
+      var me = this
+      var parm = {
+        record: {
+          login_user: null,
+          login_password: null
+        }
+      }
+      parm.record.login_user = 'hpxx300'
+      parm.record.login_password = 'zysoft@2018'
+      me.axiosPost('/CheckUser/getLoginUser', parm)
+        .then(function (response) {
+          var rpdata = response.data
+          if (rpdata.success === true) {
+            me.$store.commit('setUserInfo', rpdata)
+            // me.$router.push({name: 'ArchivesSynthesizePage'})
+            me.getArchiveInfo(rpdata)
+          } else {
+            me.$message({
+              message: rpdata.msg,
+              type: 'error'
+            })
+          }
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    },
+    getArchiveInfo (rpdata) {
       var me = this
       if (me.$route.query.pageType != null) {
         me.queryParm.pageType = me.$route.query.pageType
@@ -87,7 +121,16 @@ export default {
           if (response.data.statusCode === 8200) {
             var obj = JSON.parse(response.data.data)
             me.queryParm.arcId = obj[0].archive_id
-            me.initForm()
+            me.archManageOrg = obj[0].manage_org
+            me.archManageTear = obj[0].manage_team
+            if (rpdata.orgId === me.archManageOrg && rpdata.teamId === me.archManageTear) {
+              me.initForm()
+            } else {
+              me.$message({
+                message: '该医师没有权限！',
+                type: 'error'
+              })
+            }
           }
           if (response.data.statusCode === 8501) {
             me.$message({
@@ -124,6 +167,8 @@ export default {
             record: {
               archiveId: me.queryParm.arcId,
               keyId: me.queryParm.keyId
+              // archManageOrg: me.archManageOrg,
+              // archManageTear: me.archManageTear
             }
           }
         }
@@ -137,6 +182,8 @@ export default {
             archiveId: me.queryParm.arcId,
             nodeType: 'HygieneSickMedical',
             level: 1
+            // archManageOrg: me.archManageOrg,
+            // archManageTear: me.archManageTear
           }
         })
       }
