@@ -322,7 +322,7 @@ export default {
         disabled_symptom_hand_foot_numbness: true,
         disabled_symptom_joint_gall: true,
         disabled_symptom_other: true,
-        disabled_symptom_other_content: true,
+        disabled_symptom_other_content: true
       },
       readonlyFlag: {
         readonly_team_id_name: true,
@@ -346,7 +346,7 @@ export default {
   methods: {
     init (parm) {
       var me = this
-      if (parm != null && parm.record != null && parm.record.followupNo != null) {
+      if (parm != null && parm.record != null && parm.record.followup_no != null) {
         me.recordEdit(parm.record)
       } else {
         me.recordAdd(parm.record)
@@ -436,6 +436,15 @@ export default {
         .catch(_ => {})
     },
     formInit () {
+      var me = this
+      var userInfo = me.Util.getUserInfo()
+      me.form.org_id = userInfo.orgId
+      me.form.team_id = userInfo.teamId
+      me.form.team_id_name = userInfo.teamName
+      me.form.create_operator = userInfo.staffCode
+      me.form.create_operator_name = userInfo.staffName
+      me.form.followup_doctor = userInfo.staffCode
+      me.form.followup_doctor_name = userInfo.staffName
     },
     recordAdd (parm) {
       var me = this
@@ -448,12 +457,14 @@ export default {
       me.resetForm('elForm')
       me.fromDataLoading = true
       me.axiosPost(
-        '/SickBloodFollowup/getForm',
+        '/PHSickBloodFollowup/getForm',
         parm
       ).then(function (response) {
         if (response.data.statusCode === 8200) {
           var rpdata = response.data.data
-          me.form = rpdata
+          var rpFormData = JSON.parse(rpdata)
+          me.form = rpFormData[0]
+          // me.initFormControls()
           me.fromDataLoading = false
         }
         if (response.data.statusCode === 8501) {
@@ -474,7 +485,7 @@ export default {
       let me = this
       me.dialogFormVisible = true
       me.axiosPost(
-        '/SickBloodFollowup/deleteRecord',
+        '/PHSickBloodFollowup/deleteRecord',
         me.form
       ).then(function (response) {
         me.dialogFormVisible = false
@@ -506,19 +517,19 @@ export default {
       }
       me.fromDataLoading = true
       me.axiosPost(
-        '/SickBloodFollowup/saveRecord',
+        '/PHSickBloodFollowup/saveRecord',
         me.form
       ).then(function (response) {
         me.fromDataLoading = false
-        if (response.data.statusCode === 8500) {
+        if (response.data.statusCode === 8501) {
           me.$message({
-            message: response.data.data.text,
+            message: response.data.message,
             type: 'error'
           })
         }
         if (response.data.statusCode === 8200) {
-          if (me.form.followupNo == null || me.form.followupNo === '') {
-            me.form.followupNo = response.data.data.text
+          if (me.form.followup_no == null || me.form.followup_no === '') {
+            me.form.followup_no = response.data.data.text
           }
           if (me.formSaveCallback) {
             me.formSaveCallback('SickBloodFollowup', me.form)
@@ -565,7 +576,7 @@ export default {
           'ud_select_compliance_state',
           'ud_select_salt_situation',
           'ud_select_guide_salt_situation',
-          'ud_select_followup_kind',
+          'ud_select_followup_kind'
         ]
         for (var com of refComs) {
           me.$refs[com].$emit(eventName, rpdata)

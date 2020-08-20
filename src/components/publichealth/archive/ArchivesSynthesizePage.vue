@@ -24,12 +24,14 @@
 <script>
 import HygieneSickArchivePage from './HygieneSickArchivePage.vue'
 import HygieneSickMedicalPage from '../medical/HygieneSickMedicalPage.vue'
+import SickBloodFollowupPage from '../SickBloodFollowup/SickBloodFollowupPage.vue'
 
 export default {
   name: 'archives-synthesize-page',
   components: {
     HygieneSickArchivePage,
-    HygieneSickMedicalPage
+    HygieneSickMedicalPage,
+    SickBloodFollowupPage
   },
   data () {
     return {
@@ -167,8 +169,6 @@ export default {
             record: {
               archiveId: me.queryParm.arcId,
               keyId: me.queryParm.keyId
-              // archManageOrg: me.archManageOrg,
-              // archManageTear: me.archManageTear
             }
           }
         }
@@ -179,11 +179,20 @@ export default {
         me.treeShow = true
         me.treeDataLoad({
           data: {
-            archiveId: me.queryParm.arcId,
-            nodeType: 'HygieneSickMedical',
+            archive_id: me.queryParm.arcId,
+            node_type: 'HygieneSickMedical',
             level: 1
-            // archManageOrg: me.archManageOrg,
-            // archManageTear: me.archManageTear
+          }
+        })
+      }
+      if (me.queryParm.pageType === '3001') {
+        pageCom = 'SickBloodFollowupPage'
+        me.treeShow = true
+        me.treeDataLoad({
+          data: {
+            archive_id: me.queryParm.arcId,
+            node_type: 'HypertensionFollowupYear',
+            level: 1
           }
         })
       }
