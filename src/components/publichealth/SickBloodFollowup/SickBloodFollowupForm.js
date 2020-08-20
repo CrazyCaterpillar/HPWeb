@@ -162,22 +162,22 @@ export default {
           { max: 250, message: '长度小于等于250个字符', trigger: 'blur' }
         ],
         diastolic: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 30, max: 150 }
         ],
         systolic: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 70, max: 300 }
         ],
         weight: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 2 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 10, max: 150 }
         ],
         guide_weight: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 2 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 10, max: 150 }
         ],
         height: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 2 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 40, max: 250 }
         ],
         heart_rate: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 40, max: 180 }
         ],
         somking: [
           { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
@@ -583,6 +583,27 @@ export default {
         }
       }).catch(function (error) {
         console.log(error)
+      })
+    },
+    changeAsymptomatic () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeSymptomOther () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAdr () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
       })
     }
   },
