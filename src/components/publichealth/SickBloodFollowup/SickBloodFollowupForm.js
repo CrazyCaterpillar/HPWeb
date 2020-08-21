@@ -587,24 +587,57 @@ export default {
     },
     changeAsymptomatic () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.asymptomatic === 1) {
+        me.disabledFlag.disabled_symptom_dizziness = false
+        me.disabledFlag.disabled_symptom_nausea_vomiting = false
+        me.disabledFlag.disabled_symptom_dazzle_tinnitus = false
+        me.disabledFlag.disabled_symptom_dyspnea = false
+        me.disabledFlag.disabled_symptom_palpitation = false
+        me.disabledFlag.disabled_symptom_binv_bleeding = false
+        me.disabledFlag.disabled_symptom_hand_foot_numbness = false
+        me.disabledFlag.disabled_symptom_joint_gall = false
+        me.disabledFlag.disabled_symptom_other = false
+        // me.disabledFlag.disabled_symptom_other_content = false
+      } if (me.form.asymptomatic === 0) {
+        me.form.symptom_dizziness = ''
+        me.disabledFlag.disabled_symptom_dizziness = true
+        me.form.symptom_nausea_vomiting = ''
+        me.disabledFlag.disabled_symptom_nausea_vomiting = true
+        me.form.symptom_dazzle_tinnitus = ''
+        me.disabledFlag.disabled_symptom_dazzle_tinnitus = true
+        me.form.symptom_dyspnea = ''
+        me.disabledFlag.disabled_symptom_dyspnea = true
+        me.form.symptom_palpitation = ''
+        me.disabledFlag.disabled_symptom_palpitation = true
+        me.form.symptom_binv_bleeding = ''
+        me.disabledFlag.disabled_symptom_binv_bleeding = true
+        me.form.symptom_hand_foot_numbness = ''
+        me.disabledFlag.disabled_symptom_hand_foot_numbness = true
+        me.form.symptom_joint_gall = ''
+        me.disabledFlag.disabled_symptom_joint_gall = true
+        me.form.symptom_other = ''
+        me.disabledFlag.disabled_symptom_other = true
+        me.form.symptom_other_content = ''
+        me.disabledFlag.disabled_symptom_other_content = true
+      }
     },
     changeSymptomOther () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.symptom_other === 1) {
+        me.disabledFlag.disabled_symptom_other_content = false
+      } if (me.form.symptom_other === 0) {
+        me.form.symptom_other_content = ''
+        me.disabledFlag.disabled_symptom_other_content = true
+      }
     },
     changeAdr () {
       var me = this
-      me.$message({
-        message: '变更',
-        type: 'warning'
-      })
+      if (me.form.adr === 0) {
+        me.disabledFlag.disabled_adr_remark = false
+      } if (me.form.adr === 1) {
+        me.form.adr_remark = ''
+        me.disabledFlag.disabled_adr_remark = true
+      }
     }
   },
   mounted () {
