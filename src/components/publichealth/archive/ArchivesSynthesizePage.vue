@@ -311,9 +311,11 @@ export default {
     },
     butAddClick () {
       var me = this
+      var panel = null
+      var i = 0
       // me.fromDataLoading = true
       if (me.queryParm.pageType === '2001') {
-        var panel = {
+        panel = {
           code: '2001-0',
           content: 'HygieneSickMedicalPage',
           show: true,
@@ -325,7 +327,34 @@ export default {
           }
         }
         let selectIndex = -1
-        for (var i = 0; i < me.mainPanels.length; i++) {
+        for (i = 0; i < me.mainPanels.length; i++) {
+          me.mainPanels[i].show = false
+          if (panel.code === me.mainPanels[i].code) {
+            selectIndex = i
+          }
+        }
+        if (selectIndex !== -1) {
+          me.mainPanels[selectIndex].show = true
+          me.$refs.formPage[selectIndex].init(panel.openParm)
+          return
+        }
+        me.mainPanels.push(panel)
+        // me.fromDataLoading = false
+      }
+      if (me.queryParm.pageType === '3001') {
+        panel = {
+          code: '2001-0',
+          content: 'SickBloodFollowupPage',
+          show: true,
+          openParm: {
+            record: {
+              archive_id: me.queryParm.arcId,
+              keyId: null
+            }
+          }
+        }
+        let selectIndex = -1
+        for (i = 0; i < me.mainPanels.length; i++) {
           me.mainPanels[i].show = false
           if (panel.code === me.mainPanels[i].code) {
             selectIndex = i

@@ -529,7 +529,21 @@ export default {
         }
         if (response.data.statusCode === 8200) {
           if (me.form.followup_no == null || me.form.followup_no === '') {
-            me.form.followup_no = response.data.data.text
+            var rpdata = response.data.data
+            var rpFormData = JSON.parse(rpdata)
+            me.form.followup_no = rpFormData[0].followup_no
+            me.form.add_flag = rpFormData[0].add_flag
+            me.form.followup_status = rpFormData[0].followup_status
+            me.form.height = rpFormData[0].height
+            me.form.followup_kind_flag = rpFormData[0].followup_kind_flag
+            me.form.followup_time_flag = rpFormData[0].followup_time_flag
+            me.form.transfer_org_flag = rpFormData[0].transfer_org_flag
+            me.form.followup_nexttime = rpFormData[0].followup_nexttime
+            me.form.sick_id = rpFormData[0].sick_id
+            me.form.zone_code = rpFormData[0].zone_code
+            me.form.org_id_upper = rpFormData[0].org_id_upper
+            me.form.zone_code_zx = rpFormData[0].zone_code_zx
+            me.form.zone_code_qx = rpFormData[0].zone_code_qx
           }
           if (me.formSaveCallback) {
             me.formSaveCallback('SickBloodFollowup', me.form)
@@ -587,7 +601,7 @@ export default {
     },
     changeAsymptomatic () {
       var me = this
-      if (me.form.asymptomatic === 1) {
+      if (me.form.asymptomatic === 0) {
         me.disabledFlag.disabled_symptom_dizziness = false
         me.disabledFlag.disabled_symptom_nausea_vomiting = false
         me.disabledFlag.disabled_symptom_dazzle_tinnitus = false
@@ -598,7 +612,7 @@ export default {
         me.disabledFlag.disabled_symptom_joint_gall = false
         me.disabledFlag.disabled_symptom_other = false
         // me.disabledFlag.disabled_symptom_other_content = false
-      } if (me.form.asymptomatic === 0) {
+      } if (me.form.asymptomatic === 1) {
         me.form.symptom_dizziness = ''
         me.disabledFlag.disabled_symptom_dizziness = true
         me.form.symptom_nausea_vomiting = ''
