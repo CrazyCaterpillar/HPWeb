@@ -29,6 +29,66 @@
 .elform {
   padding: 0 5px
 }
+.elform .form-table-main {
+  background: #fff;
+  border: 1px solid #B6BFFF;
+  clear: both;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.elform .form-table-main .table-label {
+  background-color: #f7f8ff;
+  height: 50px;
+}
+.elform .form-table-main td{
+  padding: 0 10px;
+  border-right: 1px solid #b6bfff;
+  border-bottom: 1px solid #b6bfff;
+}
+.elform .form-table-main tr td:last-child{
+  border-right: 0;
+}
+.elform .form-table-main tr:last-child td{
+  border-bottom: 0;
+}
+.elform .form-table-main tr .form-table-child {
+  background: #fff;
+  border: 0px;
+  clear: both;
+  width: 100%;
+}
+.elform .form-table-main tr .form-table-child td{
+  padding: 0 10px;
+  border-right: 1px solid #b6bfff;
+  border-bottom: 1px solid #b6bfff;
+}
+.elform .form-table-main tr .form-table-childtd{
+  padding: 0;
+}
+
+.elform .form-table-main tr .form-table-child tr:last-child td{
+  border-bottom: 0;
+}
+.elform .form-table-main tr .form-table-child tr td:last-child{
+  border-right: 0;
+}
+.elform .label {
+  text-align: left;
+  float: left;
+  font-size: 14px;
+  color: #606266;
+}
+.el-form-item--mini.el-form-item, .el-form-item--small.el-form-item {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.elform .form-required {
+  color: red;
+  padding-left: 3px;
+  font-weight: bold;
+  font-size: 13px;
+  vertical-align: middle;
+}
 .cq-el-check {
   padding-left: 5px;
 }
