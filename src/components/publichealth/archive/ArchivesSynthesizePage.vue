@@ -58,7 +58,7 @@ export default {
       },
       fullscreenLoading: false,
       archManageOrg: null,
-      archManageTear: null
+      archManageTeam: null
     }
   },
   props: {
@@ -124,8 +124,8 @@ export default {
             var obj = JSON.parse(response.data.data)
             me.queryParm.arcId = obj[0].archive_id
             me.archManageOrg = obj[0].manage_org
-            me.archManageTear = obj[0].manage_team
-            if (rpdata.orgId === me.archManageOrg && rpdata.teamId === me.archManageTear) {
+            me.archManageTeam = obj[0].manage_team
+            if (rpdata.orgId === me.archManageOrg && rpdata.teamId === me.archManageTeam) {
               me.initForm()
             } else {
               me.$message({
