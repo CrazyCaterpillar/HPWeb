@@ -773,7 +773,9 @@ export default {
           'ud_select_animal_pound'
         ]
         for (var com of refComs) {
-          me.$refs[com].$emit(eventName, rpdata)
+          if (me.$refs[com] !== undefined) {
+            me.$refs[com].$emit(eventName, rpdata)
+          }
         }
       }).catch(function (error) {
         console.log(error)
@@ -1358,7 +1360,9 @@ export default {
     var me = this
     me.$on('open', function (parm) {
       me.init(parm)
-      me.setBaseDictByType()
+      this.$nextTick(() => {
+        me.setBaseDictByType()
+      })
     })
     me.$on('recordSubmit', function () {
       me.recordSubmit()
