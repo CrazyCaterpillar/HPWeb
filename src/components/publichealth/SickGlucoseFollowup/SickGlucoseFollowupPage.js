@@ -14,7 +14,7 @@ export default {
       formValid: false,
       constyle: 'height: 0px;',
       title: '',
-      fromDataLoading: false,
+      formDataLoading: false,
       userInfo: this.$store.state.userInfo
     }
   },
