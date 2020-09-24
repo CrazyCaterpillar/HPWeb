@@ -35,17 +35,28 @@ export default {
   },
   methods: {
     butCommitClick: function () {
-      var me = this
+      // var me = this
       // me.$router.push({name: 'FormTest'})
-      me.axiosPost('/CheckUser/LogOnSys', me.$data.form)
-        .then(function (response) {
-          var rpdata = response.data
-          me.$store.commit('setUserInfo', rpdata)
-          me.$router.push({name: 'ArchivesSynthesizePage'})
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
+      // me.axiosPost('/CheckUser/LogOnSys', me.$data.form)
+      //   .then(function (response) {
+      //     var rpdata = response.data
+      //     me.$store.commit('setUserInfo', rpdata)
+      //     me.$router.push({name: 'ArchivesSynthesizePage'})
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error)
+      //   })
+
+      // me.axiosPost('/ZyPHService/MasterPage', me.$data.form)
+      //   .then(function (response) {
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error)
+      //   })
+
+      // var url = 'https://account.guahao-test.com/oauth/authorize?clientId=6066799ed18f47ff9ad8f079ca348988&redirectUri=http://localhost:13692/api/ZyPHService/GetAccessToken&responseType=code&scope=advance&state=3d6be0a4035d839573b04816624a415e'
+      var url = 'https://account.guahao-test.com/oauth/authorize?clientId=6066799ed18f47ff9ad8f079ca348988&redirectUri=http://localhost:13692/Login&responseType=code&scope=advance&state=3d6be0a4035d839573b04816624a415e'
+      window.location.href = url
     }
   }
 }
