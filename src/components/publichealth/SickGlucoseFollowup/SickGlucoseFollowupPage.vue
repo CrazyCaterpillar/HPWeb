@@ -1,5 +1,5 @@
 <template>
-  <el-container :style="constyle" class="list-container" v-loading="fromDataLoading">
+  <el-container :style="constyle" class="list-container" v-loading="formDataLoading">
     <el-header class="list-header">
       <div style="padding: 0px">
         <span>糖尿病随访</span>

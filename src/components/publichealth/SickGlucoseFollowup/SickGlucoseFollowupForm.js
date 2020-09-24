@@ -335,7 +335,7 @@ export default {
   methods: {
     init (parm) {
       var me = this
-      if (parm != null && parm.record != null && parm.record.followupNo != null) {
+      if (parm != null && parm.record != null && parm.record.followup_no != null) {
         me.recordEdit(parm.record)
       } else {
         me.recordAdd(parm.record)
@@ -420,6 +420,15 @@ export default {
         .catch(_ => {})
     },
     formInit () {
+      var me = this
+      var userInfo = me.Util.getUserInfo()
+      me.form.org_id = userInfo.orgId
+      me.form.team_id = userInfo.teamId
+      me.form.team_id_name = userInfo.teamName
+      me.form.create_operator = userInfo.staffCode
+      me.form.create_operator_name = userInfo.staffName
+      me.form.followup_doctor = userInfo.staffCode
+      me.form.followup_doctor_name = userInfo.staffName
     },
     recordAdd (parm) {
       var me = this
@@ -432,12 +441,13 @@ export default {
       me.resetForm('elForm')
       me.formDataLoading = true
       me.axiosPost(
-        '/SickGlucoseFollowup/getForm',
+        '/PHSickGlucoseFollowup/getForm',
         parm
       ).then(function (response) {
         if (response.data.statusCode === 8200) {
           var rpdata = response.data.data
-          me.form = rpdata
+          var rpFormData = JSON.parse(rpdata)
+          me.form = rpFormData[0]
           me.formDataLoading = false
         }
         if (response.data.statusCode === 8501) {
@@ -458,7 +468,7 @@ export default {
       let me = this
       me.dialogFormVisible = true
       me.axiosPost(
-        '/SickGlucoseFollowup/deleteRecord',
+        '/PHSickGlucoseFollowup/deleteRecord',
         me.form
       ).then(function (response) {
         me.dialogFormVisible = false
@@ -490,19 +500,33 @@ export default {
       }
       me.formDataLoading = true
       me.axiosPost(
-        '/SickGlucoseFollowup/saveRecord',
+        '/PHSickGlucoseFollowup/saveRecord',
         me.form
       ).then(function (response) {
         me.formDataLoading = false
-        if (response.data.statusCode === 8500) {
+        if (response.data.statusCode === 8501) {
           me.$message({
-            message: response.data.data.text,
+            message: response.data.message,
             type: 'error'
           })
         }
         if (response.data.statusCode === 8200) {
-          if (me.form.followupNo == null || me.form.followupNo === '') {
-            me.form.followupNo = response.data.data.text
+          if (me.form.followup_no == null || me.form.followup_no === '') {
+            var rpdata = response.data.data
+            var rpFormData = JSON.parse(rpdata)
+            me.form.followup_no = rpFormData[0].followup_no
+            me.form.add_flag = rpFormData[0].add_flag
+            me.form.followup_status = rpFormData[0].followup_status
+            me.form.height = rpFormData[0].height
+            me.form.followup_kind_flag = rpFormData[0].followup_kind_flag
+            me.form.followup_time_flag = rpFormData[0].followup_time_flag
+            me.form.transfer_org_flag = rpFormData[0].transfer_org_flag
+            me.form.followup_nexttime = rpFormData[0].followup_nexttime
+            me.form.sick_id = rpFormData[0].sick_id
+            me.form.zone_code = rpFormData[0].zone_code
+            me.form.org_id_upper = rpFormData[0].org_id_upper
+            me.form.zone_code_zx = rpFormData[0].zone_code_zx
+            me.form.zone_code_qx = rpFormData[0].zone_code_qx
           }
           if (me.formSaveCallback) {
             me.formSaveCallback('SickGlucoseFollowup', me.form)
@@ -531,7 +555,7 @@ export default {
     },
     setBaseDictByType () {
       var me = this
-      var url = '/BaseDict/getDictByType?dictType=SickGlucoseFollowupForm'
+      var url = 'PHBaseDict/getDictByType?dictType=sickGlucoseFollowupForm'
       var parmString = url.split('?', 2)
       var parmUrl = parmString[0]
       var condition = {condition: parmString[1]}
@@ -554,7 +578,7 @@ export default {
             'ud_select_drug_state',
             'ud_select_adr',
             'ud_select_hypoglycemia',
-            'ud_select_followup_kind',
+            'ud_select_followup_kind'
           ]
           for (var com of refComs) {
             if (me.$refs[com] !== undefined) {

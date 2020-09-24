@@ -25,13 +25,15 @@
 import HygieneSickArchivePage from './HygieneSickArchivePage.vue'
 import HygieneSickMedicalPage from '../medical/HygieneSickMedicalPage.vue'
 import SickBloodFollowupPage from '../SickBloodFollowup/SickBloodFollowupPage.vue'
+import SickGlucoseFollowupPage from '../SickGlucoseFollowup/SickGlucoseFollowupPage.vue'
 
 export default {
   name: 'archives-synthesize-page',
   components: {
     HygieneSickArchivePage,
     HygieneSickMedicalPage,
-    SickBloodFollowupPage
+    SickBloodFollowupPage,
+    SickGlucoseFollowupPage
   },
   data () {
     return {
@@ -196,6 +198,17 @@ export default {
           }
         })
       }
+      if (me.queryParm.pageType === '4001') {
+        pageCom = 'SickGlucoseFollowupPage'
+        me.treeShow = true
+        me.treeDataLoad({
+          data: {
+            archive_id: me.queryParm.arcId,
+            node_type: 'DiabetesFollowupYear',
+            level: 1
+          }
+        })
+      }
     },
     formSaveCallback (type, parm) {
       var me = this
@@ -291,6 +304,9 @@ export default {
         '/PHHygieneSickArchiveTree/getArchiveTreeNodes',
         parm
       ).then(function (response) {
+        if (response.data === '') {
+          return
+        }
         var rpdata = JSON.parse(response.data.data)
         resolve(rpdata)
       })
@@ -345,6 +361,33 @@ export default {
         panel = {
           code: '2001-0',
           content: 'SickBloodFollowupPage',
+          show: true,
+          openParm: {
+            record: {
+              archive_id: me.queryParm.arcId,
+              keyId: null
+            }
+          }
+        }
+        let selectIndex = -1
+        for (i = 0; i < me.mainPanels.length; i++) {
+          me.mainPanels[i].show = false
+          if (panel.code === me.mainPanels[i].code) {
+            selectIndex = i
+          }
+        }
+        if (selectIndex !== -1) {
+          me.mainPanels[selectIndex].show = true
+          me.$refs.formPage[selectIndex].init(panel.openParm)
+          return
+        }
+        me.mainPanels.push(panel)
+        // me.fromDataLoading = false
+      }
+      if (me.queryParm.pageType === '4001') {
+        panel = {
+          code: '2001-0',
+          content: 'SickGlucoseFollowupPage',
           show: true,
           openParm: {
             record: {
