@@ -142,7 +142,8 @@ export default {
         ef_upload_flag: null,
         birthday: '',
         followup_doctor_name: '',
-        create_operator_name: ''
+        create_operator_name: '',
+        team_id_name: ''
       },
       defaultForm: {
         default_asymptomatic: 0,
@@ -311,12 +312,16 @@ export default {
         ],
         remark: [
           { max: 200, message: '长度小于等于200个字符', trigger: 'blur' }
+        ],
+        team_id_name: [
+          { required: true, message: '请输入全科团队名称', trigger: 'blur' }
         ]
       },
       disabledFlag: {
       },
       readonlyFlag: {
-        readonly_create_operator_name: true
+        readonly_create_operator_name: true,
+        readonly_team_id_name: true
       },
       formValid: false,
       constyle: 'height: 0px;',
@@ -404,6 +409,11 @@ export default {
       if (result.columnName === 'create_operator_name') {
         this.form.create_operator_name = result.label
         this.form.createOperator = result.value
+        this.$forceUpdate()
+      }
+      if (result.columnName === 'team_id_name') {
+        this.form.team_id_name = result.label
+        this.form.teamId = result.value
         this.$forceUpdate()
       }
     },
