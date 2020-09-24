@@ -28,15 +28,49 @@ export default {
       userName: null,
       userPwd: null,
       form: {
-        login_user: 'hpxx300',
-        login_password: 'zysoft@2018'
+        login_user: '',
+        login_password: ''
       }
     }
   },
   methods: {
+    init () {
+      var me = this
+      var parm = {
+        record: {
+          code: null,
+          state: null
+        }
+      }
+      parm.record.code = me.$route.query.code
+      parm.record.state = me.$route.query.state
+      me.axiosPost('/ZyPHService/getLoginUser', parm)
+        .then(function (response) {
+          var rpdata = response.data
+          if (rpdata.success === true) {
+            me.$store.commit('setUserInfo', rpdata)
+            var pageType = me.$route.query.pageType.split(',')[0]
+            var idCard = me.$route.query.pageType.split(',')[1]
+            me.$router.push({
+              name: 'ArchivesSynthesizePage',
+              query: {
+                pageType: pageType,
+                idCard: idCard
+              }
+            })
+          } else {
+            me.$message({
+              message: rpdata.msg,
+              type: 'error'
+            })
+          }
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    },
     butCommitClick: function () {
       // var me = this
-      // me.$router.push({name: 'FormTest'})
       // me.axiosPost('/CheckUser/LogOnSys', me.$data.form)
       //   .then(function (response) {
       //     var rpdata = response.data
@@ -52,12 +86,15 @@ export default {
       //   })
       //   .catch(function (error) {
       //     console.log(error)
-      //   })
-
+      //   }
       // var url = 'https://account.guahao-test.com/oauth/authorize?clientId=6066799ed18f47ff9ad8f079ca348988&redirectUri=http://localhost:13692/api/ZyPHService/GetAccessToken&responseType=code&scope=advance&state=3d6be0a4035d839573b04816624a415e'
-      var url = 'https://account.guahao-test.com/oauth/authorize?clientId=6066799ed18f47ff9ad8f079ca348988&redirectUri=http://localhost:13692/Login&responseType=code&scope=advance&state=3d6be0a4035d839573b04816624a415e'
-      window.location.href = url
+      // var url = 'https://account.guahao-test.com/oauth/authorize?clientId=6066799ed18f47ff9ad8f079ca348988&redirectUri=http://localhost:13692/Login&responseType=code&scope=advance&state=3d6be0a4035d839573b04816624a415e'
+      // window.location.href = url
     }
+  },
+  mounted () {
+    var me = this
+    me.init()
   }
 }
 </script>

@@ -77,35 +77,17 @@ export default {
   methods: {
     init () {
       var me = this
-      me.getLoginUser()
+      var userInfo = me.Util.getUserInfo()
+      if (userInfo === null) {
+        me.getLoginUser()
+      } else {
+        me.getArchiveInfo(userInfo)
+      }
     },
     getLoginUser () {
       var me = this
-      var parm = {
-        record: {
-          login_user: null,
-          login_password: null
-        }
-      }
-      parm.record.login_user = 'hpxx300'
-      parm.record.login_password = 'zysoft@2018'
-      me.axiosPost('/CheckUser/getLoginUser', parm)
-        .then(function (response) {
-          var rpdata = response.data
-          if (rpdata.success === true) {
-            me.$store.commit('setUserInfo', rpdata)
-            // me.$router.push({name: 'ArchivesSynthesizePage'})
-            me.getArchiveInfo(rpdata)
-          } else {
-            me.$message({
-              message: rpdata.msg,
-              type: 'error'
-            })
-          }
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
+      var url = 'https://account.guahao-test.com/oauth/authorize?clientId=6066799ed18f47ff9ad8f079ca348988&redirectUri=http://localhost:13692/Login?pageType=' + me.$route.query.pageType + ',' + me.$route.query.idCard + '&responseType=code&scope=advance&state=3d6be0a4035d839573b04816624a415e'
+      window.location.href = url
     },
     getArchiveInfo (rpdata) {
       var me = this
