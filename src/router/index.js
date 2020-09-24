@@ -14,6 +14,11 @@ export default new Router({
       component: Login
     },
     {
+      path: '/Login',
+      name: 'Login',
+      component: Login
+    },
+    {
       path: '/ArchivesSynthesizePage',
       name: 'ArchivesSynthesizePage',
       component: ArchivesSynthesizePage,
