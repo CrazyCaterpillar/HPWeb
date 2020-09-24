@@ -28,8 +28,8 @@ export default {
       userName: null,
       userPwd: null,
       form: {
-        login_user: '',
-        login_password: ''
+        login_user: 'hpxx300',
+        login_password: 'zysoft@2018'
       }
     }
   },
