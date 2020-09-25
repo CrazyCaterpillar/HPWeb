@@ -87,7 +87,14 @@ export default {
     getLoginUser () {
       // 获取当前登录用户
       var me = this
-      var url = 'https://account.guahao-test.com/oauth/authorize?clientId=6066799ed18f47ff9ad8f079ca348988&redirectUri=http://localhost:13692/Login?pageType=' + me.$route.query.pageType + ',' + me.$route.query.idCard + '&responseType=code&scope=advance&state=3d6be0a4035d839573b04816624a415e'
+      var port = window.location.port
+      if (port.length > 0) {
+        port = ':' + port
+      } else {
+        port = ''
+      }
+      var path = window.location.protocol + '//' + window.location.hostname + port
+      var url = 'https://account.guahao-test.com/oauth/authorize?clientId=6066799ed18f47ff9ad8f079ca348988&redirectUri=' + path + '/Login?pageType=' + me.$route.query.pageType + ',' + me.$route.query.idCard + '&responseType=code&scope=advance&state=3d6be0a4035d839573b04816624a415e'
       window.location.href = url
     },
     getArchiveInfo (rpdata) {
