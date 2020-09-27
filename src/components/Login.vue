@@ -6,17 +6,20 @@
       <!--</div>-->
     </el-row>
     <el-row type="flex" justify="center">
-      <el-col :span="6">
-        <el-form :model="form" size="mini" label-width="60px">
-          <el-form-item label="用户名" style="width: 280px; min-width: 280px;">
-            <el-input v-model="form.login_user" auto-complete="on" placeholder="请输入用户名"></el-input>
-          </el-form-item>
-          <el-form-item label="密码" style="width: 280px; min-width: 280px;">
-            <el-input type="password" v-model="form.login_password" placeholder="请输入密码"></el-input>
-          </el-form-item>
-          <el-button size="mini" type="primary" @click="butCommitClick">登录</el-button>
-        </el-form>
-      </el-col>
+      <div style="color: #003aff; font-size: 20px;">
+        正在登录，请稍后！
+      </div>
+      <!--<el-col :span="6">-->
+        <!--<el-form :model="form" size="mini" label-width="60px">-->
+          <!--<el-form-item label="用户名" style="width: 280px; min-width: 280px;">-->
+            <!--<el-input v-model="form.login_user" auto-complete="on" placeholder="请输入用户名"></el-input>-->
+          <!--</el-form-item>-->
+          <!--<el-form-item label="密码" style="width: 280px; min-width: 280px;">-->
+            <!--<el-input type="password" v-model="form.login_password" placeholder="请输入密码"></el-input>-->
+          <!--</el-form-item>-->
+          <!--<el-button size="mini" type="primary" @click="butCommitClick">登录</el-button>-->
+        <!--</el-form>-->
+      <!--</el-col>-->
     </el-row>
   </div>
 </template>

@@ -64,16 +64,21 @@ const store = new Vuex.Store({
       console.log('setheight: ' + parm)
     },
     setUserInfo (state, parm) {
-      state.userInfo.staffName = parm.staffName
-      state.userInfo.staffCode = parm.staffCode
-      state.userInfo.orgId = parm.orgId
-      state.userInfo.orgName = parm.orgName
-      state.userInfo.teamId = parm.teamId
-      state.userInfo.teamName = parm.teamName
-      state.userInfo.zoneLevel = parm.zoneLevel
-      state.userInfo.zoneLevelJs = parm.zoneLevelJs
-      state.userInfo.upperOrg = parm.upperOrg
+      // state.userInfo.staffName = parm.staffName
+      // state.userInfo.staffCode = parm.staffCode
+      // state.userInfo.orgId = parm.orgId
+      // state.userInfo.orgName = parm.orgName
+      // state.userInfo.teamId = parm.teamId
+      // state.userInfo.teamName = parm.teamName
+      // state.userInfo.zoneLevel = parm.zoneLevel
+      // state.userInfo.zoneLevelJs = parm.zoneLevelJs
+      // state.userInfo.upperOrg = parm.upperOrg
       sessionStorage.setItem('UserInfo', JSON.stringify(parm))
+      // if (parm === null) {
+      //   sessionStorage.setItem('UserInfo', null)
+      // } else {
+      //   sessionStorage.setItem('UserInfo', JSON.stringify(parm))
+      // }
     }
   },
   getters: {

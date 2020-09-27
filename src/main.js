@@ -32,10 +32,13 @@ axios.defaults.baseURL = '/api'
 // axios.defaults.baseURL = 'http://172.16.35.220:8999/ims'
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
-  // if (response.data.statusCode === 8400) {
-  //   window.GlobalVue.$router.push({name: 'Login'})
-  //   return response
-  // }
+  var rpdata = response.data
+  if (rpdata.Data) {
+    if (rpdata.Data.statusCode === 8400) {
+      window.GlobalVue.$router.push({name: 'LoginError'})
+      return response
+    }
+  }
   // if (response.data.statusCode === 8401) {
   //   let errorList = response.data.data
   //   for (let i = 0; i < errorList.length; i++) {

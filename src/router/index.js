@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import ArchivesSynthesizePage from '@/components/publichealth/archive/ArchivesSynthesizePage.vue'
+import LoginError from '@/components/sys/login/LoginError.vue'
 
 Vue.use(Router)
 
@@ -17,6 +18,11 @@ export default new Router({
       path: '/Login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/LoginError',
+      name: 'LoginError',
+      component: LoginError
     },
     {
       path: '/ArchivesSynthesizePage',
