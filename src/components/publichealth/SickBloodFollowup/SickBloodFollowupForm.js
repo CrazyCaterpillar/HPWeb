@@ -322,7 +322,10 @@ export default {
         disabled_symptom_hand_foot_numbness: true,
         disabled_symptom_joint_gall: true,
         disabled_symptom_other: true,
-        disabled_symptom_other_content: true
+        disabled_symptom_other_content: true,
+        disabled_adr_remark: true,
+        disabled_followup_doctor_name: true,
+        disabled_create_operator_name: true
       },
       readonlyFlag: {
         readonly_team_id_name: true,
@@ -332,7 +335,7 @@ export default {
       formValid: false,
       constyle: 'height: 0px;',
       title: '',
-      fromDataLoading: false,
+      formDataLoading: false,
       userInfo: this.$store.state.userInfo
     }
   },
@@ -455,7 +458,7 @@ export default {
     recordEdit (parm) {
       var me = this
       me.resetForm('elForm')
-      me.fromDataLoading = true
+      me.formDataLoading = true
       me.axiosPost(
         '/PHSickBloodFollowup/getForm',
         parm
@@ -465,7 +468,7 @@ export default {
           var rpFormData = JSON.parse(rpdata)
           me.form = rpFormData[0]
           // me.initFormControls()
-          me.fromDataLoading = false
+          me.formDataLoading = false
         }
         if (response.data.statusCode === 8501) {
           me.$message({
@@ -474,7 +477,7 @@ export default {
           })
         }
       }).catch(function (error) {
-        me.fromDataLoading = false
+        me.formDataLoading = false
         me.$message({
           message: error,
           type: 'error'
@@ -515,12 +518,12 @@ export default {
         })
         return
       }
-      me.fromDataLoading = true
+      me.formDataLoading = true
       me.axiosPost(
         '/PHSickBloodFollowup/saveRecord',
         me.form
       ).then(function (response) {
-        me.fromDataLoading = false
+        me.formDataLoading = false
         if (response.data.statusCode === 8501) {
           me.$message({
             message: response.data.message,
@@ -548,14 +551,14 @@ export default {
           if (me.formSaveCallback) {
             me.formSaveCallback('SickBloodFollowup', me.form)
           }
-          me.fromDataLoading = false
+          me.formDataLoading = false
           me.$message({
             message: '数据保存成功！！！',
             type: 'success'
           })
         }
       }).catch(function (error) {
-        me.fromDataLoading = false
+        me.formDataLoading = false
         me.$message({
           message: '数据保存失败！' + error,
           type: 'error'
@@ -597,6 +600,13 @@ export default {
         }
       }).catch(function (error) {
         console.log(error)
+      })
+    },
+    changeFollowupTime () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
       })
     },
     changeAsymptomatic () {
@@ -643,6 +653,27 @@ export default {
         me.form.symptom_other_content = ''
         me.disabledFlag.disabled_symptom_other_content = true
       }
+    },
+    changeWeight () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeGuideWeight () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHeight () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
     },
     changeAdr () {
       var me = this
