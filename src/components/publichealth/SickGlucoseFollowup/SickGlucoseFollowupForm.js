@@ -170,16 +170,16 @@ export default {
           { required: true, message: '请输入随访时间', trigger: 'blur' }
         ],
         diastolic: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 30, max: 150 }
         ],
         systolic: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 0, min: 70, max: 300 }
         ],
         weight: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 10, max: 150 }
         ],
         guide_weight: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 10, max: 150 }
         ],
         bmi: [
           { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
@@ -188,7 +188,7 @@ export default {
           { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
         ],
         height: [
-          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
+          { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 40, max: 250 }
         ],
         somking: [
           { validator: this.validationNumber, trigger: 'blur', decimal: 2, min: 0 }
@@ -318,6 +318,11 @@ export default {
         ]
       },
       disabledFlag: {
+        disabled_foot_pulsex: true,
+        disabled_foot_pulsexs: true,
+        disabled_adr_remark: true,
+        disabled_create_operator_name: true,
+        disabled_team_id_name: true
       },
       readonlyFlag: {
         readonly_create_operator_name: true,
@@ -598,6 +603,62 @@ export default {
         }
       }).catch(function (error) {
         console.log(error)
+      })
+    },
+    changeFollowupTime () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAsymptomatic () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeSymptomOther () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeWeight () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeGuideWeight () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeHeight () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeFootPulse () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
+      })
+    },
+    changeAdr () {
+      var me = this
+      me.$message({
+        message: '变更',
+        type: 'warning'
       })
     }
   },
