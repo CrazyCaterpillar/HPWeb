@@ -408,17 +408,17 @@ export default {
       }
       if (result.columnName === 'followup_doctor_name') {
         this.form.followup_doctor_name = result.label
-        this.form.followupDoctor = result.value
+        this.form.followup_doctor = result.value
         this.$forceUpdate()
       }
       if (result.columnName === 'create_operator_name') {
         this.form.create_operator_name = result.label
-        this.form.createOperator = result.value
+        this.form.create_operator = result.value
         this.$forceUpdate()
       }
       if (result.columnName === 'team_id_name') {
         this.form.team_id_name = result.label
-        this.form.teamId = result.value
+        this.form.team_id = result.value
         this.$forceUpdate()
       }
     },
